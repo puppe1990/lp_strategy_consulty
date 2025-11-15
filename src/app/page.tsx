@@ -2,16 +2,44 @@
 
 import { useState } from "react";
 
+const navLinks = [
+  { label: "ICP", href: "#segmento" },
+  { label: "Oferta", href: "#pilares" },
+  { label: "Scorecard", href: "#scorecard" },
+  { label: "FAQ", href: "#faq" },
+];
+
 const heroStats = [
   { label: "Ticket por sprint", value: "R$ 50k" },
   { label: "Foco em", value: "60 dias" },
-  { label: "Perfil", value: "R$300k+/mês" },
+  { label: "Perfil ideal", value: "R$300k+/mês" },
 ];
 
 const blueprintSteps = [
   "Diagnóstico 360° do P&L digital e do stack (semana 1-2)",
   "Execução intensiva: integrações, funis e dashboards prontos (semanas 3-7)",
   "Otimização contínua e playbooks proprietários (semana 8+)",
+];
+
+const differentiators = [
+  {
+    title: "Blueprint vivo",
+    description:
+      "Roadmap atualizado semanalmente com metas por KPI e governança clara.",
+    chips: ["Diagnóstico 360°", "Metas compartilhadas"],
+  },
+  {
+    title: "Stack integrado",
+    description:
+      "Integrações, funis e dashboards saem do papel em até 60 dias com squad único.",
+    chips: ["Integrações críticas", "Dados em tempo real"],
+  },
+  {
+    title: "Playbooks proprietários",
+    description:
+      "Testes semanais, documentação viva e rituais executivos para sustentar o crescimento.",
+    chips: ["Teste & learn", "Retainer contínuo"],
+  },
 ];
 
 const segmentHighlights = [
@@ -29,10 +57,10 @@ const urgentPains = [
 ];
 
 const kpis = [
-  { value: "-30%", label: "Tempo gasto conciliando dados" },
+  { value: "-30%", label: "Tempo conciliando dados" },
   { value: "+35%", label: "Crescimento de faturamento" },
   { value: "-20%", label: "CAC/ROAS otimizado" },
-  { value: "+100%", label: "Visibilidade de KPIs em tempo real" },
+  { value: "+100%", label: "Visibilidade em tempo real" },
 ];
 
 const pillars = [
@@ -108,8 +136,7 @@ const stakeholders = [
   {
     title: "Influenciadores",
     role: "Heads de marketing, logística e CX",
-    description:
-      "Precisam de visibilidade de KPIs para operar com confiança.",
+    description: "Precisam de visibilidade de KPIs para operar com confiança.",
   },
 ];
 
@@ -193,9 +220,37 @@ const getVerdict = (score: number) => {
   return verdictCopy.low;
 };
 
+type SectionHeadingProps = {
+  eyebrow: string;
+  title: string;
+  description?: string;
+  align?: "center" | "left";
+};
+
+function SectionHeading({
+  eyebrow,
+  title,
+  description,
+  align = "center",
+}: SectionHeadingProps) {
+  const alignment =
+    align === "center" ? "mx-auto max-w-3xl text-center" : "text-left";
+  return (
+    <div className={`space-y-3 ${alignment}`}>
+      <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-300">
+        {eyebrow}
+      </p>
+      <h2 className="text-3xl font-semibold text-white sm:text-4xl">{title}</h2>
+      {description ? (
+        <p className="text-lg text-slate-300">{description}</p>
+      ) : null}
+    </div>
+  );
+}
+
 export default function Home() {
-  const [scoreState, setScoreState] = useState<boolean[]>(
-    () => scorecardItems.map(() => false),
+  const [scoreState, setScoreState] = useState<boolean[]>(() =>
+    scorecardItems.map(() => false),
   );
   const [activeFaq, setActiveFaq] = useState<number>(0);
 
@@ -203,8 +258,12 @@ export default function Home() {
     (sum, item, index) => sum + (scoreState[index] ? item.weight : 0),
     0,
   );
-
   const verdict = getVerdict(totalScore);
+  const progressPercent = Math.min(
+    100,
+    Math.max(0, Math.round((totalScore / MAX_SCORE) * 100)),
+  );
+  const currentYear = new Date().getFullYear();
 
   const handleScoreToggle = (index: number) => {
     setScoreState((prev) => {
@@ -218,68 +277,69 @@ export default function Home() {
     setActiveFaq((prev) => (prev === index ? -1 : index));
   };
 
-  const currentYear = new Date().getFullYear();
-
   return (
-    <div className="bg-slate-950 text-slate-100 antialiased">
-      <div className="relative overflow-hidden">
-        <div className="gradient-blob" aria-hidden="true" />
-        <header className="relative">
-          <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500 text-lg font-semibold text-white shadow-lg shadow-brand-500/30">
+    <div className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
+      <div className="noise-overlay" aria-hidden="true" />
+      <div className="background-grid" aria-hidden="true" />
+      <div className="blur-blob brand -left-40 -top-48" aria-hidden="true" />
+      <div className="blur-blob violet right-[-160px] top-1/3" aria-hidden="true" />
+      <div className="relative z-10">
+        <header className="mx-auto max-w-6xl px-6 pt-8">
+          <nav className="flex flex-wrap items-center justify-between gap-4 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm shadow-lg shadow-black/30 backdrop-blur">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-500 text-lg font-semibold text-white shadow-lg shadow-brand-500/40">
                 HQ
               </span>
               <div>
-                <p className="text-xs uppercase tracking-widest text-slate-400">
+                <p className="text-[11px] uppercase tracking-[0.4em] text-slate-400">
                   Consultoria híbrida
                 </p>
-                <p className="text-sm font-semibold text-white">
-                  Hub de Crescimento
-                </p>
+                <p className="text-sm font-semibold text-white">Hub de Crescimento</p>
               </div>
             </div>
-            <div className="hidden gap-8 text-sm font-medium text-slate-300 md:flex">
-              <a href="#segmento" className="transition hover:text-white">
-                ICP
-              </a>
-              <a href="#pilares" className="transition hover:text-white">
-                Oferta
-              </a>
-              <a href="#scorecard" className="transition hover:text-white">
-                Scorecard
-              </a>
-              <a href="#faq" className="transition hover:text-white">
-                FAQ
-              </a>
+            <div className="hidden items-center gap-6 text-slate-300 md:flex">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm font-medium transition hover:text-white"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
             <a
               href="#cta"
-              className="hidden rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20 md:inline-flex"
+              className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 font-semibold text-white transition hover:bg-white/20"
             >
-              Agenda um diagnóstico
+              Agendar diagnóstico
             </a>
           </nav>
-          <section className="mx-auto grid max-w-6xl gap-12 px-6 pb-16 pt-10 lg:grid-cols-2 lg:items-center lg:py-24">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-semibold text-white shadow-lg shadow-brand-500/30">
-                <span className="h-2 w-2 rounded-full bg-emerald-400" />
+        </header>
+
+        <main className="mx-auto max-w-6xl space-y-24 px-6 pb-24 pt-12">
+          <section className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="space-y-8">
+              <span className="floating-pill primary">
+                <span className="pulse-dot" />
                 Ideal para e-commerces que já faturam alto
+              </span>
+              <div className="space-y-5">
+                <p className="text-xs uppercase tracking-[0.4em] text-brand-200">
+                  Consultoria híbrida
+                </p>
+                <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
+                  Cresça 2x com tecnologia, automação e estratégia em um único squad
+                </h1>
+                <p className="text-lg text-slate-300">
+                  Desenhamos, implementamos e otimizamos uma arquitetura digital completa em até 60 dias.
+                  Diagnóstico 360°, integrações entre e-commerce, ERP, CRM e logística, funis multicanais e dashboards em tempo real em um único contrato.
+                </p>
               </div>
-              <h1 className="mt-6 text-4xl font-bold leading-tight text-white sm:text-5xl">
-                Cresça 2x com tecnologia, automação e estratégia trabalhando
-                como um único squad
-              </h1>
-              <p className="mt-6 text-lg text-slate-300">
-                Desenhamos, implementamos e otimizamos uma arquitetura digital
-                completa em até 60 dias. Diagnóstico 360°, integrações entre
-                e-commerce, ERP, CRM e logística, funis multicanais e dashboards
-                em tempo real em um contrato único.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#cta"
-                  className="inline-flex items-center justify-center rounded-full bg-brand-500 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-brand-500/40 transition hover:bg-brand-600"
+                  className="inline-flex items-center justify-center rounded-full bg-brand-500 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-brand-500/50 transition hover:bg-brand-600"
                 >
                   Agendar diagnóstico gratuito
                 </a>
@@ -290,24 +350,19 @@ export default function Home() {
                   Ver como entregamos
                 </a>
               </div>
-              <dl className="mt-10 grid gap-6 text-sm text-slate-300 sm:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-3">
                 {heroStats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-4"
-                  >
-                    <dt className="text-xs uppercase tracking-wide text-slate-400">
+                  <div key={stat.label} className="stat-card">
+                    <p className="text-xs uppercase tracking-[0.4em] text-slate-400">
                       {stat.label}
-                    </dt>
-                    <dd className="mt-2 text-2xl font-semibold text-white">
-                      {stat.value}
-                    </dd>
+                    </p>
+                    <p className="mt-3 text-2xl font-semibold text-white">{stat.value}</p>
                   </div>
                 ))}
-              </dl>
+              </div>
             </div>
-            <div className="rounded-[32px] border border-white/10 bg-gradient-to-b from-white/5 to-white/0 p-8 shadow-2xl shadow-brand-900/20">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-300">
+            <div className="rounded-[36px] border border-white/10 bg-gradient-to-br from-white/15 via-transparent to-slate-900/40 p-8 shadow-2xl shadow-brand-900/40">
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-200">
                 Arquitetura em camadas
               </p>
               <h3 className="mt-3 text-2xl font-semibold text-white">
@@ -321,139 +376,137 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 rounded-2xl bg-slate-900/80 p-6">
-                <p className="text-sm uppercase tracking-wide text-slate-400">
+              <div className="mt-8 rounded-2xl border border-white/10 bg-slate-950/80 p-6">
+                <p className="text-sm uppercase tracking-[0.4em] text-slate-400">
                   Mensagem central
                 </p>
                 <p className="mt-2 text-lg font-semibold text-white">
-                  “Ajudamos empresas que já faturam a escalar com tecnologia,
-                  automação e estratégia, entregando resultados mensuráveis em 60
-                  dias.”
+                  “Ajudamos empresas que já faturam a escalar com tecnologia, automação e estratégia, entregando resultados mensuráveis em 60 dias.”
                 </p>
               </div>
             </div>
           </section>
-        </header>
 
-        <main className="space-y-24 pb-24">
-          <section id="segmento" className="mx-auto max-w-6xl px-6">
-            <div className="rounded-[32px] border border-white/10 bg-white/5 p-8 sm:p-12">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-300">
-                  Quem atendemos
-                </p>
-                <span className="rounded-full border border-brand-500/20 bg-brand-500/10 px-4 py-1 text-xs font-semibold text-brand-200">
-                  ICP validado para e-commerces/DTC
-                </span>
-              </div>
-              <div className="mt-8 grid gap-8 md:grid-cols-2">
-                <div className="space-y-4">
-                  <h2 className="text-3xl font-semibold text-white">
-                    Segmento prioritário
-                  </h2>
-                  <p className="text-slate-300">
-                    Marcas DTC de moda, beleza, saúde ou alimentos/bebidas que
-                    faturam entre R$300k e R$1,5M por mês e querem dobrar o
-                    canal digital em 12 meses. Produto validado, marketing ativo
-                    e ausência de squad tech interno.
-                  </p>
-                  <ul className="space-y-3 text-sm text-slate-300">
-                    {segmentHighlights.map((highlight) => (
-                      <li className="feature-item" key={highlight}>
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="grid gap-4">
-                  <div className="card">
-                    <p className="text-sm font-semibold text-brand-200">
-                      Por que pagam R$50k?
-                    </p>
-                    <p className="mt-2 text-slate-100">
-                      Já validaram produto, possuem caixa, têm metas agressivas
-                      e querem um parceiro capaz de diagnosticar + implementar
-                      sem fricção.
-                    </p>
-                  </div>
-                  <div className="card">
-                    <p className="text-sm font-semibold text-brand-200">
-                      Stakeholders envolvidos
-                    </p>
-                    <ul className="mt-2 list-disc pl-5 text-sm text-slate-200">
-                      <li>Economic buyer: CEO, fundador ou Diretor de E-commerce.</li>
-                      <li>Champion: gerente de operações digital/comercial.</li>
-                      <li>Influenciadores: heads de marketing, logística e CX.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+          <div className="section-divider" aria-hidden="true" />
+
+          <section id="segmento" className="space-y-10 rounded-[36px] border border-white/10 bg-white/5 p-8 sm:p-12">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm font-semibold uppercase tracking-[0.4em] text-brand-300">
+                Quem atendemos
+              </p>
+              <span className="rounded-full border border-brand-500/20 bg-brand-500/10 px-4 py-1 text-xs font-semibold text-brand-200">
+                ICP validado para e-commerces/DTC
+              </span>
             </div>
-          </section>
-
-          <section className="mx-auto max-w-6xl px-6">
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-brand-500/30 to-slate-900 p-8 shadow-lg shadow-brand-900/30">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">
-                  Dores urgentes
+            <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="space-y-4">
+                <h2 className="text-3xl font-semibold text-white">Segmento prioritário</h2>
+                <p className="text-slate-300">
+                  Marcas DTC de moda, beleza, saúde ou alimentos/bebidas que faturam entre R$300k e R$1,5M/mês e querem dobrar o canal digital em 12 meses.
+                  Produto validado, marketing ativo e ausência de squad tech interno.
                 </p>
-                <h2 className="mt-4 text-3xl font-semibold text-white">
-                  Fomos desenhados para apagar incêndios crônicos
-                </h2>
-                <ul className="mt-6 space-y-4 text-base text-slate-100">
-                  {urgentPains.map((pain) => (
-                    <li className="feature-item" key={pain}>
-                      {pain}
+                <ul className="space-y-3 text-sm text-slate-300">
+                  {segmentHighlights.map((highlight) => (
+                    <li className="feature-item" key={highlight}>
+                      {highlight}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-300">
-                  KPIs que movemos
-                </p>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  {kpis.map((kpi) => (
-                    <div className="metric-card" key={kpi.label}>
-                      <p className="text-3xl font-bold text-white">
-                        {kpi.value}
-                      </p>
-                      <p className="text-sm uppercase tracking-wide text-slate-400">
-                        {kpi.label}
-                      </p>
-                    </div>
-                  ))}
+              <div className="grid gap-4">
+                <div className="card">
+                  <p className="text-sm font-semibold text-brand-200">Por que pagam R$50k?</p>
+                  <p className="mt-2 text-slate-100">
+                    Já validaram produto, possuem caixa, têm metas agressivas e querem um parceiro capaz de diagnosticar + implementar sem fricção.
+                  </p>
                 </div>
-                <p className="mt-6 text-sm text-slate-400">
-                  *Resultados ilustrativos baseados na metodologia aplicada em
-                  projetos similares.
-                </p>
+                <div className="card">
+                  <p className="text-sm font-semibold text-brand-200">Stakeholders envolvidos</p>
+                  <ul className="mt-2 list-disc pl-5 text-sm text-slate-200">
+                    <li>Economic buyer: CEO, fundador ou Diretor de E-commerce.</li>
+                    <li>Champion: gerente de operações digital/comercial.</li>
+                    <li>Influenciadores: heads de marketing, logística e CX.</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </section>
 
-          <section id="pilares" className="mx-auto max-w-6xl px-6">
-            <div className="text-center">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-300">
-                Oferta premium
+          <section className="rounded-[36px] border border-white/10 bg-white/5 p-8">
+            <SectionHeading
+              eyebrow="Por que ganhamos"
+              title="Design de serviço completo, do diagnóstico ao retainer"
+              description="Reunimos estratégia, tecnologia e automação com ownership total do roadmap."
+            />
+            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+              {differentiators.map((item) => (
+                <div className="case-highlight h-full" key={item.title}>
+                  <p className="text-sm font-semibold text-brand-200">{item.title}</p>
+                  <p className="mt-3 text-base text-slate-200">{item.description}</p>
+                  <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
+                    {item.chips.map((chip) => (
+                      <span
+                        key={chip}
+                        className="rounded-full border border-white/10 px-3 py-1"
+                      >
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-brand-500/30 to-slate-900 p-8 shadow-lg shadow-brand-900/40">
+              <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/70">
+                Dores urgentes
               </p>
-              <h2 className="mt-3 text-4xl font-semibold text-white">
-                Um mesmo time para estratégia, execução e otimização
+              <h2 className="mt-4 text-3xl font-semibold text-white">
+                Fomos desenhados para apagar incêndios crônicos
               </h2>
-              <p className="mt-4 text-lg text-slate-300">
-                Nosso modelo híbrido evita repasses, elimina a queda de
-                informação e garante time-to-value agressivo.
+              <ul className="mt-6 space-y-4 text-base text-slate-100">
+                {urgentPains.map((pain) => (
+                  <li className="feature-item" key={pain}>
+                    {pain}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.4em] text-brand-300">
+                KPIs que movemos
+              </p>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                {kpis.map((kpi) => (
+                  <div className="metric-card" key={kpi.label}>
+                    <p className="text-3xl font-bold text-white">{kpi.value}</p>
+                    <p className="text-sm uppercase tracking-wide text-slate-400">
+                      {kpi.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-6 text-sm text-slate-400">
+                *Resultados ilustrativos baseados na metodologia aplicada em projetos similares.
               </p>
             </div>
+          </section>
+
+          <section id="pilares">
+            <SectionHeading
+              eyebrow="Oferta premium"
+              title="Um mesmo time para estratégia, execução e otimização"
+              description="Nosso modelo híbrido evita repasses, elimina a queda de informação e garante time-to-value agressivo."
+            />
             <div className="mt-12 grid gap-8 lg:grid-cols-3">
               {pillars.map((pillar) => (
                 <article className="pillar" key={pillar.title}>
                   <p className="text-sm font-semibold uppercase tracking-[0.4em] text-brand-200">
                     {pillar.period}
                   </p>
-                  <h3 className="mt-3 text-2xl font-semibold text-white">
-                    {pillar.title}
-                  </h3>
+                  <h3 className="mt-3 text-2xl font-semibold text-white">{pillar.title}</h3>
                   <ul className="mt-4 space-y-3 text-sm text-slate-200">
                     {pillar.bullets.map((bullet) => (
                       <li key={bullet}>{bullet}</li>
@@ -467,64 +520,56 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="cases" className="mx-auto max-w-6xl px-6">
-            <div className="rounded-[32px] border border-white/10 bg-white/5 p-8">
-              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-300">
-                    Prova social
+          <section id="cases" className="rounded-[36px] border border-white/10 bg-white/5 p-8">
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.4em] text-brand-300">
+                  Prova social
+                </p>
+                <h2 className="mt-2 text-3xl font-semibold text-white">
+                  Cases prontos para apresentar ao board
+                </h2>
+              </div>
+              <button className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10">
+                Baixar deck resumido
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M4 12h16m0 0-4 4m4-4-4-4"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {cases.map((item) => (
+                <div className="case-highlight" key={item.title}>
+                  <p className="text-sm font-semibold text-brand-200">{item.title}</p>
+                  <p className="mt-2 text-lg text-white">{item.description}</p>
+                  <p className="mt-4 text-xs uppercase tracking-wide text-slate-400">
+                    {item.footnote}
                   </p>
-                  <h2 className="mt-2 text-3xl font-semibold text-white">
-                    Cases prontos para apresentar ao board
-                  </h2>
                 </div>
-                <button className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10">
-                  Baixar deck resumido
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M4 12h16m0 0-4 4m4-4-4-4"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <div className="mt-8 grid gap-6 md:grid-cols-3">
-                {cases.map((item) => (
-                  <div className="case-card" key={item.title}>
-                    <p className="text-sm font-semibold text-brand-200">
-                      {item.title}
-                    </p>
-                    <p className="mt-2 text-lg text-white">{item.description}</p>
-                    <p className="mt-4 text-xs uppercase tracking-wide text-slate-400">
-                      {item.footnote}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              ))}
             </div>
           </section>
 
-          <section id="scorecard" className="mx-auto max-w-6xl px-6">
-            <div className="grid gap-10 lg:grid-cols-2">
+          <section id="scorecard">
+            <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr]">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-300">
-                  Scorecard
-                </p>
-                <h2 className="mt-3 text-3xl font-semibold text-white">
-                  5 sinais de que somos o parceiro certo
-                </h2>
-                <p className="mt-4 text-slate-300">
-                  Marque os critérios e descubra se o ICP soma ao menos 16
-                  pontos. Use a mesma régua no seu CRM para priorizar outbound.
-                </p>
+                <SectionHeading
+                  eyebrow="Scorecard"
+                  title="5 sinais de que somos o parceiro certo"
+                  description="Marque os critérios e descubra se o ICP soma ao menos 16 pontos. Use a mesma régua no CRM para priorizar outbound."
+                  align="left"
+                />
                 <ul className="mt-6 space-y-4 text-sm text-slate-200">
                   <li>Receita mensal ≥ R$300k em e-commerce.</li>
                   <li>2+ integrações críticas falhando atualmente.</li>
@@ -533,8 +578,34 @@ export default function Home() {
                   <li>CEO/Diretor presente na call de diagnóstico.</li>
                 </ul>
               </div>
-              <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
-                <form className="space-y-4">
+              <div className="rounded-[36px] border border-white/10 bg-white/5 p-8">
+                <div className="flex flex-col items-center gap-6">
+                  <div
+                    className="score-progress"
+                    style={{
+                      background: `conic-gradient(var(--color-brand-500) ${progressPercent}%, rgba(15,23,42,0.6) ${progressPercent}% 100%)`,
+                    }}
+                  >
+                    <div className="score-progress__value">
+                      {totalScore}
+                      <span className="block text-xs font-normal text-slate-400">
+                        de {MAX_SCORE}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-sm uppercase tracking-[0.4em] text-slate-400">
+                      Diagnóstico em tempo real
+                    </p>
+                    <p className="mt-2 text-2xl font-semibold text-brand-200">
+                      {verdict}
+                    </p>
+                    <p className="text-sm text-slate-400">
+                      Lead ideal precisa somar ≥16 pontos.
+                    </p>
+                  </div>
+                </div>
+                <form className="mt-8 space-y-4">
                   {scorecardItems.map((item, index) => (
                     <label className="score-item" key={item.title}>
                       <input
@@ -544,12 +615,8 @@ export default function Home() {
                         onChange={() => handleScoreToggle(index)}
                       />
                       <div>
-                        <p className="text-base font-semibold text-white">
-                          {item.title}
-                        </p>
-                        <p className="text-sm text-slate-300">
-                          {item.description}
-                        </p>
+                        <p className="text-base font-semibold text-white">{item.title}</p>
+                        <p className="text-sm text-slate-300">{item.description}</p>
                       </div>
                       <span className="text-xs font-semibold text-brand-200">
                         {item.weight} pts
@@ -557,140 +624,111 @@ export default function Home() {
                     </label>
                   ))}
                 </form>
-                <div className="mt-6 rounded-2xl border border-white/10 bg-slate-900/80 p-6 text-center">
-                  <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
-                    Pontuação atual
-                  </p>
-                  <p className="mt-3 text-5xl font-bold text-white">
-                    <span>{totalScore}</span> / {MAX_SCORE}
-                  </p>
-                  <p className="mt-2 text-lg font-semibold text-brand-200">
-                    {verdict}
-                  </p>
-                  <p className="mt-1 text-xs text-slate-500">
-                    Lead ideal precisa somar ≥16 pontos.
-                  </p>
-                </div>
               </div>
             </div>
           </section>
 
-          <section className="mx-auto max-w-6xl px-6">
-            <div className="grid gap-8 md:grid-cols-2">
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-300">
-                  Como trabalhamos
-                </p>
-                <h2 className="mt-3 text-3xl font-semibold text-white">
-                  Próximos passos internos
-                </h2>
-                <ol className="mt-6 space-y-4 text-slate-200">
-                  {internalSteps.map((step) => (
-                    <li className="feature-item" key={step}>
-                      {step}
-                    </li>
-                  ))}
-                </ol>
-              </div>
-              <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-brand-500/20 to-slate-900 p-8">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">
-                  Stakeholders alinhados
-                </p>
-                <div className="mt-4 space-y-4">
-                  {stakeholders.map((stakeholder) => (
-                    <div className="rounded-2xl bg-white/5 p-4" key={stakeholder.title}>
-                      <p className="text-sm font-semibold text-brand-100">
-                        {stakeholder.title}
-                      </p>
-                      <p className="text-lg font-semibold text-white">
-                        {stakeholder.role}
-                      </p>
-                      <p className="text-sm text-slate-300">
-                        {stakeholder.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+          <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.4em] text-brand-300">
+                Como trabalhamos
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold text-white">
+                Próximos passos internos
+              </h2>
+              <ol className="mt-6 space-y-4 text-slate-200">
+                {internalSteps.map((step) => (
+                  <li className="feature-item" key={step}>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-brand-500/20 to-slate-900 p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/70">
+                Stakeholders alinhados
+              </p>
+              <div className="mt-4 space-y-4">
+                {stakeholders.map((stakeholder) => (
+                  <div className="rounded-2xl bg-white/5 p-4" key={stakeholder.title}>
+                    <p className="text-sm font-semibold text-brand-100">
+                      {stakeholder.title}
+                    </p>
+                    <p className="text-lg font-semibold text-white">
+                      {stakeholder.role}
+                    </p>
+                    <p className="text-sm text-slate-300">
+                      {stakeholder.description}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
 
-          <section id="faq" className="mx-auto max-w-6xl px-6">
-            <div className="rounded-[32px] border border-white/10 bg-white/5 p-8">
-              <div className="text-center">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-300">
-                  FAQ diagnóstico
-                </p>
-                <h2 className="mt-3 text-4xl font-semibold text-white">
-                  Perguntas que destravam a conversa certa
-                </h2>
-                <p className="mt-4 text-lg text-slate-300">
-                  Use-as durante o workshop gratuito para mapear urgência,
-                  orçamento e processo decisório.
-                </p>
-              </div>
-              <div className="mt-10 space-y-4" id="faq-accordion">
-                {faqItems.map((item, index) => {
-                  const isActive = activeFaq === index;
-                  return (
-                    <div
-                      className={`faq-item ${isActive ? "active" : ""}`}
-                      key={item.question}
+          <section id="faq" className="rounded-[36px] border border-white/10 bg-white/5 p-8">
+            <SectionHeading
+              eyebrow="FAQ diagnóstico"
+              title="Perguntas que destravam a conversa certa"
+              description="Use-as durante o workshop gratuito para mapear urgência, orçamento e processo decisório."
+            />
+            <div className="mt-10 space-y-4" id="faq-accordion">
+              {faqItems.map((item, index) => {
+                const isActive = activeFaq === index;
+                return (
+                  <div className={`faq-item ${isActive ? "active" : ""}`} key={item.question}>
+                    <button
+                      type="button"
+                      className="faq-trigger"
+                      onClick={() => handleFaqToggle(index)}
                     >
-                      <button
-                        type="button"
-                        className="faq-trigger"
-                        onClick={() => handleFaqToggle(index)}
-                      >
-                        {item.question}
-                      </button>
-                      <div className="faq-content">
-                        <p>{item.answer}</p>
-                      </div>
+                      {item.question}
+                    </button>
+                    <div className="faq-content">
+                      <p>{item.answer}</p>
                     </div>
-                  );
-                })}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          <section id="cta" className="px-0">
+            <div className="cta-card text-center text-white">
+              <div className="cta-ring" aria-hidden="true" />
+              <p className="text-sm font-semibold uppercase tracking-[0.5em] text-white/70">
+                Workshop gratuito
+              </p>
+              <h2 className="mt-4 text-4xl font-semibold">
+                45 minutos para mapear seu roadmap de crescimento
+              </h2>
+              <p className="mt-4 text-lg text-white/90">
+                Receba um diagnóstico inicial, plano de 90 dias e estimativa de investimento. Sem compromisso.
+              </p>
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <a
+                  href="mailto:oi@hubdecrescimento.com"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-base font-semibold text-brand-700 shadow-lg shadow-brand-900/40 transition hover:-translate-y-0.5 hover:bg-slate-50 sm:w-auto"
+                >
+                  Quero meu diagnóstico
+                </a>
+                <button
+                  type="button"
+                  className="inline-flex w-full items-center justify-center rounded-full border border-white/70 px-8 py-3 text-base font-semibold text-white transition hover:bg-white/10 sm:w-auto"
+                >
+                  Ver agenda disponível
+                </button>
               </div>
             </div>
           </section>
         </main>
 
-        <section id="cta" className="mx-auto mt-12 max-w-5xl px-6 pb-24">
-          <div className="rounded-[40px] border border-brand-500/30 bg-gradient-to-r from-brand-500/80 to-teal-400/80 p-10 text-center text-white shadow-2xl shadow-brand-900/30">
-            <p className="text-sm font-semibold uppercase tracking-[0.5em] text-white/70">
-              Workshop gratuito
-            </p>
-            <h2 className="mt-4 text-4xl font-semibold">
-              45 minutos para mapear seu roadmap de crescimento
-            </h2>
-            <p className="mt-4 text-lg text-white/85">
-              Receba um diagnóstico inicial, plano de 90 dias e estimativa de
-              investimento. Sem compromisso.
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href="mailto:oi@hubdecrescimento.com"
-                className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-base font-semibold text-brand-700 shadow-lg shadow-brand-900/30 transition hover:-translate-y-0.5 hover:bg-slate-50 sm:w-auto"
-              >
-                Quero meu diagnóstico
-              </a>
-              <button
-                type="button"
-                className="inline-flex w-full items-center justify-center rounded-full border border-white/60 px-8 py-3 text-base font-semibold text-white transition hover:bg-white/10 sm:w-auto"
-              >
-                Ver agenda disponível
-              </button>
-            </div>
-          </div>
-        </section>
-
         <footer className="border-t border-white/10 bg-slate-950/80 py-10">
           <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-slate-400 md:flex-row">
             <p>
-              © <span>{currentYear}</span> Hub de Crescimento · Todos os direitos
-              reservados.
+              © <span>{currentYear}</span> Hub de Crescimento · Todos os direitos reservados.
             </p>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap items-center gap-6">
               <a href="tel:+5511987654321" className="hover:text-white">
                 +55 11 98765-4321
               </a>
