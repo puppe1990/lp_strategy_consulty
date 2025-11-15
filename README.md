@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Hub de Crescimento · Landing + Blog MDX
 
-## Getting Started
+Landing page em Next.js 16/App Router com narrativa completa do modelo híbrido de consultoria e uma área de blog alimentada por MDX.
 
-First, run the development server:
+### Stack principal
+- Next.js 16 + React 19
+- Tailwind CSS 4 (via `@tailwindcss/postcss`)
+- Tipografia via `next/font` (Space Grotesk + Geist Mono)
+- Blog configurado com `@next/mdx`
+
+---
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install        # instala dependências
+npm run dev        # sobe o servidor em http://localhost:3000
+npm run build      # build de produção
+npm run start      # serve o build
+npm run lint       # checa eslint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura de pastas relevante
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/
+    page.tsx                 # landing principal
+    blog/
+      layout.tsx             # layout compartilhado do blog
+      page.tsx               # índice/listagem dos artigos
+      revenue-architecture/
+        page.mdx             # exemplo de artigo em MDX
+      stack-integrado/
+        page.mdx             # segundo artigo em MDX
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Como criar um novo artigo em MDX
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Crie uma pasta com o slug desejado dentro de `src/app/blog/` e adicione `page.mdx`.
+2. No início do arquivo exporte `metadata` e `summary`, seguindo o padrão:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```mdx
+export const metadata = {
+  title: "Título do artigo",
+  description: "Descrição curta usada no SEO e cards",
+  date: "2025-01-20",
+  readingTime: "7 min",
+  tags: ["Categoria", "Tema"],
+};
 
-## Deploy on Vercel
+export const summary = "Resumo exibido na listagem.";
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Escreva o conteúdo usando componentes HTML/MDX. Utilize a classe `mdx-content` para manter o visual consistente:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```mdx
+<article className="mdx-content">
+  <h2>Seção</h2>
+  <p>Texto...</p>
+</article>
+```
+
+4. Importe o novo artigo no índice (`src/app/blog/page.tsx`) e inclua o slug na lista `blogPosts` para que apareça na listagem.
+
+---
+
+## Estilo e componentes
+
+- `blog/layout.tsx` aplica o mesmo background da landing e inclui CTA rápido.
+- `.mdx-content` em `globals.css` define tipografia, tabelas e blockquotes dos posts.
+- O menu da landing possui link direto para `/blog`.
+
+---
+
+## Dicas
+
+- Mantenha datas no formato ISO (`YYYY-MM-DD`) para garantir ordenação correta.
+- Use `npm run lint` antes de abrir PRs/deploys.
+- Para CTAs externos (agenda, diagnóstico), atualize os links em `blog/layout.tsx` e `app/page.tsx`.

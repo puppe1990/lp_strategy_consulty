@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 const navLinks = [
@@ -8,6 +9,7 @@ const navLinks = [
   { label: "Casos", href: "#cases" },
   { label: "Diagnóstico", href: "#scorecard" },
   { label: "FAQ", href: "#faq" },
+  { label: "Blog", href: "/blog" },
 ];
 
 const heroStats = [
@@ -314,13 +316,13 @@ export default function Home() {
             </div>
             <div className="hidden items-center gap-6 text-slate-300 md:flex">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   className="text-sm font-medium transition hover:text-white"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
             <a

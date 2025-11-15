@@ -1,0 +1,80 @@
+export const metadata = {
+  title: "Stack integrado em 60 dias: como alinhar dados e squads",
+  description: "Um guia de sprint único para sincronizar ERP, e-commerce, CRM e mídia sem travar o dia a dia.",
+  date: "2025-01-08",
+  readingTime: "6 min",
+  tags: ["Integrações", "Operações", "Automação"],
+};
+
+export const summary =
+  "Sequência de três ondas para fazer o stack conversar, liberar dados confiáveis e criar rituais que sustentam a tomada de decisão.";
+
+<section className="space-y-8">
+  <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-inner shadow-black/30">
+    <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-200">Stack integrado</p>
+    <h1 className="mt-4 text-4xl font-semibold text-white">{metadata.title}</h1>
+    <p className="mt-4 text-lg text-slate-300">{metadata.description}</p>
+  </div>
+
+  <article className="mdx-content">
+    <p>
+      A maior dor das operações digitais maduras é previsibilidade. Mesmo com times grandes, o contexto se perde entre
+      plataformas, puxadinhos de planilha e agências diferentes. A solução não é trocar todo o stack, e sim sincronizar o
+      que já existe com uma cadência agressiva de testes.
+    </p>
+
+    <h2>Onda 1 · Telemetria mínima viável</h2>
+    <p>
+      Antes de automatizar tudo, precisamos garantir leitura confiável. Mapeamos eventos críticos, normalizamos descrições
+      e criamos um hub simplificado (BigQuery ou mesmo um banco relacional) que centraliza pedidos, leads e status
+      logísticos.
+    </p>
+    <ul>
+      <li>Integrações leves via webhooks ou middleware para evitar dependência de planilhas.</li>
+      <li>Alertas automáticos no Slack/Teams sempre que uma integração falha.</li>
+      <li>Mini dashboard operacional publicado no Looker/Data Studio em até 10 dias.</li>
+    </ul>
+
+    <h2>Onda 2 · Automação dos “momentos que importam”</h2>
+    <p>
+      Escolhemos de 2 a 3 jornadas com maior impacto em margem: recompra, abandono de carrinho, ativação B2B etc. Para cada
+      jornada:
+    </p>
+    <ol>
+      <li>Sincronizamos os gatilhos (ex.: estoque atualizado + status de pedido).</li>
+      <li>Construímos automações/flows em ferramentas já adotadas (Klaviyo, Braze, RD). Nada de reinventar wheel.</li>
+      <li>Documentamos as regras em playbooks versionados para o time interno.</li>
+    </ol>
+    <blockquote>
+      “Integrar” significa entregar para o time algo acionável, não apenas uma API respondendo 200. É landing page, fluxo,
+      alerta e métrica fechando em um mesmo sprint.
+    </blockquote>
+
+    <h2>Onda 3 · Governança e squad híbrido</h2>
+    <p>
+      Com integrações estáveis, criamos uma célula permanente que cuida do stack. Esse time opera como “rev ops as a
+      service”:
+    </p>
+    <ul>
+      <li>Backlog público com regras claras de priorização (impacto × esforço × urgência).</li>
+      <li>Runbook de incidentes e SLAs acordados com o board.</li>
+      <li>Rituais de showcase quinzenais apresentando ganhos financeiros e aprendizados técnicos.</li>
+    </ul>
+
+    <h2>Checklist de maturidade</h2>
+    <p>Se três das afirmações abaixo forem verdadeiras, você está pronto para a onda 2:</p>
+    <ul>
+      <li>Existe um único dashboard com GMV, margem e contribuição por canal.</li>
+      <li>Alertas automáticos avisam quando integrações param de responder.</li>
+      <li>As squads conhecem o backlog e conseguem sugerir hipóteses com dados.</li>
+      <li>Os executivos têm acesso à mesma narrativa antes/depois apresentada aos times.</li>
+    </ul>
+
+    <p>
+      Stack integrado não é um projeto de TI. É um produto interno, atualizado toda semana, que dá contexto para squads e
+      reduz a dependência de heróis. Com MDX conseguimos documentar cada prática e publicar rapidamente no blog, mantendo a
+      narrativa viva.
+    </p>
+  </article>
+</section>
+

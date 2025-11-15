@@ -1,0 +1,105 @@
+export const metadata = {
+  title: "Como desenhar um blueprint de Revenue Architecture em 60 dias",
+  description: "Sequência de diagnóstico, laboratório e operação contínua para orquestrar growth em empresas que já faturam alto.",
+  date: "2025-01-14",
+  readingTime: "8 min",
+  tags: ["Revenue Architecture", "Go-to-market", "Operação"],
+};
+
+export const summary =
+  "Framework prático para sair do PPT e transformar arquitetura de receita em um fluxo vivo, com squads híbridos e governança semanal.";
+
+<section className="space-y-8">
+  <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-inner shadow-black/30">
+    <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-200">Blueprint</p>
+    <h1 className="mt-4 text-4xl font-semibold text-white">{metadata.title}</h1>
+    <p className="mt-4 text-lg text-slate-300">{metadata.description}</p>
+  </div>
+
+  <article className="mdx-content">
+    <p>
+      Revenue Architecture não é um canvas bonito: é a engenharia de como estratégia, dados e execução conversam semana a
+      semana. A maioria dos times trava porque tenta resolver tudo em paralelo — definiu o Bowtie, mas não integrou os
+      sistemas; criou metas, mas não construiu governança. O resultado é um backlog infinito e pouca captura de valor.
+    </p>
+
+    <h2>Fase 1 · Diagnóstico 360° (semanas 1-2)</h2>
+    <p>
+      Começamos com um mergulho nos KPIs financeiros, stack e rituais internos. O objetivo não é produzir um relatório de
+      80 páginas, e sim montar um mapa de fricções: integrações quebradas, métricas sem dono, oportunidades já validadas
+      que nunca saíram do papel.
+    </p>
+    <ul>
+      <li>Revisar P&L digital, cohorts e metas aprovadas para o trimestre.</li>
+      <li>Inventariar automações, integrações e dashboards que dão suporte ao funil Bowtie.</li>
+      <li>Rodar entrevistas rápidas com economic buyer, champions e operadores.</li>
+    </ul>
+    <p>
+      A entrega é um blueprint priorizado por “momentos que importam”, cada um com métrica, dono e hipótese de impacto.
+      Nada de lista de tarefas genérica.
+    </p>
+
+    <h2>Fase 2 · Laboratório integrado (semanas 3-7)</h2>
+    <p>
+      Aqui usamos squads híbridos (estratégia + engenharia + automação) para executar blocos completos: integração,
+      ativação e leitura de dados. Para cada sprint, definimos:
+    </p>
+    <ol>
+      <li>Integrações essenciais para não perder sinal (ERP ↔ e-commerce ↔ CRM).</li>
+      <li>Experimentos GTM e automações que destravam a métrica do sprint.</li>
+      <li>Dashboard/alertas para monitorar impacto sem depender do BI.</li>
+    </ol>
+    <blockquote>
+      “Esquadrão híbrido” significa que a mesma equipe que desenhou o diagnóstico já está codando, integrando APIs e
+      publicando dashboards. Minimiza repasse e mantém contexto.
+    </blockquote>
+
+    <h2>Fase 3 · Operação contínua (semana 8+)</h2>
+    <p>
+      Depois das primeiras entregas tangíveis, institucionalizamos a governança:
+    </p>
+    <ul>
+      <li>Rituais executivos quinzenais com narrativa antes/depois.</li>
+      <li>OKRs conectados ao blueprint, com automação de coleta de resultados.</li>
+      <li>Documentação viva para on-board rápido de novos stakeholders.</li>
+    </ul>
+    <p>
+      O foco passa a ser compound growth: como cada ciclo retroalimenta o próximo, reduzindo CAC, aumentando margem e
+      liberando o time interno para decisões estratégicas.
+    </p>
+
+    <h2>Checklist rápido para aplicar amanhã</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Frente</th>
+          <th>O que observar</th>
+          <th>Indicador de alerta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Stack</td>
+          <td>Integrações críticas e SLAs de dados</td>
+          <td>2+ integrações quebram por semana</td>
+        </tr>
+        <tr>
+          <td>GTM</td>
+          <td>Testes em andamento x metas do trimestre</td>
+          <td>Nenhum experimento vinculado a KPIs financeiros</td>
+        </tr>
+        <tr>
+          <td>Governança</td>
+          <td>Rituais executivos e cadência de decisões</td>
+          <td>Reuniões sem narrativa clara antes/depois</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Quando o blueprint captura esses três blocos, a arquitetura deixa de ser um PDF e vira um ativo vivo — replicável
+      para múltiplas unidades de negócio e preparado para novos canais sem recomeçar do zero.
+    </p>
+  </article>
+</section>
+
