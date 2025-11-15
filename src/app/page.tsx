@@ -779,7 +779,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap items-center gap-6">
               <a href="tel:+5511987654321" className="hover:text-white">
-                +55 11 98765-4321
+                +55 11 99559-7242
               </a>
               <a href="mailto:oi@mosaicharborventures.com" className="hover:text-white">
                 oi@mosaicharborventures.com
