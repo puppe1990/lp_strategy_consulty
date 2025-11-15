@@ -3,9 +3,10 @@
 import { useState } from "react";
 
 const navLinks = [
-  { label: "ICP", href: "#segmento" },
+  { label: "Modelo", href: "#modelo" },
   { label: "Oferta", href: "#pilares" },
-  { label: "Scorecard", href: "#scorecard" },
+  { label: "Casos", href: "#cases" },
+  { label: "Diagnóstico", href: "#scorecard" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -42,10 +43,31 @@ const differentiators = [
   },
 ];
 
-const segmentHighlights = [
-  "Stack típico: Shopify/VTEX/Nuvemshop + ERP + CRM + mídia multicanal.",
-  "Integrações frágeis e dados espalhados em planilhas.",
-  "Operações em capitais (SP/RJ/BH) ou polos com logística madura.",
+const revenuePrinciples = [
+  "Receita recorrente nasce de impacto recorrente: cada sprint entrega valor mensurável.",
+  "Retenção e expansão sustentam o crescimento depois dos primeiros milhões.",
+  "O risco sai do cliente e vem para nós — assumimos estratégia, tecnologia e dados no mesmo contrato.",
+];
+
+const factoryMoves = [
+  {
+    title: "Pensar grande",
+    description:
+      "Desenhamos a Fábrica de Receita com horizonte de 18-24 meses, combinando dados, GTM e KPIs.",
+    detail: "Modelo inspirado no Revenue Architecture.",
+  },
+  {
+    title: "Agir pequeno",
+    description:
+      "Atacamos os 'Momentos que Importam' com squads híbridos e entregas semanais.",
+    detail: "Sprints de 30-60 dias com metas claras.",
+  },
+  {
+    title: "Mover rápido",
+    description:
+      "Ciclos contínuos de análise, testes e coaching garantem compound growth.",
+    detail: "Dashboards e rituais executivos ao vivo.",
+  },
 ];
 
 const urgentPains = [
@@ -205,10 +227,10 @@ const faqItems = [
 ];
 
 const verdictCopy = {
-  perfect: "Lead perfeito — priorize para a próxima sprint",
-  good: "Ótimo fit — avance para diagnóstico",
-  medium: "Investigue melhor antes de avançar",
-  low: "Provavelmente fora do ICP",
+  perfect: "Projeto prioritário — avançar imediatamente",
+  good: "Ótimo fit — marque o diagnóstico",
+  medium: "Há valor, mas refine expectativas",
+  low: "Talvez não seja o momento certo",
 };
 
 const MAX_SCORE = 20;
@@ -322,18 +344,17 @@ export default function Home() {
             <div className="space-y-8">
               <span className="floating-pill primary">
                 <span className="pulse-dot" />
-                Ideal para e-commerces que já faturam alto
+                Ideal para negócios que já faturam alto
               </span>
               <div className="space-y-5">
                 <p className="text-xs uppercase tracking-[0.4em] text-brand-200">
                   Consultoria híbrida
                 </p>
                 <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
-                  Cresça 2x com tecnologia, automação e estratégia em um único squad
+                  Cresça 2x com estratégia, tecnologia e execução no mesmo squad
                 </h1>
                 <p className="text-lg text-slate-300">
-                  Desenhamos, implementamos e otimizamos uma arquitetura digital completa em até 60 dias.
-                  Diagnóstico 360°, integrações entre e-commerce, ERP, CRM e logística, funis multicanais e dashboards em tempo real em um único contrato.
+                  Unimos os pilares de Revenue Architecture ao modelo híbrido de consultoria + desenvolvimento. Diagnóstico, execução e otimização acontecem em um só fluxo, reduzindo o tempo entre o plano e os resultados.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
@@ -381,7 +402,7 @@ export default function Home() {
                   Mensagem central
                 </p>
                 <p className="mt-2 text-lg font-semibold text-white">
-                  “Ajudamos empresas que já faturam a escalar com tecnologia, automação e estratégia, entregando resultados mensuráveis em 60 dias.”
+                  “Entregamos impacto recorrente para gerar receita recorrente. Cada sprint conecta estratégia, código e governança.”
                 </p>
               </div>
             </div>
@@ -389,45 +410,36 @@ export default function Home() {
 
           <div className="section-divider" aria-hidden="true" />
 
-          <section id="segmento" className="space-y-10 rounded-[36px] border border-white/10 bg-white/5 p-8 sm:p-12">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm font-semibold uppercase tracking-[0.4em] text-brand-300">
-                Quem atendemos
-              </p>
-              <span className="rounded-full border border-brand-500/20 bg-brand-500/10 px-4 py-1 text-xs font-semibold text-brand-200">
-                ICP validado para e-commerces/DTC
-              </span>
-            </div>
+          <section id="modelo" className="space-y-10 rounded-[36px] border border-white/10 bg-white/5 p-8 sm:p-12">
+            <SectionHeading
+              eyebrow="Arquitetura de Receita"
+              title="Como transformamos growth em engenharia repetível"
+              description="Aplicamos os princípios do Revenue Architecture para desenhar, construir e operar uma Fábrica de Receita focada em eficiência e lucratividade."
+              align="left"
+            />
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-              <div className="space-y-4">
-                <h2 className="text-3xl font-semibold text-white">Segmento prioritário</h2>
+              <div className="space-y-5">
                 <p className="text-slate-300">
-                  Marcas DTC de moda, beleza, saúde ou alimentos/bebidas que faturam entre R$300k e R$1,5M/mês e querem dobrar o canal digital em 12 meses.
-                  Produto validado, marketing ativo e ausência de squad tech interno.
+                  Saímos da lógica departamental e usamos movimentos integrados de GTM. Marketing, vendas, produto e sucesso trabalham com a mesma matriz de dados (Bowtie), linguagem SPICED e metas financeiras.
                 </p>
                 <ul className="space-y-3 text-sm text-slate-300">
-                  {segmentHighlights.map((highlight) => (
-                    <li className="feature-item" key={highlight}>
-                      {highlight}
+                  {revenuePrinciples.map((principle) => (
+                    <li className="feature-item" key={principle}>
+                      {principle}
                     </li>
                   ))}
                 </ul>
               </div>
               <div className="grid gap-4">
-                <div className="card">
-                  <p className="text-sm font-semibold text-brand-200">Por que pagam R$50k?</p>
-                  <p className="mt-2 text-slate-100">
-                    Já validaram produto, possuem caixa, têm metas agressivas e querem um parceiro capaz de diagnosticar + implementar sem fricção.
-                  </p>
-                </div>
-                <div className="card">
-                  <p className="text-sm font-semibold text-brand-200">Stakeholders envolvidos</p>
-                  <ul className="mt-2 list-disc pl-5 text-sm text-slate-200">
-                    <li>Economic buyer: CEO, fundador ou Diretor de E-commerce.</li>
-                    <li>Champion: gerente de operações digital/comercial.</li>
-                    <li>Influenciadores: heads de marketing, logística e CX.</li>
-                  </ul>
-                </div>
+                {factoryMoves.map((move) => (
+                  <div className="card" key={move.title}>
+                    <p className="text-sm font-semibold text-brand-200">{move.title}</p>
+                    <p className="mt-2 text-slate-100">{move.description}</p>
+                    <p className="mt-2 text-xs uppercase tracking-[0.3em] text-slate-500">
+                      {move.detail}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -565,17 +577,17 @@ export default function Home() {
             <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr]">
               <div>
                 <SectionHeading
-                  eyebrow="Scorecard"
-                  title="5 sinais de que somos o parceiro certo"
-                  description="Marque os critérios e descubra se o ICP soma ao menos 16 pontos. Use a mesma régua no CRM para priorizar outbound."
+                  eyebrow="Diagnóstico rápido"
+                  title="5 sinais de prontidão para um sprint híbrido"
+                  description="Marque os critérios e descubra onde concentrar o investimento de 60 dias."
                   align="left"
                 />
                 <ul className="mt-6 space-y-4 text-sm text-slate-200">
-                  <li>Receita mensal ≥ R$300k em e-commerce.</li>
-                  <li>2+ integrações críticas falhando atualmente.</li>
-                  <li>Sem squad tech dedicado (dependem de terceiros).</li>
-                  <li>Meta agressiva em ≤90 dias já com orçamento reservado.</li>
-                  <li>CEO/Diretor presente na call de diagnóstico.</li>
+                  <li>Faturamento digital consistente e metas agressivas para os próximos 90 dias.</li>
+                  <li>Integrações críticas falhando ou demandando trabalho manual frequente.</li>
+                  <li>Ausência de squad tech interno capaz de tocar automações end-to-end.</li>
+                  <li>Board pressionando por impacto em margem, produtividade e crescimento.</li>
+                  <li>Decisor principal disposto a participar do diagnóstico.</li>
                 </ul>
               </div>
               <div className="rounded-[36px] border border-white/10 bg-white/5 p-8">
@@ -601,7 +613,7 @@ export default function Home() {
                       {verdict}
                     </p>
                     <p className="text-sm text-slate-400">
-                      Lead ideal precisa somar ≥16 pontos.
+                      Pontuações acima de 16 indicam prontidão para iniciar o sprint.
                     </p>
                   </div>
                 </div>
@@ -735,8 +747,8 @@ export default function Home() {
               <a href="mailto:oi@hubdecrescimento.com" className="hover:text-white">
                 oi@hubdecrescimento.com
               </a>
-              <a href="#segmento" className="hover:text-white">
-                ICP
+              <a href="#modelo" className="hover:text-white">
+                Modelo
               </a>
             </div>
           </div>
