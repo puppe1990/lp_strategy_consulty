@@ -1,26 +1,194 @@
+@import url("https://cdn.jsdelivr.net/npm/shadcn-ui@latest/dist/shadcn-ui.min.css");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --background: #020617;
+  --foreground: #e2e8f0;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-space-grotesk);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-brand-50: #ecfdff;
+  --color-brand-100: #cff7ff;
+  --color-brand-200: #a7eeff;
+  --color-brand-300: #70e1ff;
+  --color-brand-400: #33caf5;
+  --color-brand-500: #00a8e8;
+  --color-brand-600: #0084c3;
+  --color-brand-700: #0067a0;
+  --color-brand-800: #0b4e79;
+  --color-brand-900: #0c3f62;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-space-grotesk), "Space Grotesk", "Inter", sans-serif;
+}
+
+.gradient-blob {
+  position: absolute;
+  inset: -20% auto auto 50%;
+  width: 600px;
+  height: 600px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(51, 202, 245, 0.35), transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-weight: 600;
+}
+
+.feature-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.feature-item::before {
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-top: 0.4rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #33caf5, #0b4e79);
+  flex-shrink: 0;
+}
+
+.card {
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.6);
+  padding: 1.5rem;
+  box-shadow: 0 15px 30px rgba(2, 6, 23, 0.5);
+}
+
+.metric-card {
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.7);
+  padding: 1.5rem;
+}
+
+.pillar {
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.6);
+  padding: 2rem;
+  height: 100%;
+}
+
+.case-card {
+  border-radius: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.75rem;
+  background: rgba(12, 15, 25, 0.8);
+}
+
+.score-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem 1.25rem;
+  background: rgba(15, 23, 42, 0.75);
+}
+
+.score-item input[type="checkbox"] {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.score-item input[type="checkbox"]:checked {
+  border-color: transparent;
+  background: linear-gradient(135deg, #33caf5, #00a8e8);
+}
+
+.score-item input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  color: #0f172a;
+  font-size: 0.85rem;
+  font-weight: 700;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.faq-item {
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.65);
+  overflow: hidden;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.faq-item.active {
+  border-color: rgba(0, 168, 232, 0.4);
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.faq-trigger {
+  width: 100%;
+  text-align: left;
+  padding: 1.2rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.faq-trigger::after {
+  content: "+";
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.faq-item.active .faq-trigger::after {
+  transform: rotate(45deg);
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.5rem;
+  color: #cbd5f5;
+  transition: all 0.2s ease;
+}
+
+.faq-item.active .faq-content {
+  max-height: 300px;
+  padding-bottom: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .score-item {
+    grid-template-columns: auto 1fr;
+  }
 }
