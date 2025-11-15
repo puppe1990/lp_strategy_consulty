@@ -137,13 +137,6 @@ const cases = [
   },
 ];
 
-const internalSteps = [
-  "Mapeamos 30 contas-alvo e aplicamos o scorecard.",
-  "Montamos deck/one-pager com a oferta em 3 pilares.",
-  "Rodamos workshop/diagnóstico gratuito de 45 min como porta de entrada.",
-  "Documentamos métricas antes/depois para storytelling.",
-];
-
 const stakeholders = [
   {
     title: "Economic buyer",
@@ -665,11 +658,18 @@ export default function Home() {
                 Próximos passos internos
               </h2>
               <ol className="mt-6 space-y-4 text-slate-200">
-                {internalSteps.map((step) => (
-                  <li className="feature-item" key={step}>
-                    {step}
-                  </li>
-                ))}
+                <li className="feature-item">
+                  Selecionamos e priorizamos 30 contas-alvo e usamos nosso scorecard para entender urgência, orçamento e patrocinadores.
+                </li>
+                <li className="feature-item">
+                  Condensamos a oferta em um one-pager de três pilares com narrativa executiva e next steps claros para o time de vendas.
+                </li>
+                <li className="feature-item">
+                  Conduzimos um workshop/diagnóstico de 45 minutos com os decisores para alinhar KPIs, metas e backlog técnico.
+                </li>
+                <li className="feature-item">
+                  Mensuramos o antes/depois em faturamento, margem e produtividade para transformar entregas em storytelling e provas sociais.
+                </li>
               </ol>
             </div>
             <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-brand-500/20 to-slate-900 p-8">
