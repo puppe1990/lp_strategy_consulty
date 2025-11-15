@@ -267,6 +267,36 @@ function SectionHeading({
   );
 }
 
+type IconProps = {
+  className?: string;
+};
+
+function CalendarIcon({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      className={className}
+    >
+      <rect x={3} y={5} width={18} height={16} rx={2.5} fill="none" />
+      <path d="M3 11h18" />
+      <path d="M8 2v4" />
+      <path d="M16 2v4" />
+      <path d="M8 15h3" />
+      <path d="M13 15h3" />
+      <path d="M8 19h3" />
+      <path d="M13 19h3" />
+    </svg>
+  );
+}
+
 export default function Home() {
   const [scoreState, setScoreState] = useState<boolean[]>(() =>
     scorecardItems.map(() => false),
@@ -368,20 +398,7 @@ export default function Home() {
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-8 py-3 text-base font-semibold text-white transition hover:border-white/60 hover:bg-white/10"
                 >
                   Ver agenda
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={1.5}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 7V5m12 2V5m-9 8h6m-9 8h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z"
-                    />
-                  </svg>
+                  <CalendarIcon className="h-5 w-5" />
                 </a>
               </div>
               <div className="grid gap-4 sm:grid-cols-3">
@@ -782,20 +799,7 @@ export default function Home() {
           className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-brand-500 px-4 py-2 text-sm font-semibold text-white shadow-xl shadow-brand-500/50 transition hover:-translate-y-0.5 hover:bg-brand-400"
         >
           <span className="rounded-full bg-white/20 p-1.5">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={1.5}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 7V5m12 2V5m-9 8h6m-9 8h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z"
-              />
-            </svg>
+            <CalendarIcon className="h-4 w-4" />
           </span>
           Ver agenda
         </a>
