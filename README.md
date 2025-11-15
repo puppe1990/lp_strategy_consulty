@@ -1,4 +1,4 @@
-## Hub de Crescimento · Landing + Blog MDX
+## Mosaic Harbor Ventures · Landing + Blog MDX
 
 Landing page em Next.js 16/App Router com narrativa completa do modelo híbrido de consultoria e uma área de blog alimentada por MDX.
 

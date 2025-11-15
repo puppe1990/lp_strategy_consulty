@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Consultoria Híbrida de Crescimento",
   description:
     "Oferta premium que une estratégia, tecnologia e automação para destravar crescimento digital em até 60 dias.",
-  metadataBase: new URL("https://hubdecrescimento.com"),
+  metadataBase: new URL("https://mosaicharborventures.com"),
   alternates: {
     canonical: "/",
   },

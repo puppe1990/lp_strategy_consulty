@@ -120,6 +120,8 @@ const pillars = [
   },
 ];
 
+// Casos exibidos na seção "Prova social". Cada item segue o formato
+// título → impacto em uma linha → instrução para evoluir a prova.
 const cases = [
   {
     title: "Clínica digital",
@@ -305,13 +307,13 @@ export default function Home() {
           <nav className="flex flex-wrap items-center justify-between gap-4 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm shadow-lg shadow-black/30 backdrop-blur">
             <div className="flex items-center gap-3">
               <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-500 text-lg font-semibold text-white shadow-lg shadow-brand-500/40">
-                HQ
+                MH
               </span>
               <div>
                 <p className="text-[11px] uppercase tracking-[0.4em] text-slate-400">
                   Consultoria híbrida
                 </p>
-                <p className="text-sm font-semibold text-white">Hub de Crescimento</p>
+                <p className="text-sm font-semibold text-white">Mosaic Harbor Ventures</p>
               </div>
             </div>
             <div className="hidden items-center gap-6 text-slate-300 md:flex">
@@ -730,14 +732,14 @@ export default function Home() {
                 Workshop gratuito
               </p>
               <h2 className="mt-4 text-4xl font-semibold">
-                45 minutos para mapear seu roadmap de crescimento
+                30 minutos para mapear seu roadmap de crescimento
               </h2>
               <p className="mt-4 text-lg text-white/90">
                 Receba um diagnóstico inicial, plano de 90 dias e estimativa de investimento. Sem compromisso.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a
-                  href="mailto:oi@hubdecrescimento.com"
+                  href="mailto:oi@mosaicharborventures.com"
                   className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-base font-semibold text-brand-700 shadow-lg shadow-brand-900/40 transition hover:-translate-y-0.5 hover:bg-slate-50 sm:w-auto"
                 >
                   Quero meu diagnóstico
@@ -756,14 +758,14 @@ export default function Home() {
         <footer className="border-t border-white/10 bg-slate-950/80 py-10">
           <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-slate-400 md:flex-row">
             <p>
-              © <span>{currentYear}</span> Hub de Crescimento · Todos os direitos reservados.
+              © <span>{currentYear}</span> Mosaic Harbor Ventures · Todos os direitos reservados.
             </p>
             <div className="flex flex-wrap items-center gap-6">
               <a href="tel:+5511987654321" className="hover:text-white">
                 +55 11 98765-4321
               </a>
-              <a href="mailto:oi@hubdecrescimento.com" className="hover:text-white">
-                oi@hubdecrescimento.com
+              <a href="mailto:oi@mosaicharborventures.com" className="hover:text-white">
+                oi@mosaicharborventures.com
               </a>
               <a href="#modelo" className="hover:text-white">
                 Modelo

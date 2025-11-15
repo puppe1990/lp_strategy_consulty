@@ -39,7 +39,7 @@ const blogPosts: BlogPost[] = [
 ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 export const metadata: Metadata = {
-  title: "Blog · Hub de Crescimento",
+  title: "Blog · Mosaic Harbor Ventures",
   description:
     "Playbooks, frameworks e narrativas sobre Revenue Architecture, integrações e governança de crescimento.",
 };
