@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Consultoria Híbrida de Crescimento",
+  title: "Consultoria de TI para destravar operação e crescimento",
   description:
-    "Oferta premium que une estratégia, tecnologia e automação para destravar crescimento digital em até 60 dias.",
+    "Diagnóstico, integrações, automações e dashboards para empresas que já faturam e precisam resolver gargalos técnicos com impacto em receita, margem e produtividade.",
   metadataBase: new URL("https://mosaicharborventures.com"),
   alternates: {
     canonical: "/",

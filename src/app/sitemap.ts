@@ -10,7 +10,7 @@ const BLOG_DIR = path.join(process.cwd(), 'src', 'app', 'blog');
 type RouteEntry = {
   pathname: string;
   lastModified?: Date;
-  changeFrequency?: MetadataRoute.ChangeFrequency;
+  changeFrequency?: MetadataRoute.Sitemap[number]["changeFrequency"];
   priority?: number;
 };
 
@@ -40,25 +40,24 @@ const getBlogRoutes = (): RouteEntry[] => {
   return fs
     .readdirSync(BLOG_DIR, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
-    .map((dir) => {
+    .flatMap<RouteEntry>((dir) => {
       const mdxPath = path.join(BLOG_DIR, dir.name, 'page.mdx');
       const pagePath = path.join(BLOG_DIR, dir.name, 'page.tsx');
       const contentPath = fs.existsSync(mdxPath) ? mdxPath : pagePath;
 
       if (!fs.existsSync(contentPath)) {
-        return null;
+        return [];
       }
 
       const stats = fs.statSync(contentPath);
 
-      return {
+      return [{
         pathname: `/blog/${dir.name}`,
         changeFrequency: 'monthly',
         priority: 0.7,
         lastModified: stats.mtime,
-      } satisfies RouteEntry;
-    })
-    .filter((route): route is RouteEntry => route !== null);
+      } satisfies RouteEntry];
+    });
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -71,4 +70,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route.priority,
   }));
 }
-

@@ -4,119 +4,119 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navLinks = [
-  { label: "Modelo", href: "#modelo" },
+  { label: "Método", href: "#modelo" },
   { label: "Oferta", href: "#pilares" },
-  { label: "Casos", href: "#cases" },
+  { label: "Projetos", href: "#cases" },
   { label: "Diagnóstico", href: "#scorecard" },
   { label: "FAQ", href: "#faq" },
   { label: "Blog", href: "/blog" },
 ];
 
 const heroStats = [
-  { label: "Ticket por sprint", value: "R$ 50k" },
-  { label: "Foco em", value: "60 dias" },
-  { label: "Perfil ideal", value: "R$300k+/mês" },
+  { label: "Projeto inicial", value: "a partir de R$ 50k" },
+  { label: "Primeiros ganhos", value: "em até 60 dias" },
+  { label: "Perfil ideal", value: "R$ 300k+/mês" },
 ];
 
 const blueprintSteps = [
-  "Diagnóstico 360° do P&L digital e do stack (semana 1-2)",
-  "Execução intensiva: integrações, funis e dashboards prontos (semanas 3-7)",
-  "Otimização contínua e playbooks proprietários (semana 8+)",
+  "Mapeamos gargalos técnicos, operacionais e comerciais que travam crescimento.",
+  "Implementamos integrações, automações e dashboards que resolvem o gargalo principal.",
+  "Estabilizamos a operação e deixamos uma rotina clara de acompanhamento e melhoria.",
 ];
 
 const differentiators = [
   {
-    title: "Blueprint vivo",
+    title: "Diagnóstico com direção",
     description:
-      "Roadmap atualizado semanalmente com metas por KPI e governança clara.",
-    chips: ["Diagnóstico 360°", "Metas compartilhadas"],
+      "Você não compra horas soltas. Compra um plano priorizado por impacto, risco e prazo.",
+    chips: ["Roadmap de 90 dias", "Metas por KPI"],
   },
   {
-    title: "Stack integrado",
+    title: "Execução sem repasse",
     description:
-      "Integrações, funis e dashboards saem do papel em até 60 dias com squad único.",
-    chips: ["Integrações críticas", "Dados em tempo real"],
+      "Estratégia, tecnologia e operação ficam no mesmo time para evitar ruído e atraso.",
+    chips: ["Squad único", "Implementação end-to-end"],
   },
   {
-    title: "Playbooks proprietários",
+    title: "TI ligada ao negócio",
     description:
-      "Testes semanais, documentação viva e rituais executivos para sustentar o crescimento.",
-    chips: ["Teste & learn", "Retainer contínuo"],
+      "Cada entrega precisa mexer em receita, margem, produtividade ou previsibilidade.",
+    chips: ["Ownership real", "Métrica de impacto"],
   },
 ];
 
 const revenuePrinciples = [
-  "Receita recorrente nasce de impacto recorrente: cada sprint entrega valor mensurável.",
-  "Retenção e expansão sustentam o crescimento depois dos primeiros milhões.",
-  "O risco sai do cliente e vem para nós — assumimos estratégia, tecnologia e dados no mesmo contrato.",
+  "Tecnologia só entra na prioridade se resolver gargalo operacional ou comercial visível.",
+  "O projeto começa pelo ponto de maior atrito, não por backlog genérico ou redesign infinito.",
+  "Estratégia, implementação e leitura de dados acontecem no mesmo ciclo para reduzir time-to-value.",
 ];
 
 const factoryMoves = [
   {
-    title: "Pensar grande",
+    title: "Diagnosticar",
     description:
-      "Desenhamos a Fábrica de Receita com horizonte de 18-24 meses, combinando dados, GTM e KPIs.",
-    detail: "Modelo inspirado no Revenue Architecture.",
+      "Entendemos onde a operação trava: integrações, CRM, funil, dados ou backlog crítico.",
+    detail: "Semana 1-2",
   },
   {
-    title: "Agir pequeno",
+    title: "Implementar",
     description:
-      "Atacamos os 'Momentos que Importam' com squads híbridos e entregas semanais.",
-    detail: "Sprints de 30-60 dias com metas claras.",
+      "Atacamos o gargalo prioritário com entregas semanais, dono claro e escopo enxuto.",
+    detail: "Semanas 3-6",
   },
   {
-    title: "Mover rápido",
+    title: "Operar",
     description:
-      "Ciclos contínuos de análise, testes e coaching garantem compound growth.",
-    detail: "Dashboards e rituais executivos ao vivo.",
+      "Deixamos dashboards, rituais e próximos passos para a operação não voltar ao caos.",
+    detail: "Semana 7+",
   },
 ];
 
 const urgentPains = [
   "Integrações entre e-commerce, ERP, logística e CRM quebram semanalmente.",
-  "CAC/ROAS disparam porque funis multicanais não conversam.",
-  "Não há dashboards confiáveis de estoque, margem e cohorts.",
-  "Backlog de features/MVPs parado por falta de squad técnico.",
-  "Board exige impacto em faturamento, margem e produtividade em ≤90 dias.",
+  "Leads, pedidos e dados se perdem porque o funil comercial não conversa com a operação.",
+  "O time decide no escuro por falta de dashboards confiáveis de margem, estoque e performance.",
+  "O backlog técnico fica parado porque ninguém assume a ponta entre estratégia e implementação.",
+  "A diretoria cobra impacto em receita, margem e produtividade nos próximos 90 dias.",
 ];
 
 const kpis = [
-  { value: "-30%", label: "Tempo conciliando dados" },
-  { value: "+35%", label: "Crescimento de faturamento" },
-  { value: "-20%", label: "CAC/ROAS otimizado" },
-  { value: "+100%", label: "Visibilidade em tempo real" },
+  { value: "-30%", label: "menos tempo conciliando dados" },
+  { value: "+35%", label: "mais receita com operação ajustada" },
+  { value: "-20%", label: "menos desperdício em mídia e funil" },
+  { value: "+100%", label: "mais visibilidade do que importa" },
 ];
 
 const pillars = [
   {
     period: "Semana 1-2",
-    title: "Estratégia",
+    title: "Diagnóstico executivo",
     bullets: [
-      "Diagnóstico 360° do P&L digital e processos.",
-      "Plano de 90 dias com metas por KPI.",
-      "Blueprint de automação e arquitetura.",
+      "Levantamento do stack, processos e gargalos que mais travam crescimento.",
+      "Definição do problema prioritário e da meta que precisa mexer primeiro.",
+      "Plano de 90 dias com escopo, risco, prazo e indicador de sucesso.",
     ],
-    output: "Output: board deck + roadmap priorizado por impacto.",
+    output: "Output: diagnóstico + roadmap priorizado por impacto.",
   },
   {
-    period: "Semanas 3-7",
-    title: "Execução",
+    period: "Semanas 3-6",
+    title: "Implementação crítica",
     bullets: [
-      "Integrações entre plataformas, ERP e CRM.",
-      "Landing pages, funis multicanais e automações.",
-      "Dashboards de estoque, margem e cohorts.",
+      "Integrações entre plataformas, ERP, CRM e ferramentas comerciais.",
+      "Automações, páginas e fluxos que eliminam gargalos operacionais ou de conversão.",
+      "Dashboards com visão de receita, margem, estoque e produtividade.",
     ],
-    output: "Output: stack integrado, funis live e dados confiáveis.",
+    output: "Output: operação menos manual, stack conectado e dado confiável.",
   },
   {
     period: "Semana 8+",
-    title: "Análise contínua",
+    title: "Estabilização e escala",
     bullets: [
-      "Monitoramento de KPIs e testes semanais.",
-      "Suporte executivo e governança.",
-      "Playbooks e documentação proprietária.",
+      "Acompanhamento dos KPIs críticos e ajustes com base em dado real.",
+      "Governança com decisores para manter prioridade, ritmo e accountability.",
+      "Documentação, playbooks e próximos passos para o time interno.",
     ],
-    output: "Output: retainer de otimização (R$5k/mês em média).",
+    output: "Output: operação estável e retainer opcional de otimização.",
   },
 ];
 
@@ -124,38 +124,40 @@ const pillars = [
 // título → impacto em uma linha → instrução para evoluir a prova.
 const cases = [
   {
-    title: "Clínica digital",
-    description: "Automação de funil reduziu 40% do tempo da equipe comercial.",
-    footnote: "Placeholder — substitua pelos seus números reais.",
-  },
-  {
-    title: "E-commerce de beleza",
-    description: "Integrações e CRM elevaram o faturamento em 35% em 90 dias.",
-    footnote: "Atualize com dados auditados para reforçar credibilidade.",
-  },
-  {
-    title: "Infoprodutor 7 dígitos",
+    title: "Operação comercial travada",
     description:
-      "Dashboard unificado reduziu CAC em 20% com otimizações semanais.",
-    footnote: "Transforme em storytelling com gráfico antes/depois.",
+      "Integração entre CRM, canais de aquisição e atendimento para reduzir perda de leads e retrabalho.",
+    footnote: "Projeto típico para empresas vendendo bem, mas operando no improviso.",
+  },
+  {
+    title: "E-commerce crescendo sem controle",
+    description:
+      "Dashboards, ERP e automações para dar visibilidade de margem, estoque e performance em tempo real.",
+    footnote: "Escopo comum quando a empresa cresceu mais rápido que a operação.",
+  },
+  {
+    title: "Backlog crítico sem dono",
+    description:
+      "Squad enxuto para tirar do papel integrações, MVPs e melhorias que o time interno nunca consegue priorizar.",
+    footnote: "Use cases reais aqui assim que você tiver números auditados.",
   },
 ];
 
 const stakeholders = [
   {
-    title: "Economic buyer",
-    role: "CEO / Diretor de E-commerce",
-    description: "Responsável pelo P&L digital e pela assinatura do projeto.",
+    title: "Decisor",
+    role: "CEO, fundador ou diretor de e-commerce",
+    description: "Quer resultado rápido sem contratar um time interno inteiro.",
   },
   {
-    title: "Champion",
-    role: "Gerente de operações digital",
-    description: "Sente as dores de integrações e dados no dia a dia.",
+    title: "Líder operacional",
+    role: "Gerente de operações, growth ou comercial",
+    description: "Sente o caos das integrações, do retrabalho e da falta de visibilidade.",
   },
   {
-    title: "Influenciadores",
-    role: "Heads de marketing, logística e CX",
-    description: "Precisam de visibilidade de KPIs para operar com confiança.",
+    title: "Áreas impactadas",
+    role: "Marketing, logística, atendimento e financeiro",
+    description: "Precisam de processo, dados e automação para operar com confiança.",
   },
 ];
 
@@ -192,42 +194,42 @@ const faqItems = [
     question:
       "Quais metas de faturamento/margem precisam bater nos próximos 90 dias?",
     answer:
-      "Entenda se a meta é incremental ou transformacional, quais KPIs suportam o objetivo e qual o impacto financeiro do atraso.",
+      "Essa resposta mostra se existe urgência real, orçamento e clareza sobre o tamanho do problema.",
   },
   {
     question:
       "Quais sistemas não conversam e quanto tempo o time perde conciliando dados?",
     answer:
-      "Quantifique horas perdidas, stacks envolvidos e riscos (rupturas, CAC inflado, falta de estoque).",
+      "Aqui aparece o custo invisível: retrabalho, erro operacional, atraso comercial e decisão no escuro.",
   },
   {
     question: "Que automações ou produtos já tentaram e por que não escalaram?",
     answer:
-      "Mapeie aprendizados, fornecedores anteriores e expectativas de velocidade.",
+      "Você descobre o que já falhou, o que foi mal especificado e onde o projeto precisa entrar diferente.",
   },
   {
     question: "Qual KPI precisa mexer primeiro (ROAS, estoque, LTV, NPS)?",
     answer:
-      "Define prioridades do sprint e cria sentido de foco para as entregas das semanas 3-7.",
+      "Isso evita proposta genérica e obriga o projeto a nascer com prioridade de negócio clara.",
   },
   {
     question:
       "Quem decide sobre investimentos deste porte e qual o processo de aprovação?",
     answer:
-      "Identifique patrocinadores, prazos de procurement e a necessidade de envolver conselho.",
+      "Sem patrocinador real, o projeto vira conversa longa e morre antes da decisão.",
   },
   {
     question: "O que acontece se nada mudar nos próximos três meses?",
     answer:
-      "Traga urgência mensurando perdas, riscos e impactos em margem ou valuation.",
+      "A resposta explicita custo de inação e separa curiosidade de problema prioritário.",
   },
 ];
 
 const verdictCopy = {
-  perfect: "Projeto prioritário — avançar imediatamente",
-  good: "Ótimo fit — marque o diagnóstico",
-  medium: "Há valor, mas refine expectativas",
-  low: "Talvez não seja o momento certo",
+  perfect: "Fit alto para projeto imediato",
+  good: "Bom potencial para diagnóstico",
+  medium: "Há demanda, mas falta urgência ou escopo",
+  low: "Ainda não parece prioridade",
 };
 
 const MAX_SCORE = 20;
@@ -371,17 +373,17 @@ export default function Home() {
             <div className="space-y-8">
               <span className="floating-pill primary">
                 <span className="pulse-dot" />
-                Ideal para negócios que já faturam alto
+                Para empresas que já vendem e travaram na operação
               </span>
               <div className="space-y-5">
                 <p className="text-xs uppercase tracking-[0.4em] text-brand-200">
-                  Consultoria híbrida
+                  Consultoria de TI com foco em crescimento
                 </p>
                 <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
-                  Cresça 2x com estratégia, tecnologia e execução no mesmo squad
+                  Sua operação não precisa crescer no improviso
                 </h1>
                 <p className="text-lg text-slate-300">
-                  Unimos os pilares de Revenue Architecture ao modelo híbrido de consultoria + desenvolvimento. Diagnóstico, execução e otimização acontecem em um só fluxo, reduzindo o tempo entre o plano e os resultados.
+                  Assumimos o projeto do diagnóstico à implementação para corrigir integrações, automações, dashboards e gargalos técnicos que hoje freiam receita, margem e produtividade.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
@@ -389,7 +391,7 @@ export default function Home() {
                   href="#cta"
                   className="inline-flex items-center justify-center rounded-full bg-brand-500 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-brand-500/50 transition hover:bg-brand-600"
                 >
-                  Agendar diagnóstico gratuito
+                  Pedir diagnóstico
                 </a>
                 <a
                   href="https://calendar.app.google/KSjQQGr8uZmsFTwW6"
@@ -397,7 +399,7 @@ export default function Home() {
                   rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-8 py-3 text-base font-semibold text-white transition hover:border-white/60 hover:bg-white/10"
                 >
-                  Ver agenda
+                  Ver agenda de 30 min
                   <CalendarIcon className="h-5 w-5" />
                 </a>
               </div>
@@ -414,10 +416,10 @@ export default function Home() {
             </div>
             <div className="rounded-[36px] border border-white/10 bg-gradient-to-br from-white/15 via-transparent to-slate-900/40 p-8 shadow-2xl shadow-brand-900/40">
               <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-200">
-                Arquitetura em camadas
+                Como o projeto funciona
               </p>
               <h3 className="mt-3 text-2xl font-semibold text-white">
-                Blueprint que guia todo o projeto
+                Um plano enxuto para tirar a operação do gargalo
               </h3>
               <ul className="mt-6 space-y-4 text-base text-slate-200">
                 {blueprintSteps.map((step, index) => (
@@ -432,7 +434,7 @@ export default function Home() {
                   Mensagem central
                 </p>
                 <p className="mt-2 text-lg font-semibold text-white">
-                  “Entregamos impacto recorrente para gerar receita recorrente. Cada sprint conecta estratégia, código e governança.”
+                  "Você não precisa de mais fornecedor. Precisa de um time que entenda o problema, implemente a solução e responda pelo resultado."
                 </p>
               </div>
             </div>
@@ -442,15 +444,15 @@ export default function Home() {
 
           <section id="modelo" className="space-y-10 rounded-[36px] border border-white/10 bg-white/5 p-8 sm:p-12">
             <SectionHeading
-              eyebrow="Arquitetura de Receita"
-              title="Como transformamos growth em engenharia repetível"
-              description="Aplicamos os princípios do Revenue Architecture para desenhar, construir e operar uma Fábrica de Receita focada em eficiência e lucratividade."
+              eyebrow="Método"
+              title="Tecnologia aplicada ao que trava o crescimento"
+              description="A lógica é simples: primeiro identificamos o gargalo principal, depois implementamos o que resolve e por fim deixamos a operação rodando com visibilidade."
               align="left"
             />
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
               <div className="space-y-5">
                 <p className="text-slate-300">
-                  Saímos da lógica departamental e usamos movimentos integrados de GTM. Marketing, vendas, produto e sucesso trabalham com a mesma matriz de dados (Bowtie), linguagem SPICED e metas financeiras.
+                  Esse modelo evita o erro clássico de contratar estratégia sem execução ou desenvolvimento sem direção. O projeto nasce ligado ao P&L, ao stack atual e à urgência real do negócio.
                 </p>
                 <ul className="space-y-3 text-sm text-slate-300">
                   {revenuePrinciples.map((principle) => (
@@ -476,9 +478,9 @@ export default function Home() {
 
           <section className="rounded-[36px] border border-white/10 bg-white/5 p-8">
             <SectionHeading
-              eyebrow="Por que ganhamos"
-              title="Design de serviço completo, do diagnóstico ao retainer"
-              description="Reunimos estratégia, tecnologia e automação com ownership total do roadmap."
+              eyebrow="Por que funciona"
+              title="Uma oferta pensada para empresas que não podem errar a prioridade"
+              description="Você fala com um time que entende negócio, tecnologia e operação no mesmo nível de responsabilidade."
             />
             <div className="mt-10 grid gap-6 lg:grid-cols-3">
               {differentiators.map((item) => (
@@ -503,10 +505,10 @@ export default function Home() {
           <section className="grid gap-6 md:grid-cols-2">
             <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-brand-500/30 to-slate-900 p-8 shadow-lg shadow-brand-900/40">
               <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/70">
-                Dores urgentes
+                Quando a consultoria faz sentido
               </p>
               <h2 className="mt-4 text-3xl font-semibold text-white">
-                Fomos desenhados para apagar incêndios crônicos
+                Entramos quando o negócio cresceu, mas a operação não acompanhou
               </h2>
               <ul className="mt-6 space-y-4 text-base text-slate-100">
                 {urgentPains.map((pain) => (
@@ -518,7 +520,7 @@ export default function Home() {
             </div>
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
               <p className="text-sm font-semibold uppercase tracking-[0.4em] text-brand-300">
-                KPIs que movemos
+                Impactos que buscamos
               </p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {kpis.map((kpi) => (
@@ -531,16 +533,16 @@ export default function Home() {
                 ))}
               </div>
               <p className="mt-6 text-sm text-slate-400">
-                *Resultados ilustrativos baseados na metodologia aplicada em projetos similares.
+                *Exemplos de impacto para orientar a conversa comercial. Troque por números reais assim que tiver cases auditados.
               </p>
             </div>
           </section>
 
           <section id="pilares">
             <SectionHeading
-              eyebrow="Oferta premium"
-              title="Um mesmo time para estratégia, execução e otimização"
-              description="Nosso modelo híbrido evita repasses, elimina a queda de informação e garante time-to-value agressivo."
+              eyebrow="Oferta"
+              title="O que você compra no projeto inicial"
+              description="Um sprint com começo, meio e fim para destravar o problema mais caro da operação."
             />
             <div className="mt-12 grid gap-8 lg:grid-cols-3">
               {pillars.map((pillar) => (
@@ -566,14 +568,17 @@ export default function Home() {
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.4em] text-brand-300">
-                  Prova social
+                  Tipos de projeto
                 </p>
                 <h2 className="mt-2 text-3xl font-semibold text-white">
-                  Cases prontos para apresentar ao board
+                  Escopos que mais aparecem nas conversas com clientes
                 </h2>
               </div>
-              <button className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10">
-                Baixar deck resumido
+              <a
+                href="mailto:oi@mosaicharborventures.com?subject=Quero%20receber%20um%20escopo%20exemplo"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10"
+              >
+                Receber escopo exemplo
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
@@ -588,7 +593,7 @@ export default function Home() {
                     d="M4 12h16m0 0-4 4m4-4-4-4"
                   />
                 </svg>
-              </button>
+              </a>
             </div>
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               {cases.map((item) => (
@@ -608,8 +613,8 @@ export default function Home() {
               <div>
                 <SectionHeading
                   eyebrow="Diagnóstico rápido"
-                  title="5 sinais de prontidão para um sprint híbrido"
-                  description="Marque os critérios e descubra onde concentrar o investimento de 60 dias."
+                  title="5 sinais de que o projeto precisa começar agora"
+                  description="Marque os critérios e veja se já existe contexto para um sprint de TI orientado a resultado."
                   align="left"
                 />
                 <ul className="mt-6 space-y-4 text-sm text-slate-200">
@@ -643,7 +648,7 @@ export default function Home() {
                       {verdict}
                     </p>
                     <p className="text-sm text-slate-400">
-                      Pontuações acima de 16 indicam prontidão para iniciar o sprint.
+                      Acima de 16 pontos, o cenário já justifica um diagnóstico executivo.
                     </p>
                   </div>
                 </div>
@@ -673,29 +678,29 @@ export default function Home() {
           <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
               <p className="text-sm font-semibold uppercase tracking-[0.4em] text-brand-300">
-                Como trabalhamos
+                Processo comercial
               </p>
               <h2 className="mt-3 text-3xl font-semibold text-white">
-                Próximos passos internos
+                O que acontece depois do primeiro contato
               </h2>
               <ol className="mt-6 space-y-4 text-slate-200">
                 <li className="feature-item">
-                  Selecionamos e priorizamos 30 contas-alvo e usamos nosso scorecard para entender urgência, orçamento e patrocinadores.
+                  Entendemos a meta, o gargalo principal e o custo de não resolver isso agora.
                 </li>
                 <li className="feature-item">
-                  Condensamos a oferta em um one-pager de três pilares com narrativa executiva e next steps claros para o time de vendas.
+                  Mapeamos stack, processos, dependências e o nível de urgência do projeto.
                 </li>
                 <li className="feature-item">
-                  Conduzimos um workshop/diagnóstico de 45 minutos com os decisores para alinhar KPIs, metas e backlog técnico.
+                  Voltamos com um escopo enxuto, cronograma, investimento e critério de sucesso.
                 </li>
                 <li className="feature-item">
-                  Mensuramos o antes/depois em faturamento, margem e produtividade para transformar entregas em storytelling e provas sociais.
+                  Se fizer sentido, começamos pelo problema que mais destrava resultado nos próximos 60 dias.
                 </li>
               </ol>
             </div>
             <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-brand-500/20 to-slate-900 p-8">
               <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/70">
-                Stakeholders alinhados
+                Com quem normalmente falamos
               </p>
               <div className="mt-4 space-y-4">
                 {stakeholders.map((stakeholder) => (
@@ -717,9 +722,9 @@ export default function Home() {
 
           <section id="faq" className="rounded-[36px] border border-white/10 bg-white/5 p-8">
             <SectionHeading
-              eyebrow="FAQ diagnóstico"
-              title="Perguntas que destravam a conversa certa"
-              description="Use-as durante o workshop gratuito para mapear urgência, orçamento e processo decisório."
+              eyebrow="FAQ"
+              title="Perguntas que qualificam o projeto de verdade"
+              description="Elas ajudam a separar curiosidade de prioridade e deixam a proposta mais forte."
             />
             <div className="mt-10 space-y-4" id="faq-accordion">
               {faqItems.map((item, index) => {
@@ -746,20 +751,20 @@ export default function Home() {
             <div className="cta-card text-center text-white">
               <div className="cta-ring" aria-hidden="true" />
               <p className="text-sm font-semibold uppercase tracking-[0.5em] text-white/70">
-                Workshop gratuito
+                Diagnóstico inicial
               </p>
               <h2 className="mt-4 text-4xl font-semibold">
-                30 minutos para mapear seu roadmap de crescimento
+                30 minutos para entender onde sua operação está vazando dinheiro
               </h2>
               <p className="mt-4 text-lg text-white/90">
-                Receba um diagnóstico inicial, plano de 90 dias e estimativa de investimento. Sem compromisso.
+                Se houver fit, você sai com direção, prioridade e um próximo passo claro. Se não houver, eu te digo isso sem enrolação.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a
                   href="mailto:oi@mosaicharborventures.com"
                   className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-base font-semibold text-brand-700 shadow-lg shadow-brand-900/40 transition hover:-translate-y-0.5 hover:bg-slate-50 sm:w-auto"
                 >
-                  Quero meu diagnóstico
+                  Quero conversar
                 </a>
                 <button
                   type="button"
@@ -785,7 +790,7 @@ export default function Home() {
                 oi@mosaicharborventures.com
               </a>
               <a href="#modelo" className="hover:text-white">
-                Modelo
+                Método
               </a>
             </div>
           </div>
