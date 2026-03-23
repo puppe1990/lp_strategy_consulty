@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Forward Deployed Engineers para problemas reais de software",
+  title: "Forward Deployed Engineers para operações enterprise e legado",
   description:
-    "Forward Deployed Engineers atuando perto do cliente para resolver dados bagunçados, sistemas legados, integrações complexas e operações críticas com software útil.",
+    "Forward Deployed Engineers atuando perto do cliente para resolver gargalos em operações enterprise, dados quebrados, integrações complexas e sistemas legados com software útil.",
   metadataBase: new URL("https://mosaicharborventures.com"),
   alternates: {
     canonical: "/",

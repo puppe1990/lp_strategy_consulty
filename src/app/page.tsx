@@ -13,15 +13,21 @@ const navLinks = [
 ];
 
 const heroStats = [
-  { label: "Modelo", value: "Forward Deployed" },
-  { label: "Time-to-value", value: "dias ou semanas" },
-  { label: "Atuação", value: "lado a lado do cliente" },
+  { label: "Modelo", value: "Forward deployed" },
+  { label: "Resposta", value: "dias, não trimestres" },
+  { label: "Modo", value: "cliente + código" },
 ];
 
 const buyerOutcomes = [
-  "Menos atraso para colocar solução crítica em produção.",
-  "Menos retrabalho entre operação, produto e engenharia.",
-  "Mais clareza para decidir com dado utilizável, não com planilha remendada.",
+  "Menos atraso para colocar operação crítica em produção.",
+  "Menos retrabalho entre times de operações, dados e engenharia.",
+  "Mais clareza para decidir com dado confiável em vez de reconciliação manual.",
+];
+
+const heroSignals = [
+  "ERP, planilhas e APIs que não conversam",
+  "Fluxo operacional dependente de reconciliação manual",
+  "Stack legado impedindo resposta rápida ao negócio",
 ];
 
 const blueprintSteps = [
@@ -52,9 +58,9 @@ const differentiators = [
 ];
 
 const revenuePrinciples = [
-  "Forward Deployed Engineers trabalham perto do usuário final, não escondidos atrás de tickets.",
-  "A solução nasce dentro do ambiente do cliente, com sistemas reais, dados caóticos e restrições reais.",
-  "O ciclo é curto: entender, construir, mostrar, ajustar e colocar para rodar.",
+  "O engenheiro trabalha perto do usuário final, não escondido atrás de tickets.",
+  "A solução nasce no ambiente real do cliente, com sistemas, dados e restrições de verdade.",
+  "A lógica é curta: entender, construir, testar com o time e colocar para rodar.",
 ];
 
 const factoryMoves = [
@@ -79,11 +85,11 @@ const factoryMoves = [
 ];
 
 const urgentPains = [
-  "O problema existe, mas ninguém consegue defini-lo direito o suficiente para tirar do papel.",
-  "Os dados estão espalhados entre planilhas, APIs, ERPs e sistemas legados que não conversam.",
-  "A equipe interna está ocupada demais para entrar fundo no caos operacional do cliente.",
-  "Existe urgência real, mas o produto padrão não cobre a complexidade do contexto.",
-  "O cliente precisa de software útil agora, não de um roadmap genérico de seis meses.",
+  "O problema existe, mas o caso enterprise é cheio de exceção, dependência e dono parcial.",
+  "Os dados estão espalhados entre ERP, BI, planilhas, APIs internas e sistemas legados que não conversam.",
+  "A equipe interna está ocupada mantendo operação e não consegue atacar o gargalo até o fim.",
+  "Existe urgência de negócio, mas o produto padrão não cobre compliance, processo e legado ao mesmo tempo.",
+  "A operação precisa de software útil agora, não de mais um roadmap genérico de transformação.",
 ];
 
 const kpis = [
@@ -130,40 +136,40 @@ const pillars = [
 // título → impacto em uma linha → instrução para evoluir a prova.
 const cases = [
   {
-    title: "Dados espalhados em cinco sistemas",
+    title: "Operação presa entre ERP, planilhas e APIs internas",
     description:
-      "Problema: o time perde horas conciliando planilhas, ERP e APIs. Intervenção: pipeline e dashboard no ambiente real. Resultado esperado: decisão operacional no mesmo dia, sem esperar replatform completo.",
-    footnote: "Troque por horas economizadas e tempo de resposta assim que tiver caso auditado.",
+      "Problema: o time perde horas conciliando informação entre sistemas que não batem. Intervenção: pipeline operacional e camada de visibilidade no ambiente real. Resultado esperado: decisão no mesmo dia sem depender de reconciliação manual.",
+    footnote: "Troque por horas economizadas, backlog reduzido ou tempo de fechamento quando tiver caso auditado.",
   },
   {
-    title: "Fraude, risco ou operação em tempo real",
+    title: "Risco, SLA ou exceção operacional chegando tarde demais",
     description:
-      "Problema: a equipe vê o evento tarde demais para agir. Intervenção: fluxo de decisão com dados reais, regras e alertas úteis. Resultado esperado: resposta mais rápida e menos erro operacional.",
+      "Problema: a equipe só enxerga o desvio quando o impacto já aconteceu. Intervenção: fluxo de decisão com regras, alertas e contexto operacional. Resultado esperado: resposta mais rápida e menos erro em cadeia.",
     footnote: "Troque por SLA, perdas evitadas ou redução de incidentes quando tiver números reais.",
   },
   {
-    title: "Produto padrão não resolve o caso do cliente",
+    title: "Capacidade crítica fora do produto padrão",
     description:
-      "Problema: o cliente precisa de uma capacidade que o produto ainda não entrega. Intervenção: software customizado conectado ao contexto real. Resultado esperado: validar utilidade rápido antes de promover a solução para feature ou operação recorrente.",
-    footnote: "Troque por ativação, adoção ou impacto financeiro assim que tiver prova auditada.",
+      "Problema: o contexto enterprise exige uma capacidade que o stack atual não entrega. Intervenção: software customizado conectado ao processo real. Resultado esperado: validar utilidade rápido antes de institucionalizar a solução.",
+    footnote: "Troque por adoção, tempo de resposta ou impacto financeiro assim que tiver prova auditada.",
   },
 ];
 
 const stakeholders = [
   {
     title: "Decisor",
-    role: "CEO, CTO, COO ou líder de unidade",
-    description: "Tem um problema crítico demais para esperar roadmap tradicional.",
+    role: "COO, CTO, diretor de operações ou líder de transformação",
+    description: "Tem um gargalo crítico demais para esperar o ritmo normal do roadmap.",
   },
   {
     title: "Usuário operacional",
-    role: "Gerente de operações, dados, risco ou produto",
-    description: "Conhece a dor real e valida rapidamente o que é útil e o que é teatro.",
+    role: "Gerente de operações, dados, risco, supply ou backoffice",
+    description: "Conhece a exceção real, o retrabalho e o que precisa funcionar de verdade.",
   },
   {
     title: "Áreas impactadas",
-    role: "Engenharia, produto, operações e negócio",
-    description: "Precisam de um mesmo idioma para transformar caos em software funcional.",
+    role: "Operações, dados, engenharia, financeiro e negócio",
+    description: "Precisam de uma mesma camada de verdade para operar sem ruído entre áreas.",
   },
 ];
 
@@ -175,12 +181,12 @@ const scorecardItems = [
   },
   {
     title: "Contexto caótico ou legado",
-    description: "Dados bagunçados, integrações frágeis ou sistemas que não conversam.",
+    description: "Dados bagunçados, integrações frágeis, ERP rígido ou sistema legado sem dono claro.",
     weight: 4,
   },
   {
     title: "Cliente precisa de proximidade",
-    description: "O time quer engenheiro falando direto com usuário e stakeholders.",
+    description: "O caso exige engenheiro falando direto com operação, dados e decisores.",
     weight: 3,
   },
   {
@@ -206,7 +212,7 @@ const faqItems = [
     question:
       "Quais sistemas, dados ou restrições tornam esse problema difícil no mundo real?",
     answer:
-      "É aqui que aparece o motivo pelo qual uma solução genérica ainda não resolveu o caso.",
+      "É aqui que aparecem legado, compliance, ERP rígido, planilha paralela e exceções que o produto padrão não cobre.",
   },
   {
     question: "O que já foi tentado e por que ainda não funciona no ambiente do cliente?",
@@ -216,7 +222,7 @@ const faqItems = [
   {
     question: "Qual decisão precisa melhorar assim que a solução entrar no ar?",
     answer:
-      "FDE bom não entrega dashboard bonito; entrega capacidade de agir melhor e mais rápido.",
+      "FDE bom não entrega só visibilidade; entrega capacidade de responder melhor e mais rápido na operação.",
   },
   {
     question:
@@ -375,24 +381,32 @@ export default function Home() {
         </header>
 
         <main className="mx-auto max-w-6xl space-y-24 px-6 pb-24 pt-12">
-          <section className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <section className="hero-stage grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
             <div className="space-y-8">
-              <span className="floating-pill primary">
-                <span className="pulse-dot" />
-                Engenharia embarcada no problema real do cliente
-              </span>
+              <div className="hero-kicker">
+                <span className="hero-kicker__line" />
+                <span className="hero-kicker__label">Mosaic Harbor Ventures</span>
+                <span className="hero-kicker__line" />
+              </div>
               <div className="space-y-5">
-                <p className="text-xs uppercase tracking-[0.4em] text-brand-200">
+                <p className="text-xs uppercase tracking-[0.55em] text-brand-100/80">
                   Forward Deployed Engineers
                 </p>
-                <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
-                  Software útil para problemas que o produto padrão não resolve
+                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.96] text-white sm:text-6xl xl:text-7xl">
+                  Para operações enterprise travadas por dados ruins e sistemas legados
                 </h1>
-                <p className="text-lg text-slate-300">
-                  Atuamos lado a lado com o cliente para reduzir atraso, retrabalho e cegueira operacional em casos onde dados bagunçados, sistemas legados e restrições reais impedem a equipe de reagir na velocidade que o negócio exige.
+                <p className="max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
+                  Entramos ao lado de times de operações, dados e tecnologia para resolver gargalos críticos com software útil em dias ou semanas. Menos repasse, menos reconciliação manual, mais resposta real no ambiente enterprise.
                 </p>
               </div>
-              <ul className="grid gap-3 text-sm text-slate-200 sm:grid-cols-3">
+              <div className="flex flex-wrap gap-3 text-sm text-slate-200">
+                {heroSignals.map((signal) => (
+                  <span key={signal} className="rounded-full border border-white/12 bg-white/5 px-4 py-2">
+                    {signal}
+                  </span>
+                ))}
+              </div>
+              <ul className="grid max-w-4xl gap-3 text-sm text-slate-200 sm:grid-cols-3">
                 {buyerOutcomes.map((outcome) => (
                   <li className="feature-item" key={outcome}>
                     {outcome}
@@ -402,23 +416,23 @@ export default function Home() {
               <div className="flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#cta"
-                  className="inline-flex items-center justify-center rounded-full bg-brand-500 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-brand-500/50 transition hover:bg-brand-600"
+                  className="inline-flex items-center justify-center rounded-full bg-brand-500 px-8 py-3 text-base font-semibold text-slate-950 shadow-lg shadow-brand-500/40 transition hover:-translate-y-0.5 hover:bg-brand-300"
                 >
-                  Pedir análise de caso
+                  Pedir triagem do caso
                 </a>
                 <a
                   href="https://calendar.app.google/KSjQQGr8uZmsFTwW6"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-8 py-3 text-base font-semibold text-white transition hover:border-white/60 hover:bg-white/10"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-8 py-3 text-base font-semibold text-white transition hover:border-brand-200/50 hover:bg-white/10"
                 >
-                  Ver agenda de análise
+                  Ver agenda de 30 min
                   <CalendarIcon className="h-5 w-5" />
                 </a>
               </div>
               <div className="grid gap-4 sm:grid-cols-3">
                 {heroStats.map((stat) => (
-                  <div key={stat.label} className="stat-card">
+                  <div key={stat.label} className="stat-card hero-stat">
                     <p className="text-xs uppercase tracking-[0.4em] text-slate-400">
                       {stat.label}
                     </p>
@@ -427,26 +441,29 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="rounded-[36px] border border-white/10 bg-gradient-to-br from-white/15 via-transparent to-slate-900/40 p-8 shadow-2xl shadow-brand-900/40">
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-200">
-                Como o projeto funciona
-              </p>
-              <h3 className="mt-3 text-2xl font-semibold text-white">
-                Forward deployed quer dizer ir até onde o caos está
+            <div className="signal-stage">
+              <div className="signal-grid" aria-hidden="true" />
+              <div className="signal-rings" aria-hidden="true" />
+              <p className="signal-eyebrow">Field Brief</p>
+              <div className="signal-monogram" aria-hidden="true">
+                FDE
+              </div>
+              <h3 className="relative mt-8 max-w-sm text-3xl font-semibold text-white sm:text-4xl">
+                Um engenheiro dentro da operação enterprise, não um fornecedor fora dela
               </h3>
-              <ul className="mt-6 space-y-4 text-base text-slate-200">
+              <ul className="relative mt-8 space-y-5 text-base text-slate-200">
                 {blueprintSteps.map((step, index) => (
-                  <li className="flex items-start gap-3" key={step}>
+                  <li className="signal-step" key={step}>
                     <span className="badge">{index + 1}</span>
-                    {step}
+                    <span>{step}</span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 rounded-2xl border border-white/10 bg-slate-950/80 p-6">
-                <p className="text-sm uppercase tracking-[0.4em] text-slate-400">
+              <div className="signal-quote">
+                <p className="text-sm uppercase tracking-[0.4em] text-brand-100/65">
                   Mensagem central
                 </p>
-                <p className="mt-2 text-lg font-semibold text-white">
+                <p className="mt-3 text-lg font-semibold leading-relaxed text-white">
                   &quot;FDE não espera o cliente se adaptar ao produto. O engenheiro se adapta ao problema, constrói a solução e mede o impacto no campo.&quot;
                 </p>
               </div>
@@ -458,14 +475,14 @@ export default function Home() {
           <section id="modelo" className="space-y-10 rounded-[36px] border border-white/10 bg-white/5 p-8 sm:p-12">
             <SectionHeading
               eyebrow="FDE"
-              title="O papel que fica entre engenharia, produto e cliente"
-              description="Forward Deployed Engineers não constroem software isolado. Eles trabalham perto do usuário real para resolver problemas específicos com velocidade e contexto."
+              title="Por que esse modelo funciona em operações complexas"
+              description="Ele reduz a distância entre exceção operacional, dado quebrado e implementação real."
               align="left"
             />
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
               <div className="space-y-5">
                 <p className="text-slate-300">
-                  É um modelo para cenários em que o mundo real é bagunçado demais para esperar backlog comum, especificação perfeita ou solução genérica de prateleira.
+                  Se o caso trava porque tudo depende de legado, exceção, regra operacional e urgência, FDE tende a funcionar melhor do que discovery longo com repasse entre times.
                 </p>
                 <ul className="space-y-3 text-sm text-slate-300">
                   {revenuePrinciples.map((principle) => (
@@ -492,8 +509,8 @@ export default function Home() {
           <section className="rounded-[36px] border border-white/10 bg-white/5 p-8">
             <SectionHeading
               eyebrow="Por que funciona"
-              title="Por que empresas contratam Forward Deployed Engineers"
-              description="Porque certos problemas só se resolvem com um engenheiro dentro do contexto, falando com o usuário e entregando rápido."
+              title="O que muda quando o engenheiro entra no chão da operação"
+              description="A conversa sai da abstração e vira solução testável com dono, contexto e impacto operacional."
             />
             <div className="mt-10 grid gap-6 lg:grid-cols-3">
               {differentiators.map((item) => (
@@ -521,7 +538,7 @@ export default function Home() {
                 Quando a consultoria faz sentido
               </p>
               <h2 className="mt-4 text-3xl font-semibold text-white">
-                Entramos quando o problema é importante demais para ficar no limbo
+                Entramos quando o gargalo enterprise é importante demais para continuar no limbo
               </h2>
               <ul className="mt-6 space-y-4 text-base text-slate-100">
                 {urgentPains.map((pain) => (
@@ -584,10 +601,10 @@ export default function Home() {
                   Tipos de projeto
                 </p>
                 <h2 className="mt-2 text-3xl font-semibold text-white">
-                  Casos em que FDE costuma entregar mais valor
+                  Casos em que FDE entrega mais valor em enterprise
                 </h2>
                 <p className="mt-3 max-w-2xl text-slate-300">
-                  Aqui a prova ainda está em formato de tese operacional. A estrutura já está pronta para receber métricas auditadas de tempo, custo, resposta e adoção sem mudar a narrativa.
+                  O padrão é sempre o mesmo: um gargalo operacional caro, um contexto legado e uma pressão real para responder rápido.
                 </p>
               </div>
               <a
@@ -630,7 +647,7 @@ export default function Home() {
                 <SectionHeading
                   eyebrow="Diagnóstico rápido"
                   title="5 sinais de que você precisa de um FDE"
-                  description="Marque os critérios e veja se o caso pede engenharia embarcada em vez de desenvolvimento convencional."
+                  description="Marque os critérios e veja se o caso pede proximidade, velocidade e engenharia no contexto enterprise."
                   align="left"
                 />
                 <ul className="mt-6 space-y-4 text-sm text-slate-200">
@@ -701,16 +718,16 @@ export default function Home() {
               </h2>
               <ol className="mt-6 space-y-4 text-slate-200">
                 <li className="feature-item">
-                  Entendemos a dor, quem sofre com ela e por que ela continua aberta.
+                  Entendemos a dor, quem perde com ela e por que ela continua aberta na operação.
                 </li>
                 <li className="feature-item">
-                  Mapeamos stack, dados, restrições e o quanto o ambiente real vai brigar com a solução.
+                  Mapeamos stack, dados, restrições, legado e onde a solução costuma quebrar no mundo real.
                 </li>
                 <li className="feature-item">
-                  Voltamos com uma hipótese de solução, escopo inicial e critério concreto de valor.
+                  Voltamos com hipótese de solução, escopo inicial e o que precisa acontecer para justificar o investimento.
                 </li>
                 <li className="feature-item">
-                  Se fizer sentido, começamos pequeno, medimos rápido e expandimos o que funcionar.
+                  Se houver fit, começamos pequeno, validamos rápido e expandimos o que provar valor operacional.
                 </li>
               </ol>
             </div>
@@ -740,7 +757,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="FAQ"
               title="Perguntas que definem se o caso é forward deployed"
-              description="Elas ajudam a entender se o problema precisa de proximidade, velocidade e engenharia no campo."
+              description="Elas ajudam a entender se o problema precisa de proximidade, velocidade e engenharia dentro do contexto enterprise."
             />
             <div className="mt-10 space-y-4" id="faq-accordion">
               {faqItems.map((item, index) => {
@@ -773,7 +790,7 @@ export default function Home() {
                 30 minutos para decidir se isso é caso de Forward Deployed Engineers
               </h2>
               <p className="mt-4 text-lg text-white/90">
-                Traga um problema real. A conversa termina com três entregáveis: leitura inicial do caso, hipótese de abordagem e critério objetivo para decidir se faz sentido avançar.
+                Traga um gargalo real de operações, dados ou legado. A conversa termina com leitura inicial do caso, hipótese de abordagem e um critério objetivo para decidir se faz sentido avançar ou encerrar ali.
               </p>
               <p className="mt-3 text-sm text-white/75">
                 Se não houver fit para atuação forward deployed, a resposta é direta. Sem proposta forçada.
@@ -783,7 +800,7 @@ export default function Home() {
                   href="mailto:oi@mosaicharborventures.com"
                   className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-base font-semibold text-brand-700 shadow-lg shadow-brand-900/40 transition hover:-translate-y-0.5 hover:bg-slate-50 sm:w-auto"
                 >
-                  Quero minha análise inicial
+                  Quero a triagem inicial
                 </a>
                 <a
                   href="https://calendar.app.google/KSjQQGr8uZmsFTwW6"
@@ -817,25 +834,25 @@ export default function Home() {
           </div>
         </footer>
       </div>
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+      <div className="floating-actions">
         <a
           href="https://calendar.app.google/KSjQQGr8uZmsFTwW6"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-brand-500 px-4 py-2 text-sm font-semibold text-white shadow-xl shadow-brand-500/50 transition hover:-translate-y-0.5 hover:bg-brand-400"
+          className="floating-actions__primary"
         >
-          <span className="rounded-full bg-white/20 p-1.5">
+          <span className="rounded-full bg-black/15 p-1.5">
             <CalendarIcon className="h-4 w-4" />
           </span>
-          Ver agenda
+          Agenda
         </a>
         <a
           href="https://wa.me/5511995597242"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-white shadow-xl shadow-emerald-500/50 transition hover:-translate-y-0.5 hover:bg-emerald-400"
+          className="floating-actions__secondary"
         >
-          <span className="rounded-full bg-white/20 p-1.5">
+          <span className="rounded-full bg-white/12 p-1.5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"
@@ -845,7 +862,7 @@ export default function Home() {
               <path d="M12 2c-5.421 0-9.816 3.99-9.816 8.912 0 1.764.604 3.44 1.745 4.88L2 22l5.49-1.8c1.328.364 2.07.51 3.704.51 5.42 0 9.806-3.99 9.806-8.912C21.999 5.991 17.62 2 12 2Zm0 1.8c4.454 0 8.016 3.141 8.016 7.012 0 4.013-3.605 7.114-8.016 7.114-1.52 0-2.19-.182-3.468-.53l-.41-.112-3.18 1.042.84-2.743-.18-.224c-1.08-1.347-1.63-2.79-1.63-4.547 0-3.872 3.56-7.012 8.016-7.012Zm-3.38 4.25-.363.018c-.414.02-.855.218-1.017.745-.226.727-.474 2.228-.226 2.387.352.224.581.35.957.564.375.213.862.47 1.003.525.14.056.235.083.33-.083.095-.167.382-.557.482-.668.1-.111.2-.124.375-.07.176.056 1.118.49 1.31.58.193.09.327.134.375.212.05.079.05.45-.088.883-.139.433-.827.797-1.143.85-.315.055-.604.05-.969-.056-.365-.105-1.162-.36-1.654-.805-.493-.447-1.84-1.704-1.84-3.274 0-1.568.974-2.327 1.321-2.645.347-.318.764-.416.978-.416.215 0 .493.007.708.012.215.007.56-.09.874.334.315.423 1.105 1.663 1.205 1.788.1.125.166.276.026.498-.139.221-.207.36-.414.55-.206.19-.441.525-.63.594-.19.07-.284.062-.482-.07-.198-.132-.837-.394-1.363-.65-.526-.254-.478-.43-.367-.606.111-.175.321-.457.453-.602.132-.146.167-.219.25-.361.083-.142.042-.264.0-.37-.042-.106-.367-.91-.525-1.213-.158-.303-.329-.312-.485-.313Z" />
             </svg>
           </span>
-          Fale no WhatsApp
+          WhatsApp
         </a>
       </div>
     </div>
