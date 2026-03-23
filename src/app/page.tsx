@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navLinks = [
-  { label: "Método", href: "#modelo" },
+  { label: "FDE", href: "#modelo" },
   { label: "Oferta", href: "#pilares" },
   { label: "Projetos", href: "#cases" },
   { label: "Diagnóstico", href: "#scorecard" },
@@ -13,110 +13,116 @@ const navLinks = [
 ];
 
 const heroStats = [
-  { label: "Projeto inicial", value: "a partir de R$ 50k" },
-  { label: "Primeiros ganhos", value: "em até 60 dias" },
-  { label: "Perfil ideal", value: "R$ 300k+/mês" },
+  { label: "Modelo", value: "Forward Deployed" },
+  { label: "Time-to-value", value: "dias ou semanas" },
+  { label: "Atuação", value: "lado a lado do cliente" },
+];
+
+const buyerOutcomes = [
+  "Menos atraso para colocar solução crítica em produção.",
+  "Menos retrabalho entre operação, produto e engenharia.",
+  "Mais clareza para decidir com dado utilizável, não com planilha remendada.",
 ];
 
 const blueprintSteps = [
-  "Mapeamos gargalos técnicos, operacionais e comerciais que travam crescimento.",
-  "Implementamos integrações, automações e dashboards que resolvem o gargalo principal.",
-  "Estabilizamos a operação e deixamos uma rotina clara de acompanhamento e melhoria.",
+  "Entramos no contexto real do cliente para entender um problema ainda mal definido.",
+  "Construímos software útil no ambiente real: integrações, pipelines, APIs, dashboards e automações.",
+  "Iteramos com feedback direto até a solução sair do PowerPoint e virar operação.",
 ];
 
 const differentiators = [
   {
-    title: "Diagnóstico com direção",
+    title: "Problema real, não briefing bonito",
     description:
-      "Você não compra horas soltas. Compra um plano priorizado por impacto, risco e prazo.",
-    chips: ["Roadmap de 90 dias", "Metas por KPI"],
+      "FDE começa onde o caos está: dado ruim, sistema legado, processo quebrado e urgência de negócio.",
+    chips: ["Contexto real", "Ambiguidade resolvida"],
   },
   {
-    title: "Execução sem repasse",
+    title: "Engenharia na linha de frente",
     description:
-      "Estratégia, tecnologia e operação ficam no mesmo time para evitar ruído e atraso.",
-    chips: ["Squad único", "Implementação end-to-end"],
+      "O engenheiro fala com usuário, entende restrições e implementa sem depender de camadas de repasse.",
+    chips: ["Cliente no loop", "Execução end-to-end"],
   },
   {
-    title: "TI ligada ao negócio",
+    title: "Impacto antes de perfeição",
     description:
-      "Cada entrega precisa mexer em receita, margem, produtividade ou previsibilidade.",
-    chips: ["Ownership real", "Métrica de impacto"],
+      "O objetivo não é arquitetura perfeita. É resolver o problema agora e medir valor rápido.",
+    chips: ["Software útil", "Impacto imediato"],
   },
 ];
 
 const revenuePrinciples = [
-  "Tecnologia só entra na prioridade se resolver gargalo operacional ou comercial visível.",
-  "O projeto começa pelo ponto de maior atrito, não por backlog genérico ou redesign infinito.",
-  "Estratégia, implementação e leitura de dados acontecem no mesmo ciclo para reduzir time-to-value.",
+  "Forward Deployed Engineers trabalham perto do usuário final, não escondidos atrás de tickets.",
+  "A solução nasce dentro do ambiente do cliente, com sistemas reais, dados caóticos e restrições reais.",
+  "O ciclo é curto: entender, construir, mostrar, ajustar e colocar para rodar.",
 ];
 
 const factoryMoves = [
   {
-    title: "Diagnosticar",
+    title: "Entender o terreno",
     description:
-      "Entendemos onde a operação trava: integrações, CRM, funil, dados ou backlog crítico.",
-    detail: "Semana 1-2",
+      "Mapeamos dor, dado, sistema legado, gargalos e o que impede o cliente de operar melhor hoje.",
+    detail: "Imersão no problema",
   },
   {
-    title: "Implementar",
+    title: "Construir no campo",
     description:
-      "Atacamos o gargalo prioritário com entregas semanais, dono claro e escopo enxuto.",
-    detail: "Semanas 3-6",
+      "Criamos a solução mais direta para gerar valor: pipeline, API, dashboard, automação ou workflow crítico.",
+    detail: "Entrega rápida e útil",
   },
   {
-    title: "Operar",
+    title: "Iterar com feedback",
     description:
-      "Deixamos dashboards, rituais e próximos passos para a operação não voltar ao caos.",
-    detail: "Semana 7+",
+      "Ajustamos com usuário real até a solução funcionar no mundo bagunçado, não só no ambiente de teste.",
+    detail: "Valor medido na prática",
   },
 ];
 
 const urgentPains = [
-  "Integrações entre e-commerce, ERP, logística e CRM quebram semanalmente.",
-  "Leads, pedidos e dados se perdem porque o funil comercial não conversa com a operação.",
-  "O time decide no escuro por falta de dashboards confiáveis de margem, estoque e performance.",
-  "O backlog técnico fica parado porque ninguém assume a ponta entre estratégia e implementação.",
-  "A diretoria cobra impacto em receita, margem e produtividade nos próximos 90 dias.",
+  "O problema existe, mas ninguém consegue defini-lo direito o suficiente para tirar do papel.",
+  "Os dados estão espalhados entre planilhas, APIs, ERPs e sistemas legados que não conversam.",
+  "A equipe interna está ocupada demais para entrar fundo no caos operacional do cliente.",
+  "Existe urgência real, mas o produto padrão não cobre a complexidade do contexto.",
+  "O cliente precisa de software útil agora, não de um roadmap genérico de seis meses.",
 ];
 
 const kpis = [
-  { value: "-30%", label: "menos tempo conciliando dados" },
-  { value: "+35%", label: "mais receita com operação ajustada" },
-  { value: "-20%", label: "menos desperdício em mídia e funil" },
-  { value: "+100%", label: "mais visibilidade do que importa" },
+  { value: "dias", label: "para sair da análise para entrega" },
+  { value: "1 time", label: "falando com cliente e código" },
+  { value: "0 repasses", label: "entre problema e implementação" },
+  { value: "real", label: "feedback de usuário no ciclo" },
 ];
 
 const pillars = [
   {
-    period: "Semana 1-2",
-    title: "Diagnóstico executivo",
+    period: "Fase 1",
+    title: "Imersão no problema",
     bullets: [
-      "Levantamento do stack, processos e gargalos que mais travam crescimento.",
-      "Definição do problema prioritário e da meta que precisa mexer primeiro.",
-      "Plano de 90 dias com escopo, risco, prazo e indicador de sucesso.",
+      "Conversas com stakeholders e usuários para entender a dor sem abstração.",
+      "Leitura do stack, dos dados e das restrições reais de segurança, processo e legado.",
+      "Escolha do problema com maior impacto e menor caminho até valor.",
     ],
-    output: "Output: diagnóstico + roadmap priorizado por impacto.",
+    output: "Output: definição clara do problema e critério de sucesso.",
   },
   {
-    period: "Semanas 3-6",
-    title: "Implementação crítica",
+    period: "Fase 2",
+    title: "Construção forward deployed",
     bullets: [
-      "Integrações entre plataformas, ERP, CRM e ferramentas comerciais.",
-      "Automações, páginas e fluxos que eliminam gargalos operacionais ou de conversão.",
-      "Dashboards com visão de receita, margem, estoque e produtividade.",
+      "Pipelines, APIs, dashboards, automações e integrações no ambiente real do cliente.",
+      "Código orientado a utilidade imediata, não a uma abstração elegante demais para o momento.",
+      "Iterações curtas com demonstração frequente para ajustar rumo rápido.",
     ],
-    output: "Output: operação menos manual, stack conectado e dado confiável.",
+    output: "Output: solução funcional rodando onde o problema acontece.",
   },
   {
-    period: "Semana 8+",
-    title: "Estabilização e escala",
+    period: "Fase 3",
+    title: "Evolução para produto ou operação",
     bullets: [
-      "Acompanhamento dos KPIs críticos e ajustes com base em dado real.",
-      "Governança com decisores para manter prioridade, ritmo e accountability.",
-      "Documentação, playbooks e próximos passos para o time interno.",
+      "Refino da solução a partir de uso real e novos aprendizados do cliente.",
+      "Documentação do que precisa virar processo interno, feature ou produto.",
+      "Transferência do que fizer sentido para o time principal ou continuidade embarcada.",
     ],
-    output: "Output: operação estável e retainer opcional de otimização.",
+    output: "Output: valor entregue e caminho claro para escalar o que funcionou.",
   },
 ];
 
@@ -124,67 +130,67 @@ const pillars = [
 // título → impacto em uma linha → instrução para evoluir a prova.
 const cases = [
   {
-    title: "Operação comercial travada",
+    title: "Dados espalhados em cinco sistemas",
     description:
-      "Integração entre CRM, canais de aquisição e atendimento para reduzir perda de leads e retrabalho.",
-    footnote: "Projeto típico para empresas vendendo bem, mas operando no improviso.",
+      "Problema: o time perde horas conciliando planilhas, ERP e APIs. Intervenção: pipeline e dashboard no ambiente real. Resultado esperado: decisão operacional no mesmo dia, sem esperar replatform completo.",
+    footnote: "Troque por horas economizadas e tempo de resposta assim que tiver caso auditado.",
   },
   {
-    title: "E-commerce crescendo sem controle",
+    title: "Fraude, risco ou operação em tempo real",
     description:
-      "Dashboards, ERP e automações para dar visibilidade de margem, estoque e performance em tempo real.",
-    footnote: "Escopo comum quando a empresa cresceu mais rápido que a operação.",
+      "Problema: a equipe vê o evento tarde demais para agir. Intervenção: fluxo de decisão com dados reais, regras e alertas úteis. Resultado esperado: resposta mais rápida e menos erro operacional.",
+    footnote: "Troque por SLA, perdas evitadas ou redução de incidentes quando tiver números reais.",
   },
   {
-    title: "Backlog crítico sem dono",
+    title: "Produto padrão não resolve o caso do cliente",
     description:
-      "Squad enxuto para tirar do papel integrações, MVPs e melhorias que o time interno nunca consegue priorizar.",
-    footnote: "Use cases reais aqui assim que você tiver números auditados.",
+      "Problema: o cliente precisa de uma capacidade que o produto ainda não entrega. Intervenção: software customizado conectado ao contexto real. Resultado esperado: validar utilidade rápido antes de promover a solução para feature ou operação recorrente.",
+    footnote: "Troque por ativação, adoção ou impacto financeiro assim que tiver prova auditada.",
   },
 ];
 
 const stakeholders = [
   {
     title: "Decisor",
-    role: "CEO, fundador ou diretor de e-commerce",
-    description: "Quer resultado rápido sem contratar um time interno inteiro.",
+    role: "CEO, CTO, COO ou líder de unidade",
+    description: "Tem um problema crítico demais para esperar roadmap tradicional.",
   },
   {
-    title: "Líder operacional",
-    role: "Gerente de operações, growth ou comercial",
-    description: "Sente o caos das integrações, do retrabalho e da falta de visibilidade.",
+    title: "Usuário operacional",
+    role: "Gerente de operações, dados, risco ou produto",
+    description: "Conhece a dor real e valida rapidamente o que é útil e o que é teatro.",
   },
   {
     title: "Áreas impactadas",
-    role: "Marketing, logística, atendimento e financeiro",
-    description: "Precisam de processo, dados e automação para operar com confiança.",
+    role: "Engenharia, produto, operações e negócio",
+    description: "Precisam de um mesmo idioma para transformar caos em software funcional.",
   },
 ];
 
 const scorecardItems = [
   {
-    title: "Receita ≥ R$300k/mês",
-    description: "Faturamento digital médio dos últimos 3 meses.",
+    title: "Problema específico e urgente",
+    description: "Existe dor concreta e ela já está custando tempo, dinheiro ou operação.",
     weight: 5,
   },
   {
-    title: "2+ integrações quebrando",
-    description: "ERP, e-commerce ou CRM exigindo retrabalho semanal.",
+    title: "Contexto caótico ou legado",
+    description: "Dados bagunçados, integrações frágeis ou sistemas que não conversam.",
     weight: 4,
   },
   {
-    title: "Sem squad tech interno",
-    description: "Dependem de agência ou freelancers para integrações.",
+    title: "Cliente precisa de proximidade",
+    description: "O time quer engenheiro falando direto com usuário e stakeholders.",
     weight: 3,
   },
   {
-    title: "Urgência de ≤90 dias",
-    description: "Meta agressiva apoiada em orçamento aprovado.",
+    title: "Valor precisa aparecer rápido",
+    description: "Não há espaço para discovery longo sem entrega prática.",
     weight: 4,
   },
   {
-    title: "Envolvimento C-Level",
-    description: "Decisor participa da reunião de diagnóstico.",
+    title: "Existe caminho para escala",
+    description: "Se funcionar, a solução pode virar operação recorrente ou produto.",
     weight: 4,
   },
 ];
@@ -192,44 +198,44 @@ const scorecardItems = [
 const faqItems = [
   {
     question:
-      "Quais metas de faturamento/margem precisam bater nos próximos 90 dias?",
+      "Qual problema real continua aberto porque ninguém consegue modelar direito?",
     answer:
-      "Essa resposta mostra se existe urgência real, orçamento e clareza sobre o tamanho do problema.",
+      "Esse é o ponto de partida ideal para FDE: ambiguidade alta, urgência alta e necessidade de ação concreta.",
   },
   {
     question:
-      "Quais sistemas não conversam e quanto tempo o time perde conciliando dados?",
+      "Quais sistemas, dados ou restrições tornam esse problema difícil no mundo real?",
     answer:
-      "Aqui aparece o custo invisível: retrabalho, erro operacional, atraso comercial e decisão no escuro.",
+      "É aqui que aparece o motivo pelo qual uma solução genérica ainda não resolveu o caso.",
   },
   {
-    question: "Que automações ou produtos já tentaram e por que não escalaram?",
+    question: "O que já foi tentado e por que ainda não funciona no ambiente do cliente?",
     answer:
-      "Você descobre o que já falhou, o que foi mal especificado e onde o projeto precisa entrar diferente.",
+      "A resposta mostra se o problema é técnico, político, operacional ou tudo isso ao mesmo tempo.",
   },
   {
-    question: "Qual KPI precisa mexer primeiro (ROAS, estoque, LTV, NPS)?",
+    question: "Qual decisão precisa melhorar assim que a solução entrar no ar?",
     answer:
-      "Isso evita proposta genérica e obriga o projeto a nascer com prioridade de negócio clara.",
+      "FDE bom não entrega dashboard bonito; entrega capacidade de agir melhor e mais rápido.",
   },
   {
     question:
-      "Quem decide sobre investimentos deste porte e qual o processo de aprovação?",
+      "Se isso funcionar, vira processo interno, feature de produto ou nova frente operacional?",
     answer:
-      "Sem patrocinador real, o projeto vira conversa longa e morre antes da decisão.",
+      "Essa visão evita projeto descartável e ajuda a desenhar uma solução com caminho de continuidade.",
   },
   {
-    question: "O que acontece se nada mudar nos próximos três meses?",
+    question: "O que acontece se nada mudar nas próximas semanas?",
     answer:
-      "A resposta explicita custo de inação e separa curiosidade de problema prioritário.",
+      "A urgência real é o filtro mais honesto para saber se o modelo forward deployed faz sentido agora.",
   },
 ];
 
 const verdictCopy = {
-  perfect: "Fit alto para projeto imediato",
-  good: "Bom potencial para diagnóstico",
-  medium: "Há demanda, mas falta urgência ou escopo",
-  low: "Ainda não parece prioridade",
+  perfect: "Cenário ideal para FDE agora",
+  good: "Bom fit para engenharia forward deployed",
+  medium: "Há dor, mas ainda falta clareza de prioridade",
+  low: "Ainda não parece um caso para FDE",
 };
 
 const MAX_SCORE = 20;
@@ -343,7 +349,7 @@ export default function Home() {
               </span>
               <div>
                 <p className="text-[11px] uppercase tracking-[0.4em] text-slate-400">
-                  Consultoria híbrida
+                  Forward deployed engineering
                 </p>
                 <p className="text-sm font-semibold text-white">Mosaic Harbor Ventures</p>
               </div>
@@ -373,25 +379,32 @@ export default function Home() {
             <div className="space-y-8">
               <span className="floating-pill primary">
                 <span className="pulse-dot" />
-                Para empresas que já vendem e travaram na operação
+                Engenharia embarcada no problema real do cliente
               </span>
               <div className="space-y-5">
                 <p className="text-xs uppercase tracking-[0.4em] text-brand-200">
-                  Consultoria de TI com foco em crescimento
+                  Forward Deployed Engineers
                 </p>
                 <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
-                  Sua operação não precisa crescer no improviso
+                  Software útil para problemas que o produto padrão não resolve
                 </h1>
                 <p className="text-lg text-slate-300">
-                  Assumimos o projeto do diagnóstico à implementação para corrigir integrações, automações, dashboards e gargalos técnicos que hoje freiam receita, margem e produtividade.
+                  Atuamos lado a lado com o cliente para reduzir atraso, retrabalho e cegueira operacional em casos onde dados bagunçados, sistemas legados e restrições reais impedem a equipe de reagir na velocidade que o negócio exige.
                 </p>
               </div>
+              <ul className="grid gap-3 text-sm text-slate-200 sm:grid-cols-3">
+                {buyerOutcomes.map((outcome) => (
+                  <li className="feature-item" key={outcome}>
+                    {outcome}
+                  </li>
+                ))}
+              </ul>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#cta"
                   className="inline-flex items-center justify-center rounded-full bg-brand-500 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-brand-500/50 transition hover:bg-brand-600"
                 >
-                  Pedir diagnóstico
+                  Pedir análise de caso
                 </a>
                 <a
                   href="https://calendar.app.google/KSjQQGr8uZmsFTwW6"
@@ -399,7 +412,7 @@ export default function Home() {
                   rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-8 py-3 text-base font-semibold text-white transition hover:border-white/60 hover:bg-white/10"
                 >
-                  Ver agenda de 30 min
+                  Ver agenda de análise
                   <CalendarIcon className="h-5 w-5" />
                 </a>
               </div>
@@ -419,7 +432,7 @@ export default function Home() {
                 Como o projeto funciona
               </p>
               <h3 className="mt-3 text-2xl font-semibold text-white">
-                Um plano enxuto para tirar a operação do gargalo
+                Forward deployed quer dizer ir até onde o caos está
               </h3>
               <ul className="mt-6 space-y-4 text-base text-slate-200">
                 {blueprintSteps.map((step, index) => (
@@ -434,7 +447,7 @@ export default function Home() {
                   Mensagem central
                 </p>
                 <p className="mt-2 text-lg font-semibold text-white">
-                  "Você não precisa de mais fornecedor. Precisa de um time que entenda o problema, implemente a solução e responda pelo resultado."
+                  &quot;FDE não espera o cliente se adaptar ao produto. O engenheiro se adapta ao problema, constrói a solução e mede o impacto no campo.&quot;
                 </p>
               </div>
             </div>
@@ -444,15 +457,15 @@ export default function Home() {
 
           <section id="modelo" className="space-y-10 rounded-[36px] border border-white/10 bg-white/5 p-8 sm:p-12">
             <SectionHeading
-              eyebrow="Método"
-              title="Tecnologia aplicada ao que trava o crescimento"
-              description="A lógica é simples: primeiro identificamos o gargalo principal, depois implementamos o que resolve e por fim deixamos a operação rodando com visibilidade."
+              eyebrow="FDE"
+              title="O papel que fica entre engenharia, produto e cliente"
+              description="Forward Deployed Engineers não constroem software isolado. Eles trabalham perto do usuário real para resolver problemas específicos com velocidade e contexto."
               align="left"
             />
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
               <div className="space-y-5">
                 <p className="text-slate-300">
-                  Esse modelo evita o erro clássico de contratar estratégia sem execução ou desenvolvimento sem direção. O projeto nasce ligado ao P&L, ao stack atual e à urgência real do negócio.
+                  É um modelo para cenários em que o mundo real é bagunçado demais para esperar backlog comum, especificação perfeita ou solução genérica de prateleira.
                 </p>
                 <ul className="space-y-3 text-sm text-slate-300">
                   {revenuePrinciples.map((principle) => (
@@ -479,8 +492,8 @@ export default function Home() {
           <section className="rounded-[36px] border border-white/10 bg-white/5 p-8">
             <SectionHeading
               eyebrow="Por que funciona"
-              title="Uma oferta pensada para empresas que não podem errar a prioridade"
-              description="Você fala com um time que entende negócio, tecnologia e operação no mesmo nível de responsabilidade."
+              title="Por que empresas contratam Forward Deployed Engineers"
+              description="Porque certos problemas só se resolvem com um engenheiro dentro do contexto, falando com o usuário e entregando rápido."
             />
             <div className="mt-10 grid gap-6 lg:grid-cols-3">
               {differentiators.map((item) => (
@@ -508,7 +521,7 @@ export default function Home() {
                 Quando a consultoria faz sentido
               </p>
               <h2 className="mt-4 text-3xl font-semibold text-white">
-                Entramos quando o negócio cresceu, mas a operação não acompanhou
+                Entramos quando o problema é importante demais para ficar no limbo
               </h2>
               <ul className="mt-6 space-y-4 text-base text-slate-100">
                 {urgentPains.map((pain) => (
@@ -533,7 +546,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="mt-6 text-sm text-slate-400">
-                *Exemplos de impacto para orientar a conversa comercial. Troque por números reais assim que tiver cases auditados.
+                *Aqui o valor aparece em velocidade, utilidade e proximidade com o problema. Troque por números reais quando tiver casos auditados.
               </p>
             </div>
           </section>
@@ -541,8 +554,8 @@ export default function Home() {
           <section id="pilares">
             <SectionHeading
               eyebrow="Oferta"
-              title="O que você compra no projeto inicial"
-              description="Um sprint com começo, meio e fim para destravar o problema mais caro da operação."
+              title="Como uma atuação forward deployed é estruturada"
+              description="Um ciclo curto de imersão, construção e iteração para transformar ambiguidade em software funcional."
             />
             <div className="mt-12 grid gap-8 lg:grid-cols-3">
               {pillars.map((pillar) => (
@@ -571,14 +584,17 @@ export default function Home() {
                   Tipos de projeto
                 </p>
                 <h2 className="mt-2 text-3xl font-semibold text-white">
-                  Escopos que mais aparecem nas conversas com clientes
+                  Casos em que FDE costuma entregar mais valor
                 </h2>
+                <p className="mt-3 max-w-2xl text-slate-300">
+                  Aqui a prova ainda está em formato de tese operacional. A estrutura já está pronta para receber métricas auditadas de tempo, custo, resposta e adoção sem mudar a narrativa.
+                </p>
               </div>
               <a
                 href="mailto:oi@mosaicharborventures.com?subject=Quero%20receber%20um%20escopo%20exemplo"
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10"
               >
-                Receber escopo exemplo
+                Receber exemplo de escopo
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
@@ -613,16 +629,16 @@ export default function Home() {
               <div>
                 <SectionHeading
                   eyebrow="Diagnóstico rápido"
-                  title="5 sinais de que o projeto precisa começar agora"
-                  description="Marque os critérios e veja se já existe contexto para um sprint de TI orientado a resultado."
+                  title="5 sinais de que você precisa de um FDE"
+                  description="Marque os critérios e veja se o caso pede engenharia embarcada em vez de desenvolvimento convencional."
                   align="left"
                 />
                 <ul className="mt-6 space-y-4 text-sm text-slate-200">
-                  <li>Faturamento digital consistente e metas agressivas para os próximos 90 dias.</li>
-                  <li>Integrações críticas falhando ou demandando trabalho manual frequente.</li>
-                  <li>Ausência de squad tech interno capaz de tocar automações end-to-end.</li>
-                  <li>Board pressionando por impacto em margem, produtividade e crescimento.</li>
-                  <li>Decisor principal disposto a participar do diagnóstico.</li>
+                  <li>O problema custa tempo, margem, SLA ou capacidade de resposta toda semana.</li>
+                  <li>O ambiente real é bagunçado demais para depender de solução genérica ou backlog comum.</li>
+                  <li>Usuários e stakeholders precisam falar com quem implementa, não com intermediários.</li>
+                  <li>Existe urgência suficiente para preferir software útil rápido a arquitetura perfeita lenta.</li>
+                  <li>Se der certo, há caminho claro para virar operação, processo interno ou feature.</li>
                 </ul>
               </div>
               <div className="rounded-[36px] border border-white/10 bg-white/5 p-8">
@@ -648,7 +664,7 @@ export default function Home() {
                       {verdict}
                     </p>
                     <p className="text-sm text-slate-400">
-                      Acima de 16 pontos, o cenário já justifica um diagnóstico executivo.
+                      Acima de 16 pontos, o caso já justifica uma conversa de discovery com viés FDE.
                     </p>
                   </div>
                 </div>
@@ -681,20 +697,20 @@ export default function Home() {
                 Processo comercial
               </p>
               <h2 className="mt-3 text-3xl font-semibold text-white">
-                O que acontece depois do primeiro contato
+                O que acontece quando você traz um problema para nós
               </h2>
               <ol className="mt-6 space-y-4 text-slate-200">
                 <li className="feature-item">
-                  Entendemos a meta, o gargalo principal e o custo de não resolver isso agora.
+                  Entendemos a dor, quem sofre com ela e por que ela continua aberta.
                 </li>
                 <li className="feature-item">
-                  Mapeamos stack, processos, dependências e o nível de urgência do projeto.
+                  Mapeamos stack, dados, restrições e o quanto o ambiente real vai brigar com a solução.
                 </li>
                 <li className="feature-item">
-                  Voltamos com um escopo enxuto, cronograma, investimento e critério de sucesso.
+                  Voltamos com uma hipótese de solução, escopo inicial e critério concreto de valor.
                 </li>
                 <li className="feature-item">
-                  Se fizer sentido, começamos pelo problema que mais destrava resultado nos próximos 60 dias.
+                  Se fizer sentido, começamos pequeno, medimos rápido e expandimos o que funcionar.
                 </li>
               </ol>
             </div>
@@ -723,8 +739,8 @@ export default function Home() {
           <section id="faq" className="rounded-[36px] border border-white/10 bg-white/5 p-8">
             <SectionHeading
               eyebrow="FAQ"
-              title="Perguntas que qualificam o projeto de verdade"
-              description="Elas ajudam a separar curiosidade de prioridade e deixam a proposta mais forte."
+              title="Perguntas que definem se o caso é forward deployed"
+              description="Elas ajudam a entender se o problema precisa de proximidade, velocidade e engenharia no campo."
             />
             <div className="mt-10 space-y-4" id="faq-accordion">
               {faqItems.map((item, index) => {
@@ -751,27 +767,32 @@ export default function Home() {
             <div className="cta-card text-center text-white">
               <div className="cta-ring" aria-hidden="true" />
               <p className="text-sm font-semibold uppercase tracking-[0.5em] text-white/70">
-                Diagnóstico inicial
+                Discovery FDE
               </p>
               <h2 className="mt-4 text-4xl font-semibold">
-                30 minutos para entender onde sua operação está vazando dinheiro
+                30 minutos para decidir se isso é caso de Forward Deployed Engineers
               </h2>
               <p className="mt-4 text-lg text-white/90">
-                Se houver fit, você sai com direção, prioridade e um próximo passo claro. Se não houver, eu te digo isso sem enrolação.
+                Traga um problema real. A conversa termina com três entregáveis: leitura inicial do caso, hipótese de abordagem e critério objetivo para decidir se faz sentido avançar.
+              </p>
+              <p className="mt-3 text-sm text-white/75">
+                Se não houver fit para atuação forward deployed, a resposta é direta. Sem proposta forçada.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a
                   href="mailto:oi@mosaicharborventures.com"
                   className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-base font-semibold text-brand-700 shadow-lg shadow-brand-900/40 transition hover:-translate-y-0.5 hover:bg-slate-50 sm:w-auto"
                 >
-                  Quero conversar
+                  Quero minha análise inicial
                 </a>
-                <button
-                  type="button"
+                <a
+                  href="https://calendar.app.google/KSjQQGr8uZmsFTwW6"
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex w-full items-center justify-center rounded-full border border-white/70 px-8 py-3 text-base font-semibold text-white transition hover:bg-white/10 sm:w-auto"
                 >
                   Ver agenda disponível
-                </button>
+                </a>
               </div>
             </div>
           </section>
@@ -790,7 +811,7 @@ export default function Home() {
                 oi@mosaicharborventures.com
               </a>
               <a href="#modelo" className="hover:text-white">
-                Método
+                FDE
               </a>
             </div>
           </div>

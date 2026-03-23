@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Consultoria de TI para destravar operação e crescimento",
+  title: "Forward Deployed Engineers para problemas reais de software",
   description:
-    "Diagnóstico, integrações, automações e dashboards para empresas que já faturam e precisam resolver gargalos técnicos com impacto em receita, margem e produtividade.",
+    "Forward Deployed Engineers atuando perto do cliente para resolver dados bagunçados, sistemas legados, integrações complexas e operações críticas com software útil.",
   metadataBase: new URL("https://mosaicharborventures.com"),
   alternates: {
     canonical: "/",
