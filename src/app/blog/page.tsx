@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { metadata as buildVsBuyMetadata, summary as buildVsBuySummary } from "./build-vs-buy-operacoes-criticas/page.mdx";
+import { metadata as fdeMetadata, summary as fdeSummary } from "./forward-deployed-engineering/page.mdx";
+import { metadata as legacyMetadata, summary as legacySummary } from "./legado-sem-replatform/page.mdx";
 import { metadata as revenueMetadata, summary as revenueSummary } from "./revenue-architecture/page.mdx";
+import { metadata as slaMetadata, summary as slaSummary } from "./sla-alertas-operacao/page.mdx";
 import { metadata as stackMetadata, summary as stackSummary } from "./stack-integrado/page.mdx";
 
 type BlogPost = {
@@ -14,6 +18,54 @@ type BlogPost = {
 };
 
 const blogPosts: BlogPost[] = [
+  {
+    slug: "forward-deployed-engineering",
+    title:
+      (fdeMetadata.title as string) ?? "Forward deployed engineering para operações críticas",
+    summary:
+      fdeSummary ??
+      (fdeMetadata.description as string) ??
+      "Quando um time embarcado faz mais sentido do que discovery longo ou software genérico.",
+    date: (fdeMetadata.date as string) ?? "2026-03-20",
+    readingTime: (fdeMetadata.readingTime as string) ?? "7 min",
+    tags: (fdeMetadata.tags as string[]) ?? ["FDE", "Operações críticas"],
+  },
+  {
+    slug: "legado-sem-replatform",
+    title:
+      (legacyMetadata.title as string) ?? "Como destravar legado sem replatform",
+    summary:
+      legacySummary ??
+      (legacyMetadata.description as string) ??
+      "Playbook para reduzir reconciliação manual entre ERP, planilhas e APIs sem prometer troca total de stack.",
+    date: (legacyMetadata.date as string) ?? "2026-03-18",
+    readingTime: (legacyMetadata.readingTime as string) ?? "8 min",
+    tags: (legacyMetadata.tags as string[]) ?? ["Legado", "Integrações"],
+  },
+  {
+    slug: "sla-alertas-operacao",
+    title:
+      (slaMetadata.title as string) ?? "Como detectar risco operacional antes do SLA quebrar",
+    summary:
+      slaSummary ??
+      (slaMetadata.description as string) ??
+      "Estrutura de alertas, regras e governança para agir cedo em operações complexas.",
+    date: (slaMetadata.date as string) ?? "2026-03-16",
+    readingTime: (slaMetadata.readingTime as string) ?? "7 min",
+    tags: (slaMetadata.tags as string[]) ?? ["SLA", "Monitoramento"],
+  },
+  {
+    slug: "build-vs-buy-operacoes-criticas",
+    title:
+      (buildVsBuyMetadata.title as string) ?? "Build vs buy em operações críticas",
+    summary:
+      buildVsBuySummary ??
+      (buildVsBuyMetadata.description as string) ??
+      "Como decidir entre software padrão, intervenção embarcada e produto interno quando o problema é específico demais.",
+    date: (buildVsBuyMetadata.date as string) ?? "2026-03-14",
+    readingTime: (buildVsBuyMetadata.readingTime as string) ?? "6 min",
+    tags: (buildVsBuyMetadata.tags as string[]) ?? ["Build vs Buy", "Decisão executiva"],
+  },
   {
     slug: "revenue-architecture",
     title: (revenueMetadata.title as string) ?? "Blueprint de Revenue Architecture",
@@ -41,7 +93,7 @@ const blogPosts: BlogPost[] = [
 export const metadata: Metadata = {
   title: "Blog · Mosaic Harbor Ventures",
   description:
-    "Playbooks, frameworks e narrativas sobre Revenue Architecture, integrações e governança de crescimento.",
+    "Playbooks sobre legado, integrações, operações críticas e intervenções curtas para times que precisam destravar execução no ambiente real.",
 };
 
 const formatDate = (date: string) =>
@@ -52,10 +104,10 @@ export default function BlogPage() {
     <section className="space-y-10">
       <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-inner shadow-black/20">
         <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-200">Insights práticos</p>
-        <h2 className="mt-4 text-4xl font-semibold text-white">Conteúdos para acelerar decisões de growth</h2>
+        <h2 className="mt-4 text-4xl font-semibold text-white">Conteúdos para destravar operações críticas</h2>
         <p className="mt-4 text-lg text-slate-300">
-          Artigos em formato MDX para documentar aprendizados da operação: desde diagnóstico, integrações e dashboards
-          até governança executiva.
+          Artigos em formato MDX para decisores de operações, tecnologia e transformação que precisam agir sobre
+          gargalos reais de legado, dados, integração e SLA.
         </p>
       </div>
 
@@ -98,4 +150,3 @@ export default function BlogPage() {
     </section>
   );
 }
-

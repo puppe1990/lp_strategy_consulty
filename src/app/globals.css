@@ -403,6 +403,8 @@ body {
 .hero-kicker {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 0.9rem;
 }
 
@@ -417,6 +419,20 @@ body {
   letter-spacing: 0.52em;
   text-transform: uppercase;
   color: rgba(242, 192, 120, 0.74);
+}
+
+.brand-gold-text {
+  background: linear-gradient(180deg, #f8e6b1 0%, #f2c078 48%, #c9953c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 18px rgba(242, 192, 120, 0.18);
+}
+
+.brand-gold-logo {
+  filter: brightness(0) saturate(100%) invert(84%) sepia(31%) saturate(775%) hue-rotate(347deg)
+    brightness(99%) contrast(94%);
+  opacity: 0.98;
 }
 
 .hero-stat {

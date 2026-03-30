@@ -1,9 +1,9 @@
 import type { MetadataRoute } from 'next';
 import fs from 'node:fs';
 import path from 'node:path';
+import { SITE_URL } from '@/lib/site';
 
-const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ?? 'http://localhost:3000';
+export const dynamic = 'force-static';
 
 const BLOG_DIR = path.join(process.cwd(), 'src', 'app', 'blog');
 
@@ -15,7 +15,7 @@ type RouteEntry = {
 };
 
 const toAbsoluteUrl = (pathname: string) =>
-  new URL(pathname, `${BASE_URL}/`).toString();
+  new URL(pathname, `${SITE_URL}/`).toString();
 
 const getStaticRoutes = (): RouteEntry[] => [
   {

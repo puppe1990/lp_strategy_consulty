@@ -1,0 +1,50 @@
+export const metadata = {
+  title: "Como detectar risco operacional antes do SLA quebrar",
+  description:
+    "Framework para equipes que descobrem atraso, desvio ou incidente tarde demais e precisam agir com alertas orientados à decisão, não apenas dashboards bonitos.",
+  date: "2026-03-16",
+  readingTime: "7 min",
+  tags: ["SLA", "Alertas", "Operações"],
+};
+
+export const summary =
+  "Como sair da visibilidade tardia e montar uma camada de monitoramento que antecipa desvio, organiza exceções e acelera resposta.";
+
+<section className="space-y-8">
+  <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-inner shadow-black/30">
+    <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-200">SLA e monitoramento</p>
+    <h1 className="mt-4 text-4xl font-semibold text-white">{metadata.title}</h1>
+    <p className="mt-4 text-lg text-slate-300">{metadata.description}</p>
+  </div>
+
+  <article className="mdx-content">
+    <p>Em muitas operações, o problema não é ausência de dado. É timing. O time descobre o desvio depois que o cliente reclamou, o financeiro foi impactado ou o board pediu explicação. Dashboard retrospectivo ajuda a entender o que aconteceu. Não ajuda a responder cedo.</p>
+
+    <h2>Visibilidade sem acionabilidade é atraso bem decorado</h2>
+    <p>O erro comum é investir em painéis amplos demais e regras frouxas demais. O operador vê tudo e não sabe o que exige ação agora. O executivo recebe uma fotografia atrasada. O incidente continua crescendo no meio.</p>
+
+    <h2>Três blocos que precisam existir juntos</h2>
+    <ul>
+      <li><strong>Sinal:</strong> evento ou combinação de eventos que indicam risco real.</li>
+      <li><strong>Contexto:</strong> dados suficientes para entender impacto, prioridade e dono.</li>
+      <li><strong>Resposta:</strong> regra operacional clara para agir sem depender de interpretação improvisada.</li>
+    </ul>
+
+    <h2>Exemplos de alertas úteis</h2>
+    <ul>
+      <li><strong>Pedido travado:</strong> em vez de “Integração falhou”, prefira “128 pedidos sem atualização há 35 min; 42 com risco de SLA hoje”.</li>
+      <li><strong>Risco de repasse:</strong> em vez de “Diferença encontrada”, prefira “Divergência acima de 2,3% entre ERP e gateway no lote 07”.</li>
+      <li><strong>Fila operacional:</strong> em vez de “Backlog alto”, prefira “Fila da célula X 48% acima da capacidade desde 10h20”.</li>
+    </ul>
+
+    <h2>Como implementar sem virar projeto infinito</h2>
+    <ol>
+      <li>Escolha um único fluxo crítico e defina o que caracteriza risco antecipável.</li>
+      <li>Modele poucos alertas, mas com dono, prioridade e regra de resposta.</li>
+      <li>Publique a informação no canal em que a operação já reage hoje.</li>
+      <li>Revise semanalmente falsos positivos e alertas ignorados.</li>
+    </ol>
+
+    <p>Operação madura não é a que tem mais gráficos. É a que percebe o desvio cedo, entende a gravidade e responde com menos fricção. Esse é o tipo de monitoramento que realmente protege SLA.</p>
+  </article>
+</section>

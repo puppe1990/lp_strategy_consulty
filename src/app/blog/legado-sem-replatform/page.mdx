@@ -1,0 +1,59 @@
+export const metadata = {
+  title: "ERP, planilhas e APIs: como destravar legado sem prometer replatform",
+  description:
+    "Playbook para empresas com reconciliação manual, integrações frágeis e dados contraditórios que precisam resolver o gargalo antes de trocar a plataforma inteira.",
+  date: "2026-03-18",
+  readingTime: "8 min",
+  tags: ["Legado", "ERP", "Integrações"],
+};
+
+export const summary =
+  "Uma abordagem de intervenção curta para reduzir caos operacional e criar uma camada confiável entre sistemas que não conversam.";
+
+<section className="space-y-8">
+  <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-inner shadow-black/30">
+    <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-200">Legado e integrações</p>
+    <h1 className="mt-4 text-4xl font-semibold text-white">{metadata.title}</h1>
+    <p className="mt-4 text-lg text-slate-300">{metadata.description}</p>
+  </div>
+
+  <article className="mdx-content">
+    <p>Quando ERP, planilhas e APIs contam histórias diferentes, a empresa entra em modo sobrevivência. O time cria planilhas paralelas, concilia informação manualmente e perde velocidade porque ninguém confia na mesma leitura. O erro clássico é responder a isso com uma promessa de replatform completa, mesmo quando o problema urgente está em um fluxo específico.</p>
+
+    <h2>O objetivo inicial não é modernizar tudo</h2>
+    <p>O primeiro objetivo é devolver confiabilidade operacional para um caso crítico: fechamento, repasse, estoque, faturamento, risco, onboarding ou qualquer fluxo que esteja quebrando toda semana. Sem esse recorte, “resolver legado” vira um programa amplo demais para sair do papel.</p>
+
+    <h2>O playbook mais pragmático em três movimentos</h2>
+    <ol>
+      <li>
+        <strong>Escolher um fluxo com impacto real.</strong> Não comece pelo mapa completo do stack. Comece pelo ponto em
+        que a empresa já está perdendo tempo, dinheiro ou resposta.
+      </li>
+      <li>
+        <strong>Criar uma camada operacional mínima.</strong> Em vez de trocar todos os sistemas, concentre regras,
+        exceções, alertas e estados críticos em uma camada intermediária simples e auditável.
+      </li>
+      <li>
+        <strong>Medir uso real antes de expandir.</strong> Se a intervenção reduzir reconciliação manual e melhorar a
+        decisão, aí sim faz sentido discutir produto interno, squad dedicada ou mudança estrutural maior.
+      </li>
+    </ol>
+
+    <h2>Sinais de que o problema já passou do ponto</h2>
+    <ul>
+      <li>O fechamento depende de uma pessoa específica juntar dados de múltiplas fontes.</li>
+      <li>O time debate qual número está certo em vez de agir sobre o que está acontecendo.</li>
+      <li>Incidentes se repetem porque cada área enxerga um pedaço do processo.</li>
+      <li>Qualquer mudança simples exige abrir exceção manual em três ou quatro sistemas.</li>
+    </ul>
+
+    <h2>O que entregar na primeira sprint</h2>
+    <ul>
+      <li><strong>Normalização de dados:</strong> unificar campos, status e regras mínimas para gerar leitura consistente do fluxo.</li>
+      <li><strong>Camada de exceções:</strong> separar casos normais de desvios reais para reduzir caça manual.</li>
+      <li><strong>Alertas operacionais:</strong> notificar cedo quando algo sai da regra para permitir resposta antes do impacto crescer.</li>
+    </ul>
+
+    <p>Legado raramente é só um problema técnico. Ele é técnico, operacional e político ao mesmo tempo. Por isso a saída precisa ser pequena o suficiente para caber agora e concreta o suficiente para provar valor rápido.</p>
+  </article>
+</section>

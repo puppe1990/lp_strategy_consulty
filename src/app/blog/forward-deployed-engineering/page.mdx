@@ -1,0 +1,52 @@
+export const metadata = {
+  title: "Forward deployed engineering: quando esse modelo faz sentido em operações críticas",
+  description:
+    "Guia para COO, CTO e líderes de transformação avaliarem quando uma sprint embarcada resolve um gargalo que backlog, consultoria ou software padrão não fecham.",
+  date: "2026-03-20",
+  readingTime: "7 min",
+  tags: ["FDE", "Operações críticas", "Diagnóstico"],
+};
+
+export const summary =
+  "Critérios práticos para identificar quando o problema exige proximidade com operação, contexto técnico e uma entrega curta no ambiente real.";
+
+<section className="space-y-8">
+  <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-inner shadow-black/30">
+    <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-200">Forward deployed engineering</p>
+    <h1 className="mt-4 text-4xl font-semibold text-white">{metadata.title}</h1>
+    <p className="mt-4 text-lg text-slate-300">{metadata.description}</p>
+  </div>
+
+  <article className="mdx-content">
+    <p>Nem todo problema operacional precisa de um projeto grande. Em muitos casos, o que trava a empresa não é falta de roadmap, e sim um gargalo específico preso entre legado, regra de negócio, exceções e áreas que já perderam tempo demais se repassando contexto. É nesse ponto que forward deployed engineering faz sentido.</p>
+
+    <h2>O sinal mais importante: o problema é específico e urgente</h2>
+    <p>O modelo embarcado não existe para “acelerar inovação” de forma vaga. Ele existe para fechar um caso que já custa margem, SLA, previsibilidade ou capacidade de resposta. O recorte costuma ter quatro características:</p>
+    <ul>
+      <li>O problema já aparece na operação real, não em uma hipótese abstrata.</li>
+      <li>Ele cruza dados, integrações, pessoas e decisões entre áreas.</li>
+      <li>O time interno entende a importância, mas não consegue priorizar sem parar o restante.</li>
+      <li>A empresa precisa validar uma saída prática antes de abrir uma frente maior.</li>
+    </ul>
+
+    <h2>Quando backlog normal, consultoria ou software padrão falham</h2>
+    <p>Backlog normal costuma falhar porque o caso compete com manutenção, produto e política interna. Consultoria tradicional falha quando entrega diagnóstico sem carregar o problema até a execução. Software padrão falha quando o fluxo crítico depende demais da operação real para caber em uma configuração genérica.</p>
+    <p>Forward deployed engineering ocupa esse intervalo. A mesma equipe entra no diagnóstico, conversa com quem opera, implementa a menor solução útil e mede se aquilo gerou resposta melhor. Não é outsourcing genérico. É intervenção aplicada com escopo fechado.</p>
+
+    <h2>Quais perfis normalmente compram esse tipo de intervenção</h2>
+    <ul>
+      <li><strong>COO:</strong> quer reduzir retrabalho, risco operacional e atraso de resposta sem comprar um projeto longo sem mudança prática.</li>
+      <li><strong>CTO ou Head de Engenharia:</strong> quer tirar um gargalo específico da frente sem desmontar o roadmap e sem criar mais débito técnico disfarçado de urgência.</li>
+      <li><strong>Líder de transformação:</strong> quer provar uma tese operacional antes de escalar orçamento e sem cair em discovery infinito sem validação no ambiente real.</li>
+    </ul>
+
+    <h2>Checklist executivo para saber se vale entrar agora</h2>
+    <ol>
+      <li>Existe um fluxo crítico claramente travado?</li>
+      <li>O custo da inércia já é visível em operação, margem ou SLA?</li>
+      <li>Resolver exige contexto de legado, exceções e decisão entre áreas?</li>
+      <li>Uma primeira versão útil em poucas semanas já ajudaria a decidir o próximo passo?</li>
+    </ol>
+    <p>Se a resposta for “sim” para três ou quatro pontos, o problema provavelmente não pede mais reunião. Pede uma intervenção curta no lugar certo.</p>
+  </article>
+</section>

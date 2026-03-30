@@ -1,0 +1,46 @@
+export const metadata = {
+  title: "Build vs buy em operações críticas: como decidir sem cair em simplificação",
+  description:
+    "Critérios para líderes de operações e tecnologia decidirem entre software padrão, intervenção embarcada ou produto interno quando o gargalo é específico demais para uma resposta genérica.",
+  date: "2026-03-14",
+  readingTime: "6 min",
+  tags: ["Build vs Buy", "Decisão executiva", "Operações críticas"],
+};
+
+export const summary =
+  "Uma matriz prática para avaliar quando comprar, quando construir e quando usar uma intervenção curta para reduzir risco antes da decisão maior.";
+
+<section className="space-y-8">
+  <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-inner shadow-black/30">
+    <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-200">Decisão executiva</p>
+    <h1 className="mt-4 text-4xl font-semibold text-white">{metadata.title}</h1>
+    <p className="mt-4 text-lg text-slate-300">{metadata.description}</p>
+  </div>
+
+  <article className="mdx-content">
+    <p>“Comprar ou construir?” é uma pergunta útil, mas incompleta. Em operações críticas, existe um terceiro movimento mais inteligente: intervir primeiro no caso real, provar o que funciona e só depois decidir se aquilo merece virar software padrão, produto interno ou capacidade permanente.</p>
+
+    <h2>Quando comprar faz sentido</h2>
+    <p>Comprar é a melhor escolha quando o problema é relativamente comum, o mercado já resolveu bem aquele fluxo e a empresa consegue adaptar processo sem comprometer operação demais. O ganho vem de velocidade de adoção e menor custo de manutenção.</p>
+
+    <h2>Quando construir faz sentido</h2>
+    <p>Construir vale quando a lógica operacional é fonte real de vantagem, quando as exceções são parte estrutural do processo e quando já existe clareza suficiente sobre o que precisa ser sustentado a longo prazo. Construir cedo demais, porém, costuma congelar uma hipótese ainda mal entendida.</p>
+
+    <h2>Quando a intervenção embarcada é a melhor etapa intermediária</h2>
+    <ul>
+      <li>O problema é urgente, mas ainda não foi modelado com precisão suficiente.</li>
+      <li>O custo de esperar a decisão perfeita é maior do que testar uma solução útil agora.</li>
+      <li>O fluxo atravessa legado, times e restrições que um software genérico não entende bem.</li>
+      <li>O time interno precisa de alívio e evidência antes de assumir escala.</li>
+    </ul>
+
+    <h2>Matriz simples de decisão</h2>
+    <ul>
+      <li><strong>Buy:</strong> quando o processo é padrão, tem baixa exceção e o mercado já resolveu bem o caso.</li>
+      <li><strong>Build:</strong> quando o processo é diferencial, recorrente e já está suficientemente entendido.</li>
+      <li><strong>Intervenção embarcada:</strong> quando o problema é urgente, específico e ainda mal modelado para uma decisão estrutural definitiva.</li>
+    </ul>
+
+    <p>O erro mais caro é tomar uma decisão estrutural com pouco contato com a realidade do fluxo. Uma intervenção curta reduz esse risco porque cria evidência. E evidência costuma custar menos do que convicção errada.</p>
+  </article>
+</section>

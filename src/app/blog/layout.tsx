@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-type BlogLayoutProps = {
+export default function BlogLayout({
+  children,
+}: Readonly<{
   children: React.ReactNode;
-};
-
-export default function BlogLayout({ children }: BlogLayoutProps) {
+}>) {
   return (
     <div className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
       <div className="noise-overlay" aria-hidden="true" />
@@ -41,4 +41,3 @@ export default function BlogLayout({ children }: BlogLayoutProps) {
     </div>
   );
 }
-
