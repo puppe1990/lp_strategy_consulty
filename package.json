@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:seo": "node scripts/check-seo-output.mjs"
   },
   "dependencies": {
     "@next/mdx": "^16.0.3",

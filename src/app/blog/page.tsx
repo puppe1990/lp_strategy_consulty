@@ -94,6 +94,9 @@ export const metadata: Metadata = {
   title: "Blog · Mosaic Harbor Ventures",
   description:
     "Playbooks sobre legado, integrações, operações críticas e intervenções curtas para times que precisam destravar execução no ambiente real.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 const formatDate = (date: string) =>
@@ -104,7 +107,7 @@ export default function BlogPage() {
     <section className="space-y-10">
       <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-inner shadow-black/20">
         <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-200">Insights práticos</p>
-        <h2 className="mt-4 text-4xl font-semibold text-white">Conteúdos para destravar operações críticas</h2>
+        <h1 className="mt-4 text-4xl font-semibold text-white">Conteúdos para destravar operações críticas</h1>
         <p className="mt-4 text-lg text-slate-300">
           Artigos em formato MDX para decisores de operações, tecnologia e transformação que precisam agir sobre
           gargalos reais de legado, dados, integração e SLA.
