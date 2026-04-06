@@ -838,7 +838,7 @@ export default function Home() {
                   </p>
                   <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                     <a
-                      href="https://calendar.app.google/KSjQQGr8uZmsFTwW6"
+                      href="https://calendly.com/matheus-puppe"
                       target="_blank"
                       rel="noreferrer"
                       className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-base font-semibold text-brand-700 shadow-lg shadow-brand-900/40 transition hover:-translate-y-0.5 hover:bg-slate-50 sm:w-auto"
@@ -1021,7 +1021,7 @@ export default function Home() {
       </div>
       <div className="floating-actions">
         <a
-          href="https://calendar.app.google/KSjQQGr8uZmsFTwW6"
+          href="https://calendly.com/matheus-puppe"
           target="_blank"
           rel="noreferrer"
           className="floating-actions__primary"
