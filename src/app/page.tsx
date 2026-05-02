@@ -138,19 +138,22 @@ const cases = [
     title: "Reconciliação operacional entre ERP, planilhas e APIs",
     description:
       "Quando o fechamento depende de conciliação manual entre fontes que se contradizem, a intervenção costuma ser uma camada operacional única com regras, alertas e trilha de exceções.",
-    footnote: "Bom fit quando a dor já aparece toda semana e ninguém quer abrir mais uma planilha para sobreviver.",
+    footnote:
+      "Bom fit quando a dor já aparece toda semana e ninguém quer abrir mais uma planilha para sobreviver.",
   },
   {
     title: "Risco ou SLA descoberto tarde demais",
     description:
       "Quando o desvio só aparece depois do estrago, o trabalho tende a combinar monitoramento orientado à decisão, regras de resposta e contexto suficiente para agir sem caça ao culpado.",
-    footnote: "Bom fit quando visibilidade isolada não basta e a operação precisa responder mais cedo.",
+    footnote:
+      "Bom fit quando visibilidade isolada não basta e a operação precisa responder mais cedo.",
   },
   {
     title: "Capacidade importante fora do produto padrão",
     description:
       "Quando a empresa precisa de uma capacidade que o stack atual não entrega, a saída costuma ser validar uma solução conectada ao processo real antes de institucionalizar produto, time ou plataforma.",
-    footnote: "Bom fit quando o risco de esperar o roadmap é maior do que o custo de testar a solução certa agora.",
+    footnote:
+      "Bom fit quando o risco de esperar o roadmap é maior do que o custo de testar a solução certa agora.",
   },
 ];
 
@@ -168,7 +171,8 @@ const stakeholders = [
   {
     title: "Áreas impactadas",
     role: "Operações, dados, engenharia, financeiro e negócio",
-    description: "Precisam da mesma leitura operacional para parar de discutir qual número está certo.",
+    description:
+      "Precisam da mesma leitura operacional para parar de discutir qual número está certo.",
   },
 ];
 
@@ -180,7 +184,8 @@ const scorecardItems = [
   },
   {
     title: "Contexto caótico ou legado",
-    description: "Dados bagunçados, integrações frágeis, ERP rígido ou sistema legado sem dono claro.",
+    description:
+      "Dados bagunçados, integrações frágeis, ERP rígido ou sistema legado sem dono claro.",
     weight: 4,
   },
   {
@@ -202,14 +207,12 @@ const scorecardItems = [
 
 const faqItems = [
   {
-    question:
-      "Qual problema real continua aberto porque ninguém consegue modelar direito?",
+    question: "Qual problema real continua aberto porque ninguém consegue modelar direito?",
     answer:
       "Esse é o ponto de partida ideal para FDE: ambiguidade alta, urgência alta e necessidade de ação concreta.",
   },
   {
-    question:
-      "Quais sistemas, dados ou restrições tornam esse problema difícil no mundo real?",
+    question: "Quais sistemas, dados ou restrições tornam esse problema difícil no mundo real?",
     answer:
       "É aqui que aparecem legado, compliance, ERP rígido, planilha paralela e exceções que o produto padrão não cobre.",
   },
@@ -259,23 +262,13 @@ type SectionHeadingProps = {
   align?: "center" | "left";
 };
 
-function SectionHeading({
-  eyebrow,
-  title,
-  description,
-  align = "center",
-}: SectionHeadingProps) {
-  const alignment =
-    align === "center" ? "mx-auto max-w-3xl text-center" : "text-left";
+function SectionHeading({ eyebrow, title, description, align = "center" }: SectionHeadingProps) {
+  const alignment = align === "center" ? "mx-auto max-w-3xl text-center" : "text-left";
   return (
     <div className={`space-y-3 ${alignment}`}>
-      <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-300">
-        {eyebrow}
-      </p>
+      <p className="text-brand-300 text-xs font-semibold tracking-[0.4em] uppercase">{eyebrow}</p>
       <h2 className="text-3xl font-semibold text-white sm:text-4xl">{title}</h2>
-      {description ? (
-        <p className="text-lg text-slate-300">{description}</p>
-      ) : null}
+      {description ? <p className="text-lg text-slate-300">{description}</p> : null}
     </div>
   );
 }
@@ -311,24 +304,19 @@ function CalendarIcon({ className = "h-5 w-5" }: IconProps) {
 }
 
 export default function Home() {
-  const [scoreState, setScoreState] = useState<boolean[]>(() =>
-    scorecardItems.map(() => false),
-  );
+  const [scoreState, setScoreState] = useState<boolean[]>(() => scorecardItems.map(() => false));
   const [activeFaq, setActiveFaq] = useState<number>(-1);
   const [isSubmittingProject, setIsSubmittingProject] = useState(false);
-  const [projectSubmitStatus, setProjectSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
+  const [projectSubmitStatus, setProjectSubmitStatus] = useState<"idle" | "success" | "error">(
+    "idle"
+  );
 
   const totalScore = scorecardItems.reduce(
     (sum, item, index) => sum + (scoreState[index] ? item.weight : 0),
-    0,
+    0
   );
   const verdict = getVerdict(totalScore);
-  const progressPercent = Math.min(
-    100,
-    Math.max(0, Math.round((totalScore / MAX_SCORE) * 100)),
-  );
+  const progressPercent = Math.min(100, Math.max(0, Math.round((totalScore / MAX_SCORE) * 100)));
   const currentYear = new Date().getFullYear();
 
   const handleScoreToggle = (index: number) => {
@@ -377,8 +365,8 @@ export default function Home() {
     <div className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
       <div className="noise-overlay" aria-hidden="true" />
       <div className="background-grid" aria-hidden="true" />
-      <div className="blur-blob brand -left-40 -top-48" aria-hidden="true" />
-      <div className="blur-blob violet right-[-160px] top-1/3" aria-hidden="true" />
+      <div className="blur-blob brand -top-48 -left-40" aria-hidden="true" />
+      <div className="blur-blob violet top-1/3 right-[-160px]" aria-hidden="true" />
       <div className="relative z-10">
         <header className="mx-auto max-w-6xl px-6 pt-8">
           <nav className="flex flex-wrap items-center justify-between gap-4 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm shadow-lg shadow-black/30 backdrop-blur">
@@ -391,7 +379,7 @@ export default function Home() {
                 className="h-11 w-auto"
               />
               <div>
-                <p className="text-[11px] uppercase tracking-[0.4em] text-slate-400">
+                <p className="text-[11px] tracking-[0.4em] text-slate-400 uppercase">
                   Forward deployed engineering
                 </p>
                 <p className="brand-gold-text text-sm font-semibold">Mosaic Harbor Ventures</p>
@@ -417,30 +405,35 @@ export default function Home() {
           </nav>
         </header>
 
-        <main className="mx-auto max-w-6xl space-y-24 px-6 pb-24 pt-12">
+        <main className="mx-auto max-w-6xl space-y-24 px-6 pt-12 pb-24">
           <section className="hero-stage grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
             <div className="space-y-8">
               <div className="hero-kicker">
                 <span className="hero-kicker__line" />
-                <span className="brand-gold-text text-center text-[0.72rem] font-semibold uppercase tracking-[0.32em] sm:text-[0.82rem]">
+                <span className="brand-gold-text text-center text-[0.72rem] font-semibold tracking-[0.32em] uppercase sm:text-[0.82rem]">
                   Mosaic Harbor Ventures
                 </span>
                 <span className="hero-kicker__line" />
               </div>
               <div className="space-y-5">
-                <p className="text-xs uppercase tracking-[0.55em] text-brand-100/80">
+                <p className="text-brand-100/80 text-xs tracking-[0.55em] uppercase">
                   Operações, dados e legado
                 </p>
-                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.96] text-white sm:text-6xl xl:text-7xl">
+                <h1 className="max-w-4xl text-5xl leading-[0.96] font-semibold text-white sm:text-6xl xl:text-7xl">
                   Destravamos operações enterprise críticas antes que o gargalo vire rotina
                 </h1>
                 <p className="max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
-                  Entramos ao lado do time para atacar um problema específico de operação, dados ou legado com uma intervenção curta e aplicada no ambiente real. O objetivo é simples: tirar o caso do limbo e devolver capacidade de resposta.
+                  Entramos ao lado do time para atacar um problema específico de operação, dados ou
+                  legado com uma intervenção curta e aplicada no ambiente real. O objetivo é
+                  simples: tirar o caso do limbo e devolver capacidade de resposta.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 text-sm text-slate-200">
                 {heroSignals.map((signal) => (
-                  <span key={signal} className="rounded-full border border-white/12 bg-white/5 px-4 py-2">
+                  <span
+                    key={signal}
+                    className="rounded-full border border-white/12 bg-white/5 px-4 py-2"
+                  >
                     {signal}
                   </span>
                 ))}
@@ -455,13 +448,13 @@ export default function Home() {
               <div className="flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#cta"
-                  className="inline-flex items-center justify-center rounded-full bg-brand-500 px-8 py-3 text-base font-semibold text-slate-950 shadow-lg shadow-brand-500/40 transition hover:-translate-y-0.5 hover:bg-brand-300"
+                  className="bg-brand-500 shadow-brand-500/40 hover:bg-brand-300 inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-semibold text-slate-950 shadow-lg transition hover:-translate-y-0.5"
                 >
                   Agendar triagem de 30 min
                 </a>
                 <a
                   href="#cases"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-8 py-3 text-base font-semibold text-white transition hover:border-brand-200/50 hover:bg-white/10"
+                  className="hover:border-brand-200/50 inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-8 py-3 text-base font-semibold text-white transition hover:bg-white/10"
                 >
                   Ver tipos de intervenção
                 </a>
@@ -469,7 +462,7 @@ export default function Home() {
               <div className="grid gap-4 sm:grid-cols-3">
                 {heroStats.map((stat) => (
                   <div key={stat.label} className="stat-card hero-stat">
-                    <p className="text-xs uppercase tracking-[0.4em] text-slate-400">
+                    <p className="text-xs tracking-[0.4em] text-slate-400 uppercase">
                       {stat.label}
                     </p>
                     <p className="mt-3 text-2xl font-semibold text-white">{stat.value}</p>
@@ -488,7 +481,8 @@ export default function Home() {
                 Uma sprint aplicada no problema que o backlog normal não consegue fechar
               </h3>
               <p className="relative mt-4 max-w-md text-base leading-relaxed text-slate-300">
-                O modelo forward deployed entra quando o caso exige proximidade com operação, contexto técnico e uma decisão rápida sobre continuar ou não.
+                O modelo forward deployed entra quando o caso exige proximidade com operação,
+                contexto técnico e uma decisão rápida sobre continuar ou não.
               </p>
               <ul className="relative mt-8 space-y-5 text-base text-slate-200">
                 {blueprintSteps.map((step, index) => (
@@ -499,11 +493,10 @@ export default function Home() {
                 ))}
               </ul>
               <div className="signal-quote">
-                <p className="text-sm uppercase tracking-[0.4em] text-brand-100/65">
-                  Critério
-                </p>
-                <p className="mt-3 text-lg font-semibold leading-relaxed text-white">
-                  &quot;Se o problema precisa de contexto real para ser resolvido, ele precisa de uma intervenção que viva no contexto real.&quot;
+                <p className="text-brand-100/65 text-sm tracking-[0.4em] uppercase">Critério</p>
+                <p className="mt-3 text-lg leading-relaxed font-semibold text-white">
+                  &quot;Se o problema precisa de contexto real para ser resolvido, ele precisa de
+                  uma intervenção que viva no contexto real.&quot;
                 </p>
               </div>
             </div>
@@ -511,7 +504,10 @@ export default function Home() {
 
           <div className="section-divider" aria-hidden="true" />
 
-          <section id="modelo" className="space-y-10 rounded-[36px] border border-white/10 bg-white/5 p-8 sm:p-12">
+          <section
+            id="modelo"
+            className="space-y-10 rounded-[36px] border border-white/10 bg-white/5 p-8 sm:p-12"
+          >
             <SectionHeading
               eyebrow="Como funciona"
               title="Quando a sprint embarcada faz mais sentido do que discovery longo"
@@ -521,7 +517,8 @@ export default function Home() {
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
               <div className="space-y-5">
                 <p className="text-slate-300">
-                  Esse formato funciona quando o caso mistura legado, exceção operacional e urgência suficiente para não caber em uma fila normal de backlog.
+                  Esse formato funciona quando o caso mistura legado, exceção operacional e urgência
+                  suficiente para não caber em uma fila normal de backlog.
                 </p>
                 <ul className="space-y-3 text-sm text-slate-300">
                   {revenuePrinciples.map((principle) => (
@@ -534,9 +531,9 @@ export default function Home() {
               <div className="grid gap-4">
                 {factoryMoves.map((move) => (
                   <div className="card" key={move.title}>
-                    <p className="text-sm font-semibold text-brand-200">{move.title}</p>
+                    <p className="text-brand-200 text-sm font-semibold">{move.title}</p>
                     <p className="mt-2 text-slate-100">{move.description}</p>
-                    <p className="mt-2 text-xs uppercase tracking-[0.3em] text-slate-500">
+                    <p className="mt-2 text-xs tracking-[0.3em] text-slate-500 uppercase">
                       {move.detail}
                     </p>
                   </div>
@@ -554,14 +551,11 @@ export default function Home() {
             <div className="mt-10 grid gap-6 lg:grid-cols-3">
               {differentiators.map((item) => (
                 <div className="case-highlight h-full" key={item.title}>
-                  <p className="text-sm font-semibold text-brand-200">{item.title}</p>
+                  <p className="text-brand-200 text-sm font-semibold">{item.title}</p>
                   <p className="mt-3 text-base text-slate-200">{item.description}</p>
                   <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
                     {item.chips.map((chip) => (
-                      <span
-                        key={chip}
-                        className="rounded-full border border-white/10 px-3 py-1"
-                      >
+                      <span key={chip} className="rounded-full border border-white/10 px-3 py-1">
                         {chip}
                       </span>
                     ))}
@@ -572,8 +566,8 @@ export default function Home() {
           </section>
 
           <section className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-brand-500/30 to-slate-900 p-8 shadow-lg shadow-brand-900/40">
-              <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/70">
+            <div className="from-brand-500/30 shadow-brand-900/40 rounded-3xl border border-white/10 bg-gradient-to-b to-slate-900 p-8 shadow-lg">
+              <p className="text-sm font-semibold tracking-[0.4em] text-white/70 uppercase">
                 Sinais de prioridade
               </p>
               <h2 className="mt-4 text-3xl font-semibold text-white">
@@ -588,21 +582,20 @@ export default function Home() {
               </ul>
             </div>
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.4em] text-brand-300">
+              <p className="text-brand-300 text-sm font-semibold tracking-[0.4em] uppercase">
                 O que a atuação prioriza
               </p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {kpis.map((kpi) => (
                   <div className="metric-card" key={kpi.label}>
                     <p className="text-3xl font-bold text-white">{kpi.value}</p>
-                    <p className="text-sm uppercase tracking-wide text-slate-400">
-                      {kpi.label}
-                    </p>
+                    <p className="text-sm tracking-wide text-slate-400 uppercase">{kpi.label}</p>
                   </div>
                 ))}
               </div>
               <p className="mt-6 text-sm text-slate-400">
-                Valor aqui significa encurtar decisão, reduzir atrito operacional e provar rápido se vale expandir a solução.
+                Valor aqui significa encurtar decisão, reduzir atrito operacional e provar rápido se
+                vale expandir a solução.
               </p>
             </div>
           </section>
@@ -616,7 +609,7 @@ export default function Home() {
             <div className="mt-12 grid gap-8 lg:grid-cols-3">
               {pillars.map((pillar) => (
                 <article className="pillar" key={pillar.title}>
-                  <p className="text-sm font-semibold uppercase tracking-[0.4em] text-brand-200">
+                  <p className="text-brand-200 text-sm font-semibold tracking-[0.4em] uppercase">
                     {pillar.period}
                   </p>
                   <h3 className="mt-3 text-2xl font-semibold text-white">{pillar.title}</h3>
@@ -636,14 +629,15 @@ export default function Home() {
           <section id="cases" className="rounded-[36px] border border-white/10 bg-white/5 p-8">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.4em] text-brand-300">
+                <p className="text-brand-300 text-sm font-semibold tracking-[0.4em] uppercase">
                   Intervenções típicas
                 </p>
                 <h2 className="mt-2 text-3xl font-semibold text-white">
                   Exemplos de problema em que esse formato costuma funcionar
                 </h2>
                 <p className="mt-3 max-w-2xl text-slate-300">
-                  Não são cases maquiados. São padrões de problema em que a proximidade com operação e legado costuma acelerar a resposta.
+                  Não são cases maquiados. São padrões de problema em que a proximidade com operação
+                  e legado costuma acelerar a resposta.
                 </p>
               </div>
               <a
@@ -670,9 +664,9 @@ export default function Home() {
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               {cases.map((item) => (
                 <div className="case-highlight" key={item.title}>
-                  <p className="text-sm font-semibold text-brand-200">{item.title}</p>
+                  <p className="text-brand-200 text-sm font-semibold">{item.title}</p>
                   <p className="mt-2 text-lg text-white">{item.description}</p>
-                  <p className="mt-4 text-xs uppercase tracking-wide text-slate-400">
+                  <p className="mt-4 text-xs tracking-wide text-slate-400 uppercase">
                     {item.footnote}
                   </p>
                 </div>
@@ -690,11 +684,24 @@ export default function Home() {
                   align="left"
                 />
                 <ul className="mt-6 space-y-4 text-sm text-slate-200">
-                  <li>O problema custa tempo, margem, SLA ou capacidade de resposta toda semana.</li>
-                  <li>O ambiente real é bagunçado demais para depender de solução genérica ou backlog comum.</li>
-                  <li>Usuários e stakeholders precisam falar com quem implementa, não com intermediários.</li>
-                  <li>Existe urgência suficiente para preferir software útil rápido a arquitetura perfeita lenta.</li>
-                  <li>Se der certo, há caminho claro para virar operação, processo interno ou feature.</li>
+                  <li>
+                    O problema custa tempo, margem, SLA ou capacidade de resposta toda semana.
+                  </li>
+                  <li>
+                    O ambiente real é bagunçado demais para depender de solução genérica ou backlog
+                    comum.
+                  </li>
+                  <li>
+                    Usuários e stakeholders precisam falar com quem implementa, não com
+                    intermediários.
+                  </li>
+                  <li>
+                    Existe urgência suficiente para preferir software útil rápido a arquitetura
+                    perfeita lenta.
+                  </li>
+                  <li>
+                    Se der certo, há caminho claro para virar operação, processo interno ou feature.
+                  </li>
                 </ul>
               </div>
               <div className="rounded-[36px] border border-white/10 bg-white/5 p-8">
@@ -713,14 +720,13 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="text-center">
-                    <p className="text-sm uppercase tracking-[0.4em] text-slate-400">
+                    <p className="text-sm tracking-[0.4em] text-slate-400 uppercase">
                       Diagnóstico em tempo real
                     </p>
-                    <p className="mt-2 text-2xl font-semibold text-brand-200">
-                      {verdict}
-                    </p>
+                    <p className="text-brand-200 mt-2 text-2xl font-semibold">{verdict}</p>
                     <p className="text-sm text-slate-400">
-                      Acima de 16 pontos, o caso já justifica uma triagem de discovery aplicada ao problema.
+                      Acima de 16 pontos, o caso já justifica uma triagem de discovery aplicada ao
+                      problema.
                     </p>
                   </div>
                 </div>
@@ -737,7 +743,7 @@ export default function Home() {
                         <p className="text-base font-semibold text-white">{item.title}</p>
                         <p className="text-sm text-slate-300">{item.description}</p>
                       </div>
-                      <span className="text-xs font-semibold text-brand-200">
+                      <span className="text-brand-200 text-xs font-semibold">
                         {item.weight} pts
                       </span>
                     </label>
@@ -749,7 +755,7 @@ export default function Home() {
 
           <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.4em] text-brand-300">
+              <p className="text-brand-300 text-sm font-semibold tracking-[0.4em] uppercase">
                 Como começa
               </p>
               <h2 className="mt-3 text-3xl font-semibold text-white">
@@ -763,29 +769,24 @@ export default function Home() {
                   Mapeamos stack, dados, restrições e onde a resposta tende a quebrar no mundo real.
                 </li>
                 <li className="feature-item">
-                  Voltamos com hipótese de intervenção, escopo inicial e critério para justificar o investimento.
+                  Voltamos com hipótese de intervenção, escopo inicial e critério para justificar o
+                  investimento.
                 </li>
                 <li className="feature-item">
                   Se houver fit, começamos pequeno e só expandimos o que provar valor operacional.
                 </li>
               </ol>
             </div>
-            <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-brand-500/20 to-slate-900 p-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/70">
+            <div className="from-brand-500/20 rounded-3xl border border-white/10 bg-gradient-to-b to-slate-900 p-8">
+              <p className="text-sm font-semibold tracking-[0.4em] text-white/70 uppercase">
                 Quem costuma puxar essa conversa
               </p>
               <div className="mt-4 space-y-4">
                 {stakeholders.map((stakeholder) => (
                   <div className="rounded-2xl bg-white/5 p-4" key={stakeholder.title}>
-                    <p className="text-sm font-semibold text-brand-100">
-                      {stakeholder.title}
-                    </p>
-                    <p className="text-lg font-semibold text-white">
-                      {stakeholder.role}
-                    </p>
-                    <p className="text-sm text-slate-300">
-                      {stakeholder.description}
-                    </p>
+                    <p className="text-brand-100 text-sm font-semibold">{stakeholder.title}</p>
+                    <p className="text-lg font-semibold text-white">{stakeholder.role}</p>
+                    <p className="text-sm text-slate-300">{stakeholder.description}</p>
                   </div>
                 ))}
               </div>
@@ -824,24 +825,28 @@ export default function Home() {
               <div className="cta-ring" aria-hidden="true" />
               <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                 <div className="relative z-10">
-                  <p className="text-sm font-semibold uppercase tracking-[0.5em] text-white/70">
+                  <p className="text-sm font-semibold tracking-[0.5em] text-white/70 uppercase">
                     Submeter projeto
                   </p>
                   <h2 className="mt-4 text-4xl font-semibold">
-                    Envie o caso e filtramos rápido se existe fit para uma intervenção Mosaic Harbor Ventures
+                    Envie o caso e filtramos rápido se existe fit para uma intervenção Mosaic Harbor
+                    Ventures
                   </h2>
                   <p className="mt-4 text-lg text-white/90">
-                    Use o formulário para resumir o projeto, o gargalo operacional e o contexto técnico. A triagem serve para dizer com clareza se vale avançar agora, o que precisa entrar no recorte inicial e onde o caso tende a quebrar.
+                    Use o formulário para resumir o projeto, o gargalo operacional e o contexto
+                    técnico. A triagem serve para dizer com clareza se vale avançar agora, o que
+                    precisa entrar no recorte inicial e onde o caso tende a quebrar.
                   </p>
                   <p className="mt-3 text-sm text-white/75">
-                    Se o caso fizer sentido, voltamos com próximos passos objetivos. Se não fizer, a resposta também é direta.
+                    Se o caso fizer sentido, voltamos com próximos passos objetivos. Se não fizer, a
+                    resposta também é direta.
                   </p>
                   <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                     <a
                       href="https://calendly.com/matheus-puppe"
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-base font-semibold text-brand-700 shadow-lg shadow-brand-900/40 transition hover:-translate-y-0.5 hover:bg-slate-50 sm:w-auto"
+                      className="text-brand-700 shadow-brand-900/40 inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-base font-semibold shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-50 sm:w-auto"
                     >
                       Ver agenda disponível
                     </a>
@@ -873,7 +878,7 @@ export default function Home() {
                         type="text"
                         name="name"
                         required
-                        className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-brand-300 focus:bg-white/8"
+                        className="focus:border-brand-300 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white transition outline-none placeholder:text-slate-500 focus:bg-white/8"
                         placeholder="Seu nome"
                       />
                     </label>
@@ -883,7 +888,7 @@ export default function Home() {
                         type="email"
                         name="email"
                         required
-                        className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-brand-300 focus:bg-white/8"
+                        className="focus:border-brand-300 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white transition outline-none placeholder:text-slate-500 focus:bg-white/8"
                         placeholder="voce@empresa.com"
                       />
                     </label>
@@ -895,7 +900,7 @@ export default function Home() {
                       <input
                         type="text"
                         name="company"
-                        className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-brand-300 focus:bg-white/8"
+                        className="focus:border-brand-300 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white transition outline-none placeholder:text-slate-500 focus:bg-white/8"
                         placeholder="Nome da empresa"
                       />
                     </label>
@@ -904,7 +909,7 @@ export default function Home() {
                       <input
                         type="text"
                         name="role"
-                        className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-brand-300 focus:bg-white/8"
+                        className="focus:border-brand-300 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white transition outline-none placeholder:text-slate-500 focus:bg-white/8"
                         placeholder="COO, CTO, Ops, Dados..."
                       />
                     </label>
@@ -916,7 +921,7 @@ export default function Home() {
                       type="text"
                       name="project"
                       required
-                      className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-brand-300 focus:bg-white/8"
+                      className="focus:border-brand-300 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white transition outline-none placeholder:text-slate-500 focus:bg-white/8"
                       placeholder="Ex.: reconciliação operacional entre ERP e planilhas"
                     />
                   </label>
@@ -927,18 +932,20 @@ export default function Home() {
                       name="problem"
                       required
                       rows={4}
-                      className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-brand-300 focus:bg-white/8"
+                      className="focus:border-brand-300 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white transition outline-none placeholder:text-slate-500 focus:bg-white/8"
                       placeholder="Descreva o problema, onde ele trava a operação e o impacto em SLA, margem ou tempo."
                     />
                   </label>
 
                   <div className="grid gap-4 sm:grid-cols-2">
                     <label className="space-y-2">
-                      <span className="text-sm font-medium text-slate-200">Stack e sistemas envolvidos</span>
+                      <span className="text-sm font-medium text-slate-200">
+                        Stack e sistemas envolvidos
+                      </span>
                       <textarea
                         name="systems"
                         rows={3}
-                        className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-brand-300 focus:bg-white/8"
+                        className="focus:border-brand-300 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white transition outline-none placeholder:text-slate-500 focus:bg-white/8"
                         placeholder="ERP, planilhas, APIs, legado, BI..."
                       />
                     </label>
@@ -947,7 +954,7 @@ export default function Home() {
                       <textarea
                         name="timeline"
                         rows={3}
-                        className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-brand-300 focus:bg-white/8"
+                        className="focus:border-brand-300 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white transition outline-none placeholder:text-slate-500 focus:bg-white/8"
                         placeholder="O que precisa mudar e em quanto tempo?"
                       />
                     </label>
@@ -956,7 +963,7 @@ export default function Home() {
                   <button
                     type="submit"
                     disabled={isSubmittingProject}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-brand-500 px-8 py-3 text-base font-semibold text-slate-950 shadow-lg shadow-brand-500/40 transition hover:-translate-y-0.5 hover:bg-brand-300 disabled:cursor-not-allowed disabled:opacity-70"
+                    className="bg-brand-500 shadow-brand-500/40 hover:bg-brand-300 inline-flex w-full items-center justify-center rounded-full px-8 py-3 text-base font-semibold text-slate-950 shadow-lg transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
                   >
                     {isSubmittingProject ? "Enviando projeto..." : "Submeter projeto"}
                   </button>
@@ -969,8 +976,7 @@ export default function Home() {
 
                   {projectSubmitStatus === "error" ? (
                     <p className="text-sm text-rose-300">
-                      Não foi possível enviar agora. Tente novamente ou envie para
-                      {" "}
+                      Não foi possível enviar agora. Tente novamente ou envie para{" "}
                       <a href="mailto:oi@mosaicharborventures.com" className="underline">
                         oi@mosaicharborventures.com
                       </a>
@@ -995,7 +1001,7 @@ export default function Home() {
                   className="h-11 w-auto"
                 />
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.4em] text-slate-500">
+                  <p className="text-[11px] tracking-[0.4em] text-slate-500 uppercase">
                     Forward deployed engineering
                   </p>
                   <p className="brand-gold-text text-sm font-semibold">Mosaic Harbor Ventures</p>

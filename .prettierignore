@@ -1,0 +1,8 @@
+node_modules
+.next
+out
+.netlify
+build
+coverage
+*.lock
+package-lock.json
