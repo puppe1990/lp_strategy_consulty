@@ -3,6 +3,7 @@
 Landing page em Next.js 16/App Router com narrativa completa do modelo híbrido de consultoria e uma área de blog alimentada por MDX.
 
 ### Stack principal
+
 - Next.js 16 + React 19
 - Tailwind CSS 4 (via `@tailwindcss/postcss`)
 - Tipografia via `next/font` (Space Grotesk + Geist Mono)

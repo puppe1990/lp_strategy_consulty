@@ -11,7 +11,7 @@ interface FeatureItemProps {
 
 export function FeatureItem({
   children,
-  icon = <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-300" />,
+  icon = <CheckCircle2 className="text-brand-300 mt-0.5 h-5 w-5 shrink-0" />,
   className = "",
 }: FeatureItemProps) {
   return (

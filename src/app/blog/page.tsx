@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { metadata as buildVsBuyMetadata, summary as buildVsBuySummary } from "./build-vs-buy-operacoes-criticas/page.mdx";
-import { metadata as fdeMetadata, summary as fdeSummary } from "./forward-deployed-engineering/page.mdx";
-import { metadata as legacyMetadata, summary as legacySummary } from "./legado-sem-replatform/page.mdx";
-import { metadata as revenueMetadata, summary as revenueSummary } from "./revenue-architecture/page.mdx";
+import {
+  metadata as buildVsBuyMetadata,
+  summary as buildVsBuySummary,
+} from "./build-vs-buy-operacoes-criticas/page.mdx";
+import {
+  metadata as fdeMetadata,
+  summary as fdeSummary,
+} from "./forward-deployed-engineering/page.mdx";
+import {
+  metadata as legacyMetadata,
+  summary as legacySummary,
+} from "./legado-sem-replatform/page.mdx";
+import {
+  metadata as revenueMetadata,
+  summary as revenueSummary,
+} from "./revenue-architecture/page.mdx";
 import { metadata as slaMetadata, summary as slaSummary } from "./sla-alertas-operacao/page.mdx";
 import { metadata as stackMetadata, summary as stackSummary } from "./stack-integrado/page.mdx";
 
@@ -20,8 +32,7 @@ type BlogPost = {
 const blogPosts: BlogPost[] = [
   {
     slug: "forward-deployed-engineering",
-    title:
-      (fdeMetadata.title as string) ?? "Forward deployed engineering para operações críticas",
+    title: (fdeMetadata.title as string) ?? "Forward deployed engineering para operações críticas",
     summary:
       fdeSummary ??
       (fdeMetadata.description as string) ??
@@ -32,8 +43,7 @@ const blogPosts: BlogPost[] = [
   },
   {
     slug: "legado-sem-replatform",
-    title:
-      (legacyMetadata.title as string) ?? "Como destravar legado sem replatform",
+    title: (legacyMetadata.title as string) ?? "Como destravar legado sem replatform",
     summary:
       legacySummary ??
       (legacyMetadata.description as string) ??
@@ -44,8 +54,7 @@ const blogPosts: BlogPost[] = [
   },
   {
     slug: "sla-alertas-operacao",
-    title:
-      (slaMetadata.title as string) ?? "Como detectar risco operacional antes do SLA quebrar",
+    title: (slaMetadata.title as string) ?? "Como detectar risco operacional antes do SLA quebrar",
     summary:
       slaSummary ??
       (slaMetadata.description as string) ??
@@ -56,8 +65,7 @@ const blogPosts: BlogPost[] = [
   },
   {
     slug: "build-vs-buy-operacoes-criticas",
-    title:
-      (buildVsBuyMetadata.title as string) ?? "Build vs buy em operações críticas",
+    title: (buildVsBuyMetadata.title as string) ?? "Build vs buy em operações críticas",
     summary:
       buildVsBuySummary ??
       (buildVsBuyMetadata.description as string) ??
@@ -100,17 +108,23 @@ export const metadata: Metadata = {
 };
 
 const formatDate = (date: string) =>
-  new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "short", year: "numeric" }).format(new Date(date));
+  new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "short", year: "numeric" }).format(
+    new Date(date)
+  );
 
 export default function BlogPage() {
   return (
     <section className="space-y-10">
       <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-inner shadow-black/20">
-        <p className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-200">Insights práticos</p>
-        <h1 className="mt-4 text-4xl font-semibold text-white">Conteúdos para destravar operações críticas</h1>
+        <p className="text-brand-200 text-xs font-semibold tracking-[0.4em] uppercase">
+          Insights práticos
+        </p>
+        <h1 className="mt-4 text-4xl font-semibold text-white">
+          Conteúdos para destravar operações críticas
+        </h1>
         <p className="mt-4 text-lg text-slate-300">
-          Artigos em formato MDX para decisores de operações, tecnologia e transformação que precisam agir sobre
-          gargalos reais de legado, dados, integração e SLA.
+          Artigos em formato MDX para decisores de operações, tecnologia e transformação que
+          precisam agir sobre gargalos reais de legado, dados, integração e SLA.
         </p>
       </div>
 
@@ -118,11 +132,11 @@ export default function BlogPage() {
         {blogPosts.map((post) => (
           <article
             key={post.slug}
-            className="group rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:border-brand-400/60 hover:bg-white/10"
+            className="group hover:border-brand-400/60 rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10"
           >
-            <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.3em] text-slate-400">
+            <div className="flex flex-wrap items-center gap-4 text-xs tracking-[0.3em] text-slate-400 uppercase">
               <span>{formatDate(post.date)}</span>
-              <span className="h-2 w-2 rounded-full bg-brand-400/80" />
+              <span className="bg-brand-400/80 h-2 w-2 rounded-full" />
               <span>{post.readingTime}</span>
             </div>
             <div className="mt-4 flex flex-col gap-4 text-slate-100 md:flex-row md:items-center md:justify-between">
@@ -132,7 +146,10 @@ export default function BlogPage() {
               </div>
               <div className="flex flex-wrap gap-2 md:justify-end">
                 {post.tags.map((tag) => (
-                  <span key={tag} className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300">
+                  <span
+                    key={tag}
+                    className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-300"
+                  >
                     {tag}
                   </span>
                 ))}
@@ -140,11 +157,22 @@ export default function BlogPage() {
             </div>
             <Link
               href={`/blog/${post.slug}`}
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-200 transition group-hover:text-brand-100"
+              className="text-brand-200 group-hover:text-brand-100 mt-6 inline-flex items-center gap-2 text-sm font-semibold transition"
             >
               Ler artigo completo
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="m9 5 7 7-7 7" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="m9 5 7 7-7 7"
+                />
               </svg>
             </Link>
           </article>

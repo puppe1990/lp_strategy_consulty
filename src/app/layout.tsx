@@ -51,7 +51,7 @@ export default function RootLayout({
         </>
       ) : null}
       <body
-        className={`${spaceGrotesk.variable} ${geistMono.variable} antialiased bg-slate-950 text-slate-100`}
+        className={`${spaceGrotesk.variable} ${geistMono.variable} bg-slate-950 text-slate-100 antialiased`}
       >
         {children}
       </body>

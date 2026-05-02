@@ -7,7 +7,20 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test:seo": "node scripts/check-seo-output.mjs"
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:seo": "node scripts/check-seo-output.mjs",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,mdx,yaml,yml,css,html}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@next/mdx": "^16.2.4",
@@ -24,6 +37,10 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3",
+    "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   },

@@ -8,9 +8,7 @@ interface UseInViewOptions {
   triggerOnce?: boolean;
 }
 
-export function useInView<T extends HTMLElement = HTMLDivElement>(
-  options: UseInViewOptions = {},
-) {
+export function useInView<T extends HTMLElement = HTMLDivElement>(options: UseInViewOptions = {}) {
   const { threshold = 0.1, rootMargin = "0px 0px -40px 0px", triggerOnce = true } = options;
   const ref = useRef<T>(null);
   const [isInView, setIsInView] = useState(false);
@@ -30,7 +28,7 @@ export function useInView<T extends HTMLElement = HTMLDivElement>(
           setIsInView(false);
         }
       },
-      { threshold, rootMargin },
+      { threshold, rootMargin }
     );
 
     observer.observe(el);

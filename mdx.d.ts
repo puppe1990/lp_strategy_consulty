@@ -12,4 +12,3 @@ declare module "*.mdx" {
   const MDXComponent: (props: MDXProps) => JSX.Element;
   export default MDXComponent;
 }
-

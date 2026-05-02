@@ -26,8 +26,7 @@ export function IconCard({
     "relative overflow-hidden rounded-3xl border p-8 transition duration-300 hover:-translate-y-1";
 
   const variantClasses = {
-    default:
-      "border-white/10 bg-white/5 hover:border-white/15 hover:bg-white/[0.07]",
+    default: "border-white/10 bg-white/5 hover:border-white/15 hover:bg-white/[0.07]",
     gradient:
       "border-white/10 bg-gradient-to-b from-brand-500/20 to-slate-900 hover:from-brand-500/25",
     highlight:
@@ -37,17 +36,13 @@ export function IconCard({
   return (
     <FadeIn delay={delay} className="h-full">
       <div className={`${baseClasses} ${variantClasses[variant]} h-full`}>
-        <div className="mb-4 inline-flex rounded-xl border border-white/10 bg-white/5 p-3 text-brand-200">
+        <div className="text-brand-200 mb-4 inline-flex rounded-xl border border-white/10 bg-white/5 p-3">
           {icon}
         </div>
         <h3 className="text-lg font-semibold text-white">{title}</h3>
-        <p className="mt-2 text-base leading-relaxed text-slate-300">
-          {description}
-        </p>
+        <p className="mt-2 text-base leading-relaxed text-slate-300">{description}</p>
         {detail ? (
-          <p className="mt-3 text-xs uppercase tracking-[0.3em] text-slate-500">
-            {detail}
-          </p>
+          <p className="mt-3 text-xs tracking-[0.3em] text-slate-500 uppercase">{detail}</p>
         ) : null}
         {chips ? (
           <div className="mt-4 flex flex-wrap gap-2">
