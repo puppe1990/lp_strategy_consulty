@@ -18,9 +18,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Intervenções para operações enterprise críticas | Mosaic Harbor Ventures",
+  title: "Operações críticas sem improviso | Mosaic Harbor Ventures",
   description:
-    "Intervenções curtas e aplicadas para destravar operações enterprise críticas com dados, integrações e legado no ambiente real.",
+    "Intervenções curtas e aplicadas para destravar gargalos de operação, dados e legado antes que o caos vire rotina cara demais.",
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: "/",

@@ -8,89 +8,89 @@ import { useState } from "react";
 const navLinks = [
   { label: "Como funciona", href: "#modelo" },
   { label: "Oferta", href: "#pilares" },
-  { label: "Intervenções", href: "#cases" },
-  { label: "Diagnóstico", href: "#scorecard" },
+  { label: "Casos", href: "#cases" },
+  { label: "Triagem", href: "#scorecard" },
   { label: "FAQ", href: "#faq" },
   { label: "Blog", href: "/blog" },
 ];
 
 const heroStats = [
-  { label: "Foco", value: "1 gargalo crítico" },
-  { label: "Ritmo", value: "diagnóstico rápido" },
-  { label: "Entrega", value: "ambiente real" },
+  { label: "Foco", value: "1 travamento crítico" },
+  { label: "Ritmo", value: "resposta em ciclo curto" },
+  { label: "Entrega", value: "operação real, sem teatro" },
 ];
 
 const buyerOutcomes = [
-  "Colocar um fluxo crítico para rodar sem depender de reconciliação manual.",
-  "Reduzir handoff entre operação, dados e engenharia na hora de destravar a execução.",
-  "Tomar decisão com uma camada operacional confiável, não com planilhas brigando entre si.",
+  "Tirar um fluxo crítico da dependência de planilha, retrabalho e reconciliação manual.",
+  "Diminuir o atrito entre operação, dados e engenharia no ponto em que a execução emperra.",
+  "Voltar a decidir com base em uma leitura confiável, não em versões conflitantes da mesma verdade.",
 ];
 
 const heroSignals = [
-  "ERP, planilhas e APIs que não conversam",
-  "Operação crítica parada em workarounds",
-  "Legado impedindo resposta rápida do time interno",
+  "ERP, planilhas e APIs que se contradizem",
+  "Operação importante sobrevivendo de workaround",
+  "Legado engolindo a energia do time interno",
 ];
 
 const blueprintSteps = [
-  "Entramos no fluxo real com quem opera, decide e sofre o gargalo todo dia.",
-  "Desenhamos a menor intervenção que já tira o problema do limbo: integração, automação, dashboard ou workflow.",
-  "Validamos no ambiente real e saímos com critério claro para expandir, internalizar ou encerrar.",
+  "Entramos no fluxo real com quem sente o problema na pele e com quem precisa responder por ele.",
+  "Desenhamos a menor intervenção que já devolve tração: integração, automação, workflow ou camada operacional.",
+  "Validamos no ambiente real e saímos com critério claro para expandir, internalizar ou encerrar sem ficção.",
 ];
 
 const differentiators = [
   {
     title: "Escopo orientado ao travamento real",
     description:
-      "A conversa começa no gargalo que custa tempo, margem ou SLA, não em uma lista genérica de desejos.",
+      "A conversa começa no ponto que está drenando tempo, margem, confiança ou SLA, não em uma wishlist abstrata.",
     chips: ["Prioridade real", "Recorte claro"],
   },
   {
     title: "Entrega sem teatro de repasse",
     description:
-      "Quem entende a operação participa da implementação, então a solução perde menos contexto no caminho.",
+      "Quem entende a operação participa da implementação, então a solução não nasce amputada de contexto.",
     chips: ["Operação no loop", "Execução direta"],
   },
   {
     title: "Decisão objetiva no fim do ciclo",
     description:
-      "O entregável não é só código: é clareza sobre continuar, expandir ou matar a iniciativa sem ficção estratégica.",
+      "O entregável não é só código: é clareza para continuar, expandir ou matar a iniciativa sem apego político.",
     chips: ["Software útil", "Próximo passo claro"],
   },
 ];
 
 const revenuePrinciples = [
-  "Você traz um problema específico, não um programa abstrato de transformação.",
-  "A intervenção nasce no ambiente real, com os sistemas, exceções e restrições que já existem.",
-  "O ciclo é curto: entender, entregar a primeira versão útil e decidir o próximo passo com evidência.",
+  "Você traz um problema vivo, não um programa decorativo de transformação.",
+  "A intervenção nasce no ambiente real, com os sistemas, exceções e restrições que já mandam no jogo.",
+  "O ciclo é curto: entender o travamento, colocar algo útil de pé e decidir o próximo passo com evidência.",
 ];
 
 const factoryMoves = [
   {
     title: "Ler o travamento",
     description:
-      "Mapeamos onde a operação quebra, quem perde com isso e o que torna o caso difícil no ambiente real.",
+      "Mapeamos onde a operação quebra, quem está pagando essa conta e por que o caso fica feio no ambiente real.",
     detail: "Diagnóstico direto",
   },
   {
     title: "Entrar com a menor alavanca útil",
     description:
-      "Atacamos o ponto com mais retorno imediato: integração, workflow, camada de dados ou automação crítica.",
+      "Atacamos o ponto com maior retorno imediato: integração, workflow, camada de dados ou automação crítica.",
     detail: "Sprint embarcado",
   },
   {
     title: "Decidir o destino",
     description:
-      "Com a solução rodando, definimos se faz sentido expandir, internalizar no time principal ou parar por ali.",
+      "Com a solução rodando, definimos se faz sentido expandir, absorver no time principal ou parar por ali.",
     detail: "Hand-off ou expansão",
   },
 ];
 
 const urgentPains = [
-  "Existe um gargalo com impacto claro em operação, margem, SLA ou tempo de resposta.",
+  "Existe um gargalo que já está corroendo operação, margem, SLA ou tempo de resposta.",
   "O problema atravessa legado, regra operacional, exceção e dependência entre áreas.",
-  "O time interno sabe que precisa resolver, mas está preso entre manutenção, backlog e política.",
-  "A empresa precisa testar uma saída prática antes de abrir um projeto maior ou prometer replatforming.",
+  "O time interno sabe que precisa resolver, mas está afogado entre manutenção, backlog e política.",
+  "A empresa precisa testar uma saída prática antes de abrir um projeto grande ou vender uma replatform improvável.",
 ];
 
 const kpis = [
@@ -105,9 +105,9 @@ const pillars = [
     period: "Etapa 1",
     title: "Diagnóstico do caso",
     bullets: [
-      "Conversas com quem decide e com quem opera para fechar um recorte que caiba em execução.",
-      "Leitura do stack, das dependências e das restrições que derrubam soluções genéricas.",
-      "Definição de sucesso: o que precisa mudar para a intervenção se pagar.",
+      "Conversas com quem decide e com quem opera para fechar um recorte que caiba em execução de verdade.",
+      "Leitura do stack, das dependências e das restrições que fazem solução genérica falhar.",
+      "Definição de sucesso: o que precisa mudar para a intervenção se pagar rápido.",
     ],
     output: "Saída: problema fechado, hipótese de intervenção e critério objetivo de avanço.",
   },
@@ -117,7 +117,7 @@ const pillars = [
     bullets: [
       "Construção da menor solução útil no ambiente real: integração, automação, dashboard ou camada operacional.",
       "Iterações curtas com demonstração frequente para evitar semanas de construção invisível.",
-      "Ajuste fino com contexto de negócio, não só com critério técnico.",
+      "Ajuste fino com contexto de negócio, não só com elegância técnica.",
     ],
     output: "Saída: intervenção funcional no ponto em que o gargalo realmente acontece.",
   },
@@ -137,23 +137,23 @@ const cases = [
   {
     title: "Reconciliação operacional entre ERP, planilhas e APIs",
     description:
-      "Quando o fechamento depende de conciliação manual entre fontes que se contradizem, a intervenção costuma ser uma camada operacional única com regras, alertas e trilha de exceções.",
+      "Quando o fechamento depende de conciliação manual entre fontes que brigam entre si, a intervenção costuma ser uma camada operacional única com regras, alertas e trilha de exceções.",
     footnote:
-      "Bom fit quando a dor já aparece toda semana e ninguém quer abrir mais uma planilha para sobreviver.",
+      "Bom fit quando a dor aparece toda semana e a equipe já cansou de abrir mais uma planilha para sobreviver.",
   },
   {
     title: "Risco ou SLA descoberto tarde demais",
     description:
-      "Quando o desvio só aparece depois do estrago, o trabalho tende a combinar monitoramento orientado à decisão, regras de resposta e contexto suficiente para agir sem caça ao culpado.",
+      "Quando o desvio só aparece depois do estrago, o trabalho tende a combinar monitoramento orientado à decisão, regras de resposta e contexto suficiente para agir sem caça às cegas.",
     footnote:
-      "Bom fit quando visibilidade isolada não basta e a operação precisa responder mais cedo.",
+      "Bom fit quando visibilidade isolada não basta e a operação precisa ganhar reflexo antes do dano.",
   },
   {
     title: "Capacidade importante fora do produto padrão",
     description:
-      "Quando a empresa precisa de uma capacidade que o stack atual não entrega, a saída costuma ser validar uma solução conectada ao processo real antes de institucionalizar produto, time ou plataforma.",
+      "Quando a empresa precisa de uma capacidade que o stack atual não entrega, a saída costuma ser validar uma solução ligada ao processo real antes de institucionalizar produto, time ou plataforma.",
     footnote:
-      "Bom fit quando o risco de esperar o roadmap é maior do que o custo de testar a solução certa agora.",
+      "Bom fit quando esperar o roadmap custa mais caro do que testar a solução certa agora.",
   },
 ];
 
@@ -166,7 +166,8 @@ const stakeholders = [
   {
     title: "Usuário operacional",
     role: "Gerente de operações, dados, risco, supply ou backoffice",
-    description: "Conhece o retrabalho, a exceção real e o ponto em que o fluxo quebra de verdade.",
+    description:
+      "Conhece o retrabalho, a exceção real e o ponto exato em que o fluxo humilha a operação.",
   },
   {
     title: "Áreas impactadas",
@@ -179,7 +180,8 @@ const stakeholders = [
 const scorecardItems = [
   {
     title: "Problema específico e urgente",
-    description: "Existe dor concreta e ela já está custando tempo, dinheiro ou operação.",
+    description:
+      "Existe dor concreta e ela já está custando tempo, dinheiro, confiança ou operação.",
     weight: 5,
   },
   {
@@ -195,7 +197,7 @@ const scorecardItems = [
   },
   {
     title: "Valor precisa aparecer rápido",
-    description: "Não há espaço para discovery longo sem entrega prática.",
+    description: "Não há espaço para discovery longo sem uma resposta prática aparecendo cedo.",
     weight: 4,
   },
   {
@@ -400,7 +402,7 @@ export default function Home() {
               href="#cta"
               className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 font-semibold text-white transition hover:bg-white/20"
             >
-              Agendar triagem
+              Abrir triagem
             </a>
           </nav>
         </header>
@@ -420,12 +422,13 @@ export default function Home() {
                   Operações, dados e legado
                 </p>
                 <h1 className="max-w-4xl text-5xl leading-[0.96] font-semibold text-white sm:text-6xl xl:text-7xl">
-                  Destravamos operações enterprise críticas antes que o gargalo vire rotina
+                  Destravamos o gargalo que já consome energia demais da sua operação
                 </h1>
                 <p className="max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
-                  Entramos ao lado do time para atacar um problema específico de operação, dados ou
-                  legado com uma intervenção curta e aplicada no ambiente real. O objetivo é
-                  simples: tirar o caso do limbo e devolver capacidade de resposta.
+                  Entramos ao lado do time para resolver um problema específico de operação, dados
+                  ou legado com uma intervenção curta, aplicada e próxima da realidade. O objetivo é
+                  simples: tirar o caso do limbo, devolver tração e fazer a empresa voltar a
+                  respirar onde hoje ela improvisa.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 text-sm text-slate-200">
@@ -478,11 +481,12 @@ export default function Home() {
                 FDE
               </div>
               <h3 className="relative mt-8 max-w-sm text-3xl font-semibold text-white sm:text-4xl">
-                Uma sprint aplicada no problema que o backlog normal não consegue fechar
+                Uma sprint aplicada no problema que o backlog comum empurra de semana em semana
               </h3>
               <p className="relative mt-4 max-w-md text-base leading-relaxed text-slate-300">
                 O modelo forward deployed entra quando o caso exige proximidade com operação,
-                contexto técnico e uma decisão rápida sobre continuar ou não.
+                contexto técnico e uma decisão rápida sobre o que merece continuidade e o que deve
+                morrer logo.
               </p>
               <ul className="relative mt-8 space-y-5 text-base text-slate-200">
                 {blueprintSteps.map((step, index) => (
@@ -495,8 +499,8 @@ export default function Home() {
               <div className="signal-quote">
                 <p className="text-brand-100/65 text-sm tracking-[0.4em] uppercase">Critério</p>
                 <p className="mt-3 text-lg leading-relaxed font-semibold text-white">
-                  &quot;Se o problema precisa de contexto real para ser resolvido, ele precisa de
-                  uma intervenção que viva no contexto real.&quot;
+                  &quot;Se o problema só aparece de verdade no campo, a solução também precisa
+                  nascer no campo.&quot;
                 </p>
               </div>
             </div>
@@ -510,15 +514,16 @@ export default function Home() {
           >
             <SectionHeading
               eyebrow="Como funciona"
-              title="Quando a sprint embarcada faz mais sentido do que discovery longo"
-              description="Ela encurta a distância entre gargalo operacional, contexto técnico e entrega útil."
+              title="Quando uma sprint embarcada faz mais sentido do que mais uma rodada de diagnóstico bonito"
+              description="Ela encurta a distância entre gargalo operacional, contexto técnico e uma resposta que já muda o jogo."
               align="left"
             />
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
               <div className="space-y-5">
                 <p className="text-slate-300">
                   Esse formato funciona quando o caso mistura legado, exceção operacional e urgência
-                  suficiente para não caber em uma fila normal de backlog.
+                  suficiente para não caber em uma fila normal de backlog sem continuar drenando o
+                  time.
                 </p>
                 <ul className="space-y-3 text-sm text-slate-300">
                   {revenuePrinciples.map((principle) => (
@@ -545,8 +550,8 @@ export default function Home() {
           <section className="rounded-[36px] border border-white/10 bg-white/5 p-8">
             <SectionHeading
               eyebrow="Diferença prática"
-              title="O que muda quando o problema ganha dono até a entrega"
-              description="A conversa sai do manifesto e vira recorte, intervenção e decisão de continuidade."
+              title="O que muda quando o problema ganha dono do diagnóstico ao código"
+              description="A conversa sai do discurso genérico e vira recorte, intervenção e decisão com pele em jogo."
             />
             <div className="mt-10 grid gap-6 lg:grid-cols-3">
               {differentiators.map((item) => (
@@ -571,7 +576,7 @@ export default function Home() {
                 Sinais de prioridade
               </p>
               <h2 className="mt-4 text-3xl font-semibold text-white">
-                Entramos quando o problema já cobra caro demais para continuar sem dono
+                Entramos quando o problema já está cobrando caro demais para continuar órfão
               </h2>
               <ul className="mt-6 space-y-4 text-base text-slate-100">
                 {urgentPains.map((pain) => (
@@ -603,7 +608,7 @@ export default function Home() {
           <section id="pilares">
             <SectionHeading
               eyebrow="Oferta"
-              title="Como estruturamos uma intervenção curta e aplicada"
+              title="Como estruturamos uma intervenção curta, aplicada e difícil de ignorar"
               description="Três etapas para sair de um gargalo difuso para uma decisão objetiva sobre o que fazer com ele."
             />
             <div className="mt-12 grid gap-8 lg:grid-cols-3">
@@ -633,11 +638,12 @@ export default function Home() {
                   Intervenções típicas
                 </p>
                 <h2 className="mt-2 text-3xl font-semibold text-white">
-                  Exemplos de problema em que esse formato costuma funcionar
+                  Exemplos de problema em que esse formato costuma funcionar muito bem
                 </h2>
                 <p className="mt-3 max-w-2xl text-slate-300">
-                  Não são cases maquiados. São padrões de problema em que a proximidade com operação
-                  e legado costuma acelerar a resposta.
+                  Não são cases maquiados. São padrões de problema em que proximidade com operação e
+                  legado acelera a resposta porque o custo de continuar empurrando já ficou alto
+                  demais.
                 </p>
               </div>
               <a
@@ -680,7 +686,7 @@ export default function Home() {
                 <SectionHeading
                   eyebrow="Diagnóstico rápido"
                   title="5 sinais de que vale trazer esse caso para a triagem"
-                  description="Marque os critérios para entender se o problema pede uma intervenção curta e embarcada."
+                  description="Marque os critérios para entender se o problema pede uma intervenção curta, embarcada e sem maquiagem."
                   align="left"
                 />
                 <ul className="mt-6 space-y-4 text-sm text-slate-200">
@@ -725,8 +731,8 @@ export default function Home() {
                     </p>
                     <p className="text-brand-200 mt-2 text-2xl font-semibold">{verdict}</p>
                     <p className="text-sm text-slate-400">
-                      Acima de 16 pontos, o caso já justifica uma triagem de discovery aplicada ao
-                      problema.
+                      Acima de 16 pontos, o caso já justifica uma triagem aplicada ao problema em
+                      vez de mais uma conversa morna.
                     </p>
                   </div>
                 </div>
@@ -763,7 +769,7 @@ export default function Home() {
               </h2>
               <ol className="mt-6 space-y-4 text-slate-200">
                 <li className="feature-item">
-                  Entendemos a dor, quem perde com ela e por que ela continua aberta.
+                  Entendemos a dor, quem paga essa conta e por que ela continua aberta.
                 </li>
                 <li className="feature-item">
                   Mapeamos stack, dados, restrições e onde a resposta tende a quebrar no mundo real.
@@ -797,7 +803,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="FAQ"
               title="Perguntas úteis para chegar melhor na primeira conversa"
-              description="Se você consegue responder essas perguntas, a triagem fica mais rápida e mais objetiva."
+              description="Se você consegue responder essas perguntas, a triagem fica mais rápida, mais objetiva e muito menos superficial."
             />
             <div className="mt-10 space-y-4" id="faq-accordion">
               {faqItems.map((item, index) => {
@@ -830,12 +836,12 @@ export default function Home() {
                   </p>
                   <h2 className="mt-4 text-4xl font-semibold">
                     Envie o caso e filtramos rápido se existe fit para uma intervenção Mosaic Harbor
-                    Ventures
                   </h2>
                   <p className="mt-4 text-lg text-white/90">
                     Use o formulário para resumir o projeto, o gargalo operacional e o contexto
                     técnico. A triagem serve para dizer com clareza se vale avançar agora, o que
-                    precisa entrar no recorte inicial e onde o caso tende a quebrar.
+                    precisa entrar no recorte inicial e onde o caso tende a quebrar antes de virar
+                    mais um projeto bonito e frouxo.
                   </p>
                   <p className="mt-3 text-sm text-white/75">
                     Se o caso fizer sentido, voltamos com próximos passos objetivos. Se não fizer, a
@@ -933,7 +939,7 @@ export default function Home() {
                       required
                       rows={4}
                       className="focus:border-brand-300 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white transition outline-none placeholder:text-slate-500 focus:bg-white/8"
-                      placeholder="Descreva o problema, onde ele trava a operação e o impacto em SLA, margem ou tempo."
+                      placeholder="Descreva o problema, onde ele trava a operação e qual estrago ele já causa em SLA, margem, energia ou tempo."
                     />
                   </label>
 
@@ -965,7 +971,7 @@ export default function Home() {
                     disabled={isSubmittingProject}
                     className="bg-brand-500 shadow-brand-500/40 hover:bg-brand-300 inline-flex w-full items-center justify-center rounded-full px-8 py-3 text-base font-semibold text-slate-950 shadow-lg transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
                   >
-                    {isSubmittingProject ? "Enviando projeto..." : "Submeter projeto"}
+                    {isSubmittingProject ? "Enviando projeto..." : "Submeter projeto para triagem"}
                   </button>
 
                   {projectSubmitStatus === "success" ? (
